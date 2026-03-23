@@ -98,9 +98,11 @@
 <span class="font-['Plus_Jakarta_Sans'] font-black text-[#FF6B6B] text-2xl tracking-tight">I Love Delicitas</span>
 </div>
 <div class="flex items-center gap-4">
-<button aria-label="Sacola de compras" class="p-2 rounded-full hover:bg-[#fff0ef] dark:hover:bg-slate-900 transition-colors active:scale-95 duration-200">
+<a aria-label="Sacola de compras" class="p-2 rounded-full hover:bg-[#fff0ef] dark:hover:bg-slate-900 transition-colors active:scale-95 duration-200 relative" href="./seu_carrinho_i_love_delicitas_1/code.html">
 <span class="material-symbols-outlined text-[#FF6B6B]" data-icon="shopping_bag">shopping_bag</span>
-</button>
+<span id="cart-count" class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold px-2 py-0.5 rounded-full hidden">0</span>
+</a>
+<a class="ml-2 px-4 py-2 rounded-full bg-secondary text-on-secondary font-bold hover:brightness-110 transition-all" href="./login_i_love_delicitas_2/code.html">Login/Perfil</a>
 </div>
 </nav>
 </header>
@@ -117,10 +119,10 @@
 										</p>
 <div class="flex flex-col sm:flex-row gap-4">
 <button class="bg-primary text-on-primary px-8 py-4 rounded-full font-semibold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all text-center">
-														Pedir agora
+														<a href="./cat_logo_de_doces_i_love_delicitas_1/code.html" style="display:block;color:inherit;text-decoration:none;">Pedir agora</a>
 												</button>
 <button class="bg-surface-container text-primary px-8 py-4 rounded-full font-semibold hover:bg-surface-container-high active:scale-95 transition-all text-center">
-														Acompanhar pedido
+														<a href="./acompanhamento_de_pedido_i_love_delicitas/code.html" style="display:block;color:inherit;text-decoration:none;">Acompanhar pedido</a>
 												</button>
 </div>
 </div>
@@ -135,81 +137,117 @@
 <section class="px-6 mb-16 max-w-7xl mx-auto">
 <div class="flex justify-between items-end mb-8">
 <h2 class="font-headline font-bold text-2xl text-on-surface">Categorias</h2>
-<button class="text-primary font-semibold text-sm hover:underline">Ver todas</button>
+<a class="text-primary font-semibold text-sm hover:underline" href="./cat_logo_de_doces_i_love_delicitas_1/code.html">Ver todas</a>
 </div>
-<div class="flex overflow-x-auto gap-4 pb-4 no-scrollbar -mx-6 px-6">
-<!-- Bento Category Cards -->
-<div class="flex-none w-40 h-48 bg-surface-container-low rounded-lg p-6 flex flex-col justify-between hover:bg-surface-container transition-colors cursor-pointer group">
-<span class="material-symbols-outlined text-4xl text-primary" data-icon="cake">cake</span>
-<span class="font-headline font-bold text-on-surface">Bolos</span>
-</div>
-<div class="flex-none w-40 h-48 bg-surface-container-low rounded-lg p-6 flex flex-col justify-between hover:bg-surface-container transition-colors cursor-pointer">
-<span class="material-symbols-outlined text-4xl text-primary" data-icon="cookie">cookie</span>
-<span class="font-headline font-bold text-on-surface">Cookies</span>
-</div>
-<div class="flex-none w-40 h-48 bg-surface-container-low rounded-lg p-6 flex flex-col justify-between hover:bg-surface-container transition-colors cursor-pointer">
-<span class="material-symbols-outlined text-4xl text-primary" data-icon="icecream">icecream</span>
-<span class="font-headline font-bold text-on-surface">Gelatos</span>
-</div>
-<div class="flex-none w-40 h-48 bg-surface-container-low rounded-lg p-6 flex flex-col justify-between hover:bg-surface-container transition-colors cursor-pointer">
-<span class="material-symbols-outlined text-4xl text-primary" data-icon="coffee_maker">coffee_maker</span>
-<span class="font-headline font-bold text-on-surface">Cafés</span>
-</div>
-</div>
+<div id="categories-list" class="flex overflow-x-auto gap-4 pb-4 no-scrollbar -mx-6 px-6"></div>
 </section>
 <!-- Featured Products -->
 <section class="px-6 mb-12 max-w-7xl mx-auto">
 <h2 class="font-headline font-bold text-2xl text-on-surface mb-8">Mais pedidos da semana</h2>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Product Card 1 -->
-<div class="bg-surface-container-lowest rounded-lg p-6 editorial-shadow relative group">
-<div class="h-48 mb-6 relative -mt-12 overflow-visible">
-<img alt="Caixa de macarons franceses coloridos" class="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgUUEkcoDyjgq4NOZmNg3Y7L41j3pOKMPBF3ydxup7_EUl4GIrxLN0jc4tM4Mu_jodKrjykla706q1W1rQ9PeT47Ae1rgQ2L4r_m3iaJy2JreGJwNd_Rm7nCuaqItJhc0ujmnurm8l81Rvubgm6kVTkWQMj5jyAx1DO9luaX6uXofuQDgAsFkbv_fIoQZQVzI-HLyXQKPQpf6DHth0rQgcxo5WMndnZn6MDmaRQObnxaVf--Qvmlm9EAqGqxwMcManMMHcXnMK9Hrj"/>
-</div>
-<div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Novo</div>
-<h3 class="font-headline font-bold text-xl text-on-surface mb-2">Box Macarons d'Amour</h3>
-<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Uma seleção artesanal com os 12 sabores mais premiados da estação.</p>
-<div class="flex justify-between items-center">
-<span class="text-2xl font-black text-on-surface">R$ 89,90</span>
-<button aria-label="Adicionar ao carrinho" class="bg-secondary text-on-secondary p-3 rounded-full hover:scale-110 transition-transform active:scale-95">
-<span class="material-symbols-outlined block" data-icon="add_shopping_cart">add_shopping_cart</span>
-</button>
-</div>
-</div>
-<!-- Product Card 2 -->
-<div class="bg-surface-container-lowest rounded-lg p-6 editorial-shadow relative group mt-12 sm:mt-0">
-<div class="h-48 mb-6 relative -mt-12 overflow-visible">
-<img alt="Fatia de bolo de morango com creme" class="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo0rdzuqSRjbeW1Iw3CnqWN6b8RKvm3o-LocewF1I3gaFhy3b3R0v8JJNyXFTNYAEV4dV-fEg6luu0a35o64ldduNLfsz-S-GuBjw6yJ7j15QQj4UUvGb0u75fWVnhinorkwrSLuukn031ArTfyL72Jyig51-7WhWPT_3xubV0B8fmr9CAUblpve7pSxEIIxuT8hEUUrN7fPqWJ2d090w5xvpFjaR1BEHf7OEFQ8p1yyFxqEpFqU8d9k3vLLxhztazcXpSI2n2bMJi"/>
-</div>
-<h3 class="font-headline font-bold text-xl text-on-surface mb-2">Fatia Morango Real</h3>
-<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Massa amanteigada com recheio de creme patissière e morangos frescos.</p>
-<div class="flex justify-between items-center">
-<span class="text-2xl font-black text-on-surface">R$ 24,50</span>
-<button aria-label="Adicionar ao carrinho" class="bg-secondary text-on-secondary p-3 rounded-full hover:scale-110 transition-transform active:scale-95">
-<span class="material-symbols-outlined block" data-icon="add_shopping_cart">add_shopping_cart</span>
-</button>
-</div>
-</div>
-<!-- Product Card 3 -->
-<div class="bg-surface-container-lowest rounded-lg p-6 editorial-shadow relative group mt-12 lg:mt-0">
-<div class="h-48 mb-6 relative -mt-12 overflow-visible">
-<img alt="Donut de chocolate com confeitos" class="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf2Km5bNTRUqYb0cucbrIEDy1qej0Y7S-ymgV5fFI_FvZbi_V-1-A0Jo-RwIkLQVjpl1JejFouzoazQJsPqSG6z26ohFbPk26mD8VblYFYePYwPugi89p-zjmG0S5uBFfymVh45anT0feH1RzFgigYP8RcvaEZOBVsi_3zbaOscKgA7rANQ0JKqNzzDoEFNS8l9hvhnRNUUfBV1DoyDMbtdkPir8LNKjupym8-yu4E7S9nGWEKNzQmBhNRtSTDc1T-KaXCVAwtLY6s"/>
-</div>
-<div class="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Favorito</div>
-<h3 class="font-headline font-bold text-xl text-on-surface mb-2">Donut Dark Velvet</h3>
-<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Chocolate 70% cacau com finalização em nibs e flor de sal.</p>
-<div class="flex justify-between items-center">
-<span class="text-2xl font-black text-on-surface">R$ 18,90</span>
-<button aria-label="Adicionar ao carrinho" class="bg-secondary text-on-secondary p-3 rounded-full hover:scale-110 transition-transform active:scale-95">
-<span class="material-symbols-outlined block" data-icon="add_shopping_cart">add_shopping_cart</span>
-</button>
-</div>
-</div>
-</div>
+<div id="products-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
 </section>
 </main>
 <!-- Footer -->
 <footer class="w-full mt-auto bg-[#fff0ef] dark:bg-slate-900">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// Supabase config
+const SUPABASE_URL = 'https://qvhwvayqjvhwqjvhwq.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF2aHd2YXlxanZod3Fqdmh3cSIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNjk2NjQwNjQwLCJleHAiOjE4MTIyMTY2NDB9.1Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8';
+const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : window.createClient?.(SUPABASE_URL, SUPABASE_ANON_KEY) || window.Supabase?.createClient?.(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// Renderizar produtos
+async function renderProducts() {
+	const { data: products, error } = await supabase.from('products').select('*').order('created_at', { ascending: false });
+	if (error) return;
+	const list = document.getElementById('products-list');
+	if (!list) return;
+	list.innerHTML = '';
+	products.forEach(product => {
+		const card = document.createElement('div');
+		card.className = 'bg-surface-container-lowest rounded-lg p-6 editorial-shadow relative group';
+		card.innerHTML = `
+			<div class="h-48 mb-6 relative -mt-12 overflow-visible">
+				<img alt="${product.name}" class="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" src="${product.image_url || ''}"/>
+			</div>
+			<div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">${product.tag || ''}</div>
+			<h3 class="font-headline font-bold text-xl text-on-surface mb-2">${product.name}</h3>
+			<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">${product.description || ''}</p>
+			<div class="flex justify-between items-center">
+				<span class="text-2xl font-black text-on-surface">R$ ${Number(product.price).toFixed(2)}</span>
+				<button aria-label="Adicionar ao carrinho" class="bg-secondary text-on-secondary p-3 rounded-full hover:scale-110 transition-transform active:scale-95" onclick="addToCart(${product.id})">
+					<span class="material-symbols-outlined block" data-icon="add_shopping_cart">add_shopping_cart</span>
+				</button>
+			</div>
+		`;
+		list.appendChild(card);
+	});
+}
+
+// Renderizar banners
+async function renderBanners() {
+	const { data: banners, error } = await supabase.from('banners').select('*').order('order', { ascending: true });
+	if (error) return;
+	// Exemplo: renderizar no elemento #banner-carousel
+	const bannerEl = document.getElementById('banner-carousel');
+	if (!bannerEl) return;
+	bannerEl.innerHTML = '';
+	banners.forEach(banner => {
+		const img = document.createElement('img');
+		img.src = banner.image_url;
+		img.alt = banner.alt || 'Banner';
+		img.className = 'w-full h-64 object-cover rounded-xl mb-4';
+		bannerEl.appendChild(img);
+	});
+}
+
+// Renderizar categorias
+async function renderCategories() {
+	const { data: categories, error } = await supabase.from('categories').select('*').order('order', { ascending: true });
+	if (error) return;
+	const list = document.getElementById('categories-list');
+	if (!list) return;
+	list.innerHTML = '';
+	categories.forEach(cat => {
+		const div = document.createElement('div');
+		div.className = 'flex-none w-40 h-48 bg-surface-container-low rounded-lg p-6 flex flex-col justify-between hover:bg-surface-container transition-colors cursor-pointer group';
+		div.innerHTML = `
+			<span class="material-symbols-outlined text-4xl text-primary" data-icon="${cat.icon || 'cake'}">${cat.icon || 'cake'}</span>
+			<span class="font-headline font-bold text-on-surface">${cat.name}</span>
+		`;
+		div.onclick = () => window.location.href = cat.link || './cat_logo_de_doces_i_love_delicitas_1/code.html';
+		list.appendChild(div);
+	});
+}
+
+// Carrinho: contador
+function updateCartCount() {
+	const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+	const count = cart.length;
+	const el = document.getElementById('cart-count');
+	if (el) {
+		el.textContent = count;
+		el.style.display = count > 0 ? 'block' : 'none';
+	}
+}
+
+// Adicionar ao carrinho
+function addToCart(productId) {
+	const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+	cart.push(productId);
+	localStorage.setItem('cart', JSON.stringify(cart));
+	updateCartCount();
+	alert('Produto adicionado ao carrinho!');
+}
+
+// Inicialização
+document.addEventListener('DOMContentLoaded', () => {
+	renderProducts();
+	renderCategories();
+	renderBanners();
+	updateCartCount();
+});
+</script>
 <div class="w-full px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
 <div class="flex flex-col items-center md:items-start gap-2">
 <span class="font-['Plus_Jakarta_Sans'] font-extrabold text-[#FF6B6B] text-xl">I Love Delicitas</span>
