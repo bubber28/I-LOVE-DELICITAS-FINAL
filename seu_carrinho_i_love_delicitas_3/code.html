@@ -260,4 +260,25 @@
 <a class="text-[#251818]/70 text-sm font-medium hover:text-[#FF6B6B] transition-colors" href="#">Privacidade</a>
 </div>
 </footer>
+<script>
+// Funções de Carrinho usando localStorage
+function getCart() {
+    return JSON.parse(localStorage.getItem('delicitas_cart') || '[]');
+}
+function setCart(cart) {
+    localStorage.setItem('delicitas_cart', JSON.stringify(cart));
+}
+function renderCart() {
+    // Aqui você pode atualizar a UI dinamicamente se desejar
+}
+// Exemplo: ao clicar em "Finalizar Pedido", salva o carrinho e redireciona para o checkout
+document.querySelectorAll('button, .btn-finalizar, .w-full.mt-8').forEach(btn => {
+    if (btn.textContent.includes('Finalizar Pedido')) {
+        btn.onclick = function() {
+            // Aqui você pode validar o carrinho antes de seguir
+            window.location.href = '../checkout_com_stripe_i_love_delicitas/code.html';
+        }
+    }
+});
+</script>
 </body></html>

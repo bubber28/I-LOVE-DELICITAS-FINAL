@@ -250,4 +250,59 @@
 <span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest mt-1">Profile</span>
 </div>
 </nav>
+<script>
+// Configuração Supabase (substitua pelos valores reais do seu projeto)
+const SUPABASE_URL = 'https://bizrnjpmsyxdsflgpxcl.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_l4xxVaXF8srM0JldOJob0Q_2ZRrXFdR';
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+function getCart() {
+  return JSON.parse(localStorage.getItem('delicitas_cart') || '[]');
+}
+function clearCart() {
+  localStorage.removeItem('delicitas_cart');
+}
+
+async function finalizarPedido() {
+  const cart = getCart();
+  if (!cart.length) {
+    alert('Seu carrinho está vazio!');
+    return;
+  }
+  // Exemplo de coleta de dados do formulário (ajuste conforme necessário)
+  const customer_name = 'Cliente'; // Substitua pelo campo real
+  const address = 'Endereço'; // Substitua pelo campo real
+  const phone = 'Telefone'; // Substitua pelo campo real
+  const payment_method = 'Dinheiro'; // Substitua pelo selecionado
+  const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+  // Cria pedido na tabela 'orders'
+  const { data: order, error } = await supabase
+    .from('orders')
+    .insert([
+      { customer_name, address, phone, payment_method, total, status: 'Pendente', items_count: cart.length }
+    ])
+    .select()
+    .single();
+  if (error) {
+    alert('Erro ao criar pedido: ' + error.message);
+    return;
+  }
+  // Cria itens do pedido na tabela 'order_items'
+  for (const item of cart) {
+    await supabase.from('order_items').insert([
+      { order_id: order.id, product_id: item.id, name: item.name, qty: item.qty, price: item.price }
+    ]);
+  }
+  clearCart();
+  alert('Pedido realizado com sucesso!');
+  window.location.href = '../pedido_confirmado_i_love_delicitas_1/code.html';
+}
+
+// Vincula ação ao botão de finalizar
+document.querySelectorAll('button, .btn-finalizar, .w-full').forEach(btn => {
+  if (btn.textContent.includes('Finalizar Pedido')) {
+    btn.onclick = finalizarPedido;
+  }
+});
+</script>
 </body></html>

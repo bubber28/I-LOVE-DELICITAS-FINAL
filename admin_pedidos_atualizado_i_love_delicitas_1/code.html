@@ -4,6 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Delicitas Admin - Order Management</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -410,4 +411,65 @@
 <button class="fixed right-6 bottom-28 w-14 h-14 rounded-full bg-primary text-white shadow-xl shadow-primary/30 flex items-center justify-center active:scale-90 transition-transform z-40">
 <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
 </button>
+<script>
+// Configuração Supabase (substitua pelos valores reais do seu projeto)
+const SUPABASE_URL = 'https://bizrnjpmsyxdsflgpxcl.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_l4xxVaXF8srM0JldOJob0Q_2ZRrXFdR';
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+async function carregarPedidos() {
+    const { data, error } = await supabase
+        .from('orders')
+        .select('*')
+        .order('created_at', { ascending: false });
+    if (error) {
+        alert('Erro ao buscar pedidos: ' + error.message);
+        return;
+    }
+    const tbody = document.querySelector('tbody');
+    tbody.innerHTML = '';
+    data.forEach(order => {
+        const row = document.createElement('tr');
+        row.className = 'hover:bg-surface-container-low/50 transition-colors';
+        row.innerHTML = `
+            <td class="px-6 py-5 font-bold text-primary">#DL-${order.id}</td>
+            <td class="px-6 py-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-tertiary-fixed-dim flex items-center justify-center text-xs font-bold">${order.customer_name ? order.customer_name.substring(0,2).toUpperCase() : '--'}</div>
+                    <div>
+                        <p class="font-semibold text-on-surface">${order.customer_name || 'N/A'}</p>
+                        <p class="text-xs text-on-surface-variant">${order.items_count || 0} items • ${order.delivery_method || ''}</p>
+                        <div class="mobile-detail-cell mt-1 text-[10px] space-y-0.5 opacity-80">
+                            <p class="flex items-center gap-1"><span class="material-symbols-outlined text-xs" data-icon="call">call</span> ${order.phone || ''}</p>
+                            <p class="flex items-center gap-1 truncate max-w-[150px]"><span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span> ${order.address || ''}</p>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td class="px-6 py-5 desktop-only text-sm text-on-surface-variant font-medium">${order.phone || ''}</td>
+            <td class="px-6 py-5 desktop-only text-sm text-on-surface-variant max-w-[200px] truncate">${order.address || ''}</td>
+            <td class="px-6 py-5">
+                <button class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider flex items-center gap-1 cursor-pointer">${order.status || 'Pendente'}<span class="material-symbols-outlined text-[14px]" data-icon="expand_more">expand_more</span></button>
+            </td>
+            <td class="px-6 py-5">
+                <div class="flex flex-col gap-1">
+                    <span class="flex items-center gap-1 text-xs font-semibold text-on-surface">
+                        <span class="material-symbols-outlined text-sm text-green-600" data-icon="payments">payments</span>
+                        ${order.payment_method || 'N/A'}
+                    </span>
+                    <span class="text-[10px] font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded-full w-fit">${order.payment_status || 'PAGO'}</span>
+                </div>
+            </td>
+            <td class="px-6 py-5 text-sm text-on-surface-variant">${order.created_at ? new Date(order.created_at).toLocaleString('pt-BR') : ''}</td>
+            <td class="px-6 py-5 font-bold">R$ ${order.total ? order.total.toFixed(2) : '0,00'}</td>
+            <td class="px-6 py-5 text-right">
+                <button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="more_horiz">more_horiz</button>
+            </td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+window.addEventListener('DOMContentLoaded', carregarPedidos);
+</script>
 </body></html>
