@@ -67,7 +67,7 @@
 </div>
 <!-- Login Card (shadcn-like structure) -->
 <div class="glass-card rounded-lg p-6 md:p-8 shadow-xl shadow-primary/5">
-<form class="space-y-5">
+<form class="space-y-5" id="login-form" onsubmit="handleLogin(event)">
 <!-- Email Field -->
 <div class="space-y-1.5">
 <label class="text-sm font-semibold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="email">E-mail</label>
@@ -82,7 +82,7 @@
 <div class="space-y-1.5">
 <div class="flex justify-between items-center">
 <label class="text-sm font-semibold leading-none" for="password">Senha</label>
-<a class="text-xs font-bold text-primary hover:underline underline-offset-4 transition-all" href="#">Esqueci minha senha</a>
+<a class="text-xs font-bold text-primary hover:underline underline-offset-4 transition-all" href="/esqueci_minha_senha_i_love_delicitas_2/code.html">Esqueci minha senha</a>
 </div>
 <div class="relative group">
 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-muted">
@@ -102,6 +102,25 @@
 </button>
 </div>
 </form>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SUPABASE_URL = 'https://qjvhwqvexqjvhwqvexq.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFqdmh3cXZleHFqdmh3cXZleHEiLCJyb2xlIjoiYW5vbiIsImlhdCI6MTY5ODg2NjQwMCwiZXhwIjoxOTk0NDQyNDAwfQ.2QwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQw';
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  async function handleLogin(event) {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) {
+      alert('Erro ao entrar: ' + error.message);
+      return;
+    }
+    // Redireciona para a página inicial após login
+    window.location.href = '/p_gina_inicial_i_love_delicitas_1/code.html';
+  }
+</script>
 <!-- Separator -->
 <div class="relative my-8">
 <div class="absolute inset-0 flex items-center">
@@ -127,7 +146,7 @@
 <div class="mt-8 text-center">
 <p class="text-on-muted text-sm font-medium">
                 Não tem uma conta? 
-                <a class="text-primary font-bold hover:underline underline-offset-4 transition-all ml-1" href="#">Criar conta</a>
+                <a class="text-primary font-bold hover:underline underline-offset-4 transition-all ml-1" href="/cadastro_atualizado_i_love_delicitas/code.html">Criar conta</a>
 </p>
 </div>
 <!-- Footnote -->

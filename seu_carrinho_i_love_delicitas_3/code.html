@@ -96,6 +96,22 @@
 </head>
 <body class="text-on-surface">
 <!-- TopAppBar -->
+<script>
+// Funções de manipulação do carrinho
+function getCart() {
+    return JSON.parse(localStorage.getItem('cart') || '[]');
+}
+function setCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+function removeItem(index) {
+    const cart = getCart();
+    cart.splice(index, 1);
+    setCart(cart);
+    window.location.reload();
+}
+// Renderização dinâmica dos itens (opcional, se necessário)
+</script>
 <header class="fixed top-0 w-full z-50 bg-[#fff8f7]/70 backdrop-blur-xl shadow-sm shadow-[#251818]/5">
 <div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
 <div class="flex items-center gap-2"><img alt="Logo I Love Delicitas" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ug9pEscIuL2DlpA17jlxEDClMUUl57IcXfA7OVPOBmhp5sAf7PwxKnpbI1tY9CcPsm_Q_lnh_6nc7K9s-Ufu8Vl1c-OjwARYp7iAHfnZcmG0DBwt67Xn07BOzLg_PKmoimX0VhBx_7sWyf5BR1B5okOzwW7leBDUVxtd-hraOOegasbSbL6SufvbUq093ykJtCjJbgzAXz6oOZhTDNVOwf2jgT_67YQ89bs9nwJk_awO3yEeaN9p4lZbmtoAwd21a5JeopnxomDwkc"/></div>
@@ -135,6 +151,8 @@
 </div>
 </div>
 <button class="text-on-surface-variant/40 hover:text-error transition-colors p-2">
+</button>
+<button class="text-on-surface-variant/40 hover:text-error transition-colors p-2" onclick="removeItem(0)">
 <span class="material-symbols-outlined" data-icon="delete">delete</span>
 </button>
 </div>
@@ -230,19 +248,19 @@
 </main>
 <!-- BottomNavBar -->
 <nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#fff8f7]/80 backdrop-blur-xl rounded-t-[3rem] z-50 shadow-[0_-4px_20px_rgba(255,107,107,0.08)] md:hidden">
-<a class="flex flex-col items-center justify-center text-[#251818]/60 hover:scale-110 transition-transform active:scale-90 duration-300" href="#">
+<a class="flex flex-col items-center justify-center text-[#251818]/60 hover:scale-110 transition-transform active:scale-90 duration-300" href="/p_gina_inicial_i_love_delicitas_1/code.html">
 <span class="material-symbols-outlined" data-icon="home">home</span>
 <span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium">Início</span>
 </a>
-<a class="flex flex-col items-center justify-center text-[#251818]/60 hover:scale-110 transition-transform active:scale-90 duration-300" href="#">
+<a class="flex flex-col items-center justify-center text-[#251818]/60 hover:scale-110 transition-transform active:scale-90 duration-300" href="/cat_logo_de_doces_i_love_delicitas_1/code.html">
 <span class="material-symbols-outlined" data-icon="reorder">reorder</span>
 <span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium">Catálogo</span>
 </a>
-<a class="flex flex-col items-center justify-center bg-[#ffe9e7] text-[#FF6B6B] rounded-full px-5 py-2 scale-110 shadow-sm" href="#">
+<a class="flex flex-col items-center justify-center bg-[#ffe9e7] text-[#FF6B6B] rounded-full px-5 py-2 scale-110 shadow-sm" href="/seu_carrinho_i_love_delicitas_3/code.html">
 <span class="material-symbols-outlined" data-icon="shopping_cart" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
 <span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold">Carrinho</span>
 </a>
-<a class="flex flex-col items-center justify-center text-[#251818]/60 hover:scale-110 transition-transform active:scale-90 duration-300" href="#">
+<a class="flex flex-col items-center justify-center text-[#251818]/60 hover:scale-110 transition-transform active:scale-90 duration-300" href="/perfil_atualizado_i_love_delicitas_1/code.html">
 <span class="material-symbols-outlined" data-icon="person">person</span>
 <span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium">Perfil</span>
 </a>
@@ -254,10 +272,10 @@
 <p class="font-['Be_Vietnam_Pro'] text-sm text-[#251818]/70">© 2024 I Love Delicitas. Doce momento.</p>
 </div>
 <div class="flex gap-8">
-<a class="text-[#251818]/70 text-sm font-medium hover:text-[#FF6B6B] transition-colors" href="#">Instagram</a>
-<a class="text-[#251818]/70 text-sm font-medium hover:text-[#FF6B6B] transition-colors" href="#">WhatsApp</a>
-<a class="text-[#251818]/70 text-sm font-medium hover:text-[#FF6B6B] transition-colors" href="#">Contato</a>
-<a class="text-[#251818]/70 text-sm font-medium hover:text-[#FF6B6B] transition-colors" href="#">Privacidade</a>
+<a class="text-[#251818]/70 text-sm font-medium hover:text-[#FF6B6B] transition-colors" href="https://instagram.com/ilovedelicitas" target="_blank">Instagram</a>
+<a class="text-[#251818]/70 text-sm font-medium hover:text-[#FF6B6B] transition-colors" href="https://wa.me/5511999999999" target="_blank">WhatsApp</a>
+<a class="text-[#251818]/70 text-sm font-medium hover:text-[#FF6B6B] transition-colors" href="mailto:contato@ilovedelicitas.com" target="_blank">Contato</a>
+<a class="text-[#251818]/70 text-sm font-medium hover:text-[#FF6B6B] transition-colors" href="/privacy_policy_i_love_delicitas/code.html">Privacidade</a>
 </div>
 </footer>
 <script>

@@ -96,6 +96,22 @@
 </head>
 <body class="text-on-surface">
 <!-- TopAppBar -->
+<script>
+// Funções de manipulação do carrinho
+function getCart() {
+    return JSON.parse(localStorage.getItem('cart') || '[]');
+}
+function setCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+function removeItem(index) {
+    const cart = getCart();
+    cart.splice(index, 1);
+    setCart(cart);
+    window.location.reload();
+}
+// Renderização dinâmica dos itens (opcional, se necessário)
+</script>
 <header class="fixed top-0 w-full z-50 bg-[#fff8f7]/70 backdrop-blur-xl shadow-sm shadow-[#251818]/5">
 <div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
 <div class="flex items-center gap-2"><img alt="I Love Delicitas Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ug9pEscIuL2DlpA17jlxEDClMUUl57IcXfA7OVPOBmhp5sAf7PwxKnpbI1tY9CcPsm_Q_lnh_6nc7K9s-Ufu8Vl1c-OjwARYp7iAHfnZcmG0DBwt67Xn07BOzLg_PKmoimX0VhBx_7sWyf5BR1B5okOzwW7leBDUVxtd-hraOOegasbSbL6SufvbUq093ykJtCjJbgzAXz6oOZhTDNVOwf2jgT_67YQ89bs9nwJk_awO3yEeaN9p4lZbmtoAwd21a5JeopnxomDwkc"/></div>
@@ -135,6 +151,8 @@
 </div>
 </div>
 <button class="text-on-surface-variant/40 hover:text-error transition-colors p-2">
+</button>
+<button class="text-on-surface-variant/40 hover:text-error transition-colors p-2" onclick="removeItem(0)">
 <span class="material-symbols-outlined" data-icon="delete">delete</span>
 </button>
 </div>

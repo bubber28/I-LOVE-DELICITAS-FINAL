@@ -302,44 +302,38 @@
 </a>
 </nav>
 <script>
-    // Supabase Initialization (Placeholder keys for the example)
-    const SUPABASE_URL = 'YOUR_SUPABASE_URL';
-    const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
-    const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+    // Supabase Initialization (Credenciais reais)
+    const SUPABASE_URL = 'https://qvhwvayqjvhwqjvhwq.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF2aHd2YXlxanZod3Fqdmh3cSIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNjk2NjQwNjQwLCJleHAiOjE4MTIyMTY2NDB9.1Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8';
+    const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : window.createClient?.(SUPABASE_URL, SUPABASE_ANON_KEY) || window.Supabase?.createClient?.(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     async function loadUserProfile() {
-        if (!supabase) return;
-
-        try {
-            const { data: { user } } = await supabase.auth.getUser();
-            
-            if (user) {
-                const { data: profile, error } = await supabase
-                    .from('profiles')
-                    .select('*')
-                    .eq('id', user.id)
-                    .single();
-
-                if (error) throw error;
-
-                if (profile) {
-                    // Identification fields
-                    if (profile.full_name) document.getElementById('full_name').value = profile.full_name;
-                    if (profile.phone) document.getElementById('phone').value = profile.phone;
-                    
-                    // Address fields
-                    if (profile.cep) document.getElementById('cep').value = profile.cep;
-                    if (profile.street) document.getElementById('street').value = profile.street;
-                    if (profile.number) document.getElementById('number').value = profile.number;
-                    if (profile.complement) document.getElementById('complement').value = profile.complement;
-                }
-            }
-        } catch (error) {
-            console.error('Error loading profile:', error.message);
+      if (!supabase) return;
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        const user = session?.user;
+        if (user) {
+          const { data: profile, error } = await supabase
+            .from('profiles')
+            .select('*')
+            .eq('id', user.id)
+            .single();
+          if (error) throw error;
+          if (profile) {
+            // Campos de identificação
+            if (profile.full_name) document.getElementById('full_name').value = profile.full_name;
+            if (profile.phone) document.getElementById('phone').value = profile.phone;
+            // Campos de endereço
+            if (profile.cep) document.getElementById('cep').value = profile.cep;
+            if (profile.street) document.getElementById('street').value = profile.street;
+            if (profile.number) document.getElementById('number').value = profile.number;
+            if (profile.complement) document.getElementById('complement').value = profile.complement;
+          }
         }
+      } catch (error) {
+        console.error('Erro ao carregar perfil:', error.message);
+      }
     }
-
-    // Initialize data loading on DOM ready
     document.addEventListener('DOMContentLoaded', loadUserProfile);
 </script>
 </body></html>

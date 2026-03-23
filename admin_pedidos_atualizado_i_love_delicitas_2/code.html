@@ -5,6 +5,23 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Delicitas Admin - Gestão de Pedidos</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+    // Proteção de rota admin
+    const supabase = window.supabase ||
+        window.createClient?.() ||
+        window.Supabase?.createClient?.() ||
+        window.supabase;
+    const SUPABASE_URL = 'https://qvhwvayqjvhwqjvhwq.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF2aHd2YXlxanZod3Fqdmh3cSIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNjk2NjQwNjQwLCJleHAiOjE4MTIyMTY2NDB9.1Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8';
+    const _supabase = supabase || window.createClient?.(SUPABASE_URL, SUPABASE_KEY) || window.Supabase?.createClient?.(SUPABASE_URL, SUPABASE_KEY);
+    (async () => {
+        const { data: { session } } = await _supabase.auth.getSession();
+        if (!session || !session.user) {
+            window.location.href = '/login_i_love_delicitas_2/code.html';
+        }
+    })();
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">

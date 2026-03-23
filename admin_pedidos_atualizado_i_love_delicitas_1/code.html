@@ -5,6 +5,22 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Delicitas Admin - Order Management</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+    // Proteção de rota admin
+    const supabase = window.supabase ||
+        window.createClient?.() ||
+        window.Supabase?.createClient?.() ||
+        window.supabase;
+    const SUPABASE_URL = 'https://qvhwvayqjvhwqjvhwq.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF2aHd2YXlxanZod3Fqdmh3cSIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNjk2NjQwNjQwLCJleHAiOjE4MTIyMTY2NDB9.1Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8';
+    const _supabase = supabase || window.createClient?.(SUPABASE_URL, SUPABASE_KEY) || window.Supabase?.createClient?.(SUPABASE_URL, SUPABASE_KEY);
+    (async () => {
+        const { data: { session } } = await _supabase.auth.getSession();
+        if (!session || !session.user) {
+            window.location.href = '/login_i_love_delicitas_2/code.html';
+        }
+    })();
+</script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -390,19 +406,19 @@
 </main>
 <!-- BottomNavBar -->
 <nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#fff8f7]/80 dark:bg-[#251818]/80 backdrop-blur-xl rounded-t-[3rem] z-50 shadow-[0_-10px_40px_rgba(37,24,24,0.08)]">
-<a class="flex flex-col items-center justify-center text-[#251818]/50 dark:text-[#fff8f7]/50 opacity-80 px-4 py-2 hover:opacity-100 transition-all active:scale-90 duration-300" href="#">
+<a class="flex flex-col items-center justify-center text-[#251818]/50 dark:text-[#fff8f7]/50 opacity-80 px-4 py-2 hover:opacity-100 transition-all active:scale-90 duration-300" href="/dashboard_admin_mobile/code.html">
 <span class="material-symbols-outlined" data-icon="bakery_dining">bakery_dining</span>
 <span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest">Store</span>
 </a>
-<a class="flex flex-col items-center justify-center text-[#251818]/50 dark:text-[#fff8f7]/50 opacity-80 px-4 py-2 hover:opacity-100 transition-all active:scale-90 duration-300" href="#">
+<a class="flex flex-col items-center justify-center text-[#251818]/50 dark:text-[#fff8f7]/50 opacity-80 px-4 py-2 hover:opacity-100 transition-all active:scale-90 duration-300" href="/admin_pedidos_atualizado_i_love_delicitas_1/code.html">
 <span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
 <span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest">Orders</span>
 </a>
-<a class="flex flex-col items-center justify-center text-[#251818]/50 dark:text-[#fff8f7]/50 opacity-80 px-4 py-2 hover:opacity-100 transition-all active:scale-90 duration-300" href="#">
+<a class="flex flex-col items-center justify-center text-[#251818]/50 dark:text-[#fff8f7]/50 opacity-80 px-4 py-2 hover:opacity-100 transition-all active:scale-90 duration-300" href="/pagamento_pix_i_love_delicitas/code.html">
 <span class="material-symbols-outlined" data-icon="payments">payments</span>
 <span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest">Wallet</span>
 </a>
-<a class="flex flex-col items-center justify-center bg-[#FF6B6B] text-white rounded-full px-6 py-2 scale-110 shadow-lg shadow-[#FF6B6B]/30 transition-all active:scale-90 duration-300" href="#">
+<a class="flex flex-col items-center justify-center bg-[#FF6B6B] text-white rounded-full px-6 py-2 scale-110 shadow-lg shadow-[#FF6B6B]/30 transition-all active:scale-90 duration-300" href="/painel_admin_i_love_delicitas_1/code.html">
 <span class="material-symbols-outlined" data-icon="dashboard_customize" style="font-variation-settings: 'FILL' 1;">dashboard_customize</span>
 <span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest">Admin</span>
 </a>
