@@ -1,1 +1,9 @@
-{"cleanUrls": true}
+{
+	"cleanUrls": true,
+	"rewrites": [
+		{ "source": "/admin", "destination": "/painel_admin_i_love_delicitas_2/code.html" },
+		{ "source": "/cardapio", "destination": "/cat_logo_de_doces_i_love_delicitas_1/code.html" },
+		{ "source": "/entrar", "destination": "/login_i_love_delicitas_2/code.html" },
+		{ "source": "/finalizar", "destination": "/finalizar.html" }
+	]
+}

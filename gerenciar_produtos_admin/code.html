@@ -5,6 +5,22 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Delicitas - Admin Product Management</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// Upload de imagem para Supabase Storage
+const SUPABASE_URL = 'https://qjvhwqvexqjvhwqvexq.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFqdmh3cXZleHFqdmh3cXZleHEiLCJyb2xlIjoiYW5vbiIsImlhdCI6MTY5ODg2NjQwMCwiZXhwIjoxOTk0NDQyNDAwfQ.2QwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQw';
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+async function uploadImagemProduto(file, produtoId) {
+    const { data, error } = await supabase.storage.from('produtos').upload(`produtos/${produtoId}/${file.name}`, file, { upsert: true });
+    if (error) {
+        alert('Erro ao enviar imagem: ' + error.message);
+        return null;
+    }
+    return data.path;
+}
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>

@@ -89,6 +89,28 @@
 </head>
 <body class="bg-surface text-on-surface antialiased min-h-screen pb-32">
 <!-- TopAppBar -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// Atualização de estoque após finalização do pedido
+const SUPABASE_URL = 'https://qjvhwqvexqjvhwqvexq.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFqdmh3cXZleHFqdmh3cXZleHEiLCJyb2xlIjoiYW5vbiIsImlhdCI6MTY5ODg2NjQwMCwiZXhwIjoxOTk0NDQyNDAwfQ.2QwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQw';
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+async function atualizarEstoque() {
+  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  for (const item of cart) {
+    // Supondo que cada item tem id e quantity
+    await supabase.from('produtos').update({ estoque: supabase.literal('estoque - ' + item.quantity) }).eq('id', item.id);
+  }
+  localStorage.removeItem('cart');
+}
+
+async function finalizarPedido() {
+  await atualizarEstoque();
+  alert('Pedido finalizado e estoque atualizado!');
+  window.location.href = '/pedido_confirmado_i_love_delicitas_1/code.html';
+}
+</script>
 <header class="fixed top-0 w-full z-50 glass-nav shadow-sm shadow-[#251818]/5 h-16 flex items-center justify-between px-6">
 <div class="flex items-center gap-4">
 <button class="active:scale-95 duration-200 text-[#FF6B6B] hover:bg-[#ffe9e7] p-2 rounded-full transition-colors">

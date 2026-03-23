@@ -123,10 +123,28 @@
                         </button>
 </div>
 </div>
-<div class="relative order-1 md:order-2">
-<div class="aspect-square rounded-xl bg-primary-fixed overflow-visible relative">
-<img alt="Gourmet Cake" class="absolute -top-10 -right-4 w-[110%] h-[110%] object-contain drop-shadow-2xl transition-transform hover:rotate-3" data-alt="Delicious gourmet pink layered cake with frosting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWdoQrzzlinYB7q2u64t2DTQVtsJP8tCqUWsJ3O9dUIfF4Lnig9LPJmeoIGeQ_wRKfDMsmLGxXzGyj0N_Zs_NGO_9XHwVn3Xi-Ywc3-ONnrQWsy6kPhw0EOgoiMf021NuYnhCZa-v8j_IC8fLuq-ykpJJ7ccZkUOvMzNhn2fw84gEjG-L_timEBPQ-O5Gmc-KzhUnAUKGXk3RTqwL89lEBsO8Ll8MacLLUDY-oYk3JdMcIfzbzxrv1qRBVGTrBT6Nqjys0IU8hfqse"/>
-</div>
+<div class="order-1 md:order-2">
+  <!-- Carrossel de banners -->
+  <div id="carrossel" class="relative w-full h-64 rounded-2xl overflow-hidden shadow-lg">
+    <img id="banner-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700" style="opacity:1;"/>
+    <button onclick="prevBanner()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow hover:bg-white"><span class="material-symbols-outlined">chevron_left</span></button>
+    <button onclick="nextBanner()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow hover:bg-white"><span class="material-symbols-outlined">chevron_right</span></button>
+  </div>
+  <script>
+    const banners = [
+      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?auto=format&fit=crop&w=800&q=80'
+    ];
+    let idx = 0;
+    function showBanner(i) {
+      idx = (i + banners.length) % banners.length;
+      document.getElementById('banner-img').src = banners[idx];
+    }
+    function prevBanner() { showBanner(idx - 1); }
+    function nextBanner() { showBanner(idx + 1); }
+    setInterval(() => { nextBanner(); }, 5000);
+  </script>
 </div>
 </div>
 </section>

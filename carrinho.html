@@ -111,6 +111,46 @@ function removeItem(index) {
     window.location.reload();
 }
 // Renderização dinâmica dos itens (opcional, se necessário)
+// Lógica de cupom real
+let appliedCoupon = null;
+let discountValue = 0;
+const validCoupons = {
+    'DEL10': 0.10, // 10% de desconto
+    'DEL20': 0.20  // 20% de desconto
+};
+
+function applyCoupon() {
+    const code = document.getElementById('coupon-input').value.trim().toUpperCase();
+    if (validCoupons[code]) {
+        appliedCoupon = code;
+        discountValue = validCoupons[code];
+        document.getElementById('coupon-message').innerText = 'Cupom aplicado: ' + code;
+    } else {
+        appliedCoupon = null;
+        discountValue = 0;
+        document.getElementById('coupon-message').innerText = 'Cupom inválido.';
+    }
+    renderCart();
+}
+
+function renderCart() {
+    // ...renderização dos itens...
+    // Após calcular subtotal:
+    let subtotal = 0;
+    const cart = getCart();
+    cart.forEach(item => { subtotal += item.price * item.quantity; });
+    let desconto = 0;
+    if (discountValue > 0) {
+        desconto = subtotal * discountValue;
+    }
+    let total = subtotal - desconto;
+    document.getElementById('subtotal').innerText = subtotal.toLocaleString('pt-BR', {style:'currency',currency:'BRL'});
+    document.getElementById('desconto').innerText = desconto > 0 ? '-'+desconto.toLocaleString('pt-BR', {style:'currency',currency:'BRL'}) : '-';
+    document.getElementById('total').innerText = total.toLocaleString('pt-BR', {style:'currency',currency:'BRL'});
+}
+
+// Chame renderCart() ao carregar a página
+window.onload = renderCart;
 </script>
 <header class="fixed top-0 w-full z-50 bg-[#fff8f7]/70 backdrop-blur-xl shadow-sm shadow-[#251818]/5">
 <div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">

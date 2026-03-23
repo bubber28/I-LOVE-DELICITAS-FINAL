@@ -117,8 +117,12 @@
       alert('Erro ao entrar: ' + error.message);
       return;
     }
-    // Redireciona para a página inicial após login
-    window.location.href = '/p_gina_inicial_i_love_delicitas_1/code.html';
+    // Split login: admin ou cliente
+    if (email.endsWith('@admin.com')) {
+      window.location.href = '/painel_admin_i_love_delicitas_2/code.html';
+    } else {
+      window.location.href = '/p_gina_inicial_i_love_delicitas_2/code.html';
+    }
   }
 </script>
 <!-- Separator -->
