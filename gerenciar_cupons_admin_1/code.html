@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gerenciar Cupons - I Love Delicitas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Be+Vietnam+Pro', sans-serif;
+            background-color: #fff8f7;
+        }
+        .font-headline {
+            font-family: 'Plus+Jakarta+Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .coupon-card-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #fff0ef 100%);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#00201e",
+              "surface-dim": "#ecd5d3",
+              "secondary-fixed-dim": "#5dd9d0",
+              "on-primary-fixed": "#410006",
+              "primary-fixed-dim": "#ffb3b0",
+              "on-primary-fixed-variant": "#8c1520",
+              "on-error-container": "#93000a",
+              "tertiary": "#6d5e00",
+              "on-background": "#251818",
+              "outline": "#8c706f",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#584140",
+              "primary-container": "#ff6b6b",
+              "on-primary": "#ffffff",
+              "tertiary-fixed-dim": "#dec651",
+              "outline-variant": "#e0bfbd",
+              "on-surface": "#251818",
+              "secondary-fixed": "#7cf6ec",
+              "inverse-on-surface": "#ffedeb",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#fbe3e1",
+              "surface": "#fff8f7",
+              "on-secondary": "#ffffff",
+              "tertiary-container": "#c1ab38",
+              "surface-variant": "#f5dddb",
+              "tertiary-fixed": "#fbe36a",
+              "surface-container-highest": "#f5dddb",
+              "on-tertiary-container": "#4a3f00",
+              "on-primary-container": "#6d0010",
+              "error": "#ba1a1a",
+              "surface-container-low": "#fff0ef",
+              "on-tertiary-fixed-variant": "#524600",
+              "surface-container": "#ffe9e7",
+              "primary": "#ae2f34",
+              "inverse-surface": "#3b2d2c",
+              "inverse-primary": "#ffb3b0",
+              "error-container": "#ffdad6",
+              "primary-fixed": "#ffdad8",
+              "on-secondary-container": "#006f69",
+              "surface-bright": "#fff8f7",
+              "secondary": "#006a65",
+              "on-tertiary-fixed": "#211b00",
+              "surface-tint": "#ae2f34",
+              "background": "#fff8f7",
+              "on-secondary-fixed-variant": "#00504c",
+              "secondary-container": "#79f3ea",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface">
+<!-- Navigation Drawer (Desktop) -->
+<aside class="hidden md:flex fixed left-0 top-0 h-screen z-40 flex flex-col py-8 bg-white/70 backdrop-blur-xl w-72 rounded-r-[3rem] shadow-[20px_0_40px_rgba(37,24,24,0.06)]">
+<div class="px-8 mb-10">
+<h1 class="text-[#FF6B6B] font-black italic text-2xl font-headline">I Love Delicitas</h1>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="text-[#251818] mx-2 px-6 py-3 flex items-center gap-4 hover:bg-[#fff0ef] rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium font-headline">Dashboard</span>
+</a>
+<a class="text-[#251818] mx-2 px-6 py-3 flex items-center gap-4 hover:bg-[#fff0ef] rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-medium font-headline">Orders</span>
+</a>
+<a class="bg-[#ffe9e7] text-[#FF6B6B] rounded-full mx-2 px-6 py-3 flex items-center gap-4 transition-all" href="#">
+<span class="material-symbols-outlined">confirmation_number</span>
+<span class="font-medium font-headline">Coupons</span>
+</a>
+<a class="text-[#251818] mx-2 px-6 py-3 flex items-center gap-4 hover:bg-[#fff0ef] rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">bakery_dining</span>
+<span class="font-medium font-headline">Inventory</span>
+</a>
+<a class="text-[#251818] mx-2 px-6 py-3 flex items-center gap-4 hover:bg-[#fff0ef] rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium font-headline">Settings</span>
+</a>
+</nav>
+</aside>
+<main class="md:ml-72 min-h-screen pb-32 md:pb-12">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-30 flex items-center justify-between px-6 py-4 bg-[#fff8f7] border-none">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-[#FF6B6B] active:scale-95 transition-transform">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#FF6B6B]">arrow_back</span>
+<h2 class="font-headline font-bold text-2xl text-[#FF6B6B]">Coupon Management</h2>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="Admin profile avatar thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMyy5udWuG44AR0jk5nc7kN4ejmgXLuhZBUPXq-1BBG9wEojGiFQ1pK20Btj6Dnnj_DwQlFyHj5KRxMo8wn0Wy456UhFr4YFHJlPfL0qtpH3Nm-OJLZFxc4_gYEpn3q2Y93qih7uRvFhsuBX6bk7vckGw7TQQ23C75d3uiJy-MpcQE4hY3Op7efm3NlvQdtAPiWaP-gS8xPh7r4fG7otmbIawFL1ZCZ2yclGudZmNp6g1HmeLXLDodBZGgtKfsDhYdj94m6mQOitLh"/>
+</div>
+</div>
+</header>
+<section class="px-6 mt-6">
+<!-- Action Bar -->
+<div class="flex flex-col md:flex-row gap-4 items-center justify-between mb-8">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-md focus:ring-2 focus:ring-secondary/40 transition-all font-body" placeholder="Buscar cupom por código..." type="text"/>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary px-8 py-4 rounded-full font-headline font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add_circle</span>
+                    Novo Cupom
+                </button>
+</div>
+<!-- Dashboard Stats Bento Grid (Mini) -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+<div class="p-6 bg-white rounded-lg shadow-sm">
+<p class="text-sm text-outline font-label">Ativos</p>
+<p class="text-2xl font-headline font-bold text-on-surface">12</p>
+</div>
+<div class="p-6 bg-white rounded-lg shadow-sm">
+<p class="text-sm text-outline font-label">Total Usos</p>
+<p class="text-2xl font-headline font-bold text-on-surface">842</p>
+</div>
+<div class="p-6 bg-white rounded-lg shadow-sm">
+<p class="text-sm text-outline font-label">Economia Gerada</p>
+<p class="text-2xl font-headline font-bold text-secondary">R$ 4.2k</p>
+</div>
+<div class="p-6 bg-white rounded-lg shadow-sm">
+<p class="text-sm text-outline font-label">Expirando</p>
+<p class="text-2xl font-headline font-bold text-primary">3</p>
+</div>
+</div>
+<!-- Coupons List -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="coupon-card-gradient p-6 rounded-lg relative overflow-hidden group hover:shadow-xl transition-all border border-outline-variant/10">
+<div class="flex justify-between items-start mb-6">
+<div class="flex flex-col">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-xs font-bold w-fit mb-2">20% OFF</span>
+<h3 class="font-headline font-extrabold text-2xl tracking-tight text-on-surface">DOCE20</h3>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-outline font-label">Validade</span>
+<span class="text-on-surface font-semibold">30 Out, 2023</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between items-center text-xs mb-1">
+<span class="text-outline font-label">Uso: 15/100</span>
+<span class="text-secondary font-bold">15%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[15%] rounded-full"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-xs font-bold text-on-surface uppercase tracking-wider">Ativo</span>
+</div>
+<span class="text-[10px] font-label text-outline">Criado há 2 dias</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="coupon-card-gradient p-6 rounded-lg relative overflow-hidden group hover:shadow-xl transition-all border border-outline-variant/10">
+<div class="flex justify-between items-start mb-6">
+<div class="flex flex-col">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold w-fit mb-2">R$ 10,00</span>
+<h3 class="font-headline font-extrabold text-2xl tracking-tight text-on-surface">PRIMEIRACOMPRA</h3>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-outline font-label">Validade</span>
+<span class="text-on-surface font-semibold">Ilimitado</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between items-center text-xs mb-1">
+<span class="text-outline font-label">Uso: 88/500</span>
+<span class="text-secondary font-bold">17.6%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[17.6%] rounded-full"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-xs font-bold text-on-surface uppercase tracking-wider">Ativo</span>
+</div>
+<span class="text-[10px] font-label text-outline">Criado há 1 mês</span>
+</div>
+</div>
+</div>
+<!-- Card 3 (Inativo) -->
+<div class="bg-surface-container-low p-6 rounded-lg relative overflow-hidden group hover:shadow-xl transition-all border border-outline-variant/10 grayscale opacity-80">
+<div class="flex justify-between items-start mb-6">
+<div class="flex flex-col">
+<span class="bg-outline-variant text-on-surface-variant px-3 py-1 rounded-full text-xs font-bold w-fit mb-2">50% OFF</span>
+<h3 class="font-headline font-extrabold text-2xl tracking-tight text-on-surface">BLACKFRIDAY</h3>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-outline font-label">Validade</span>
+<span class="text-on-surface font-semibold">Expirado</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between items-center text-xs mb-1">
+<span class="text-outline font-label">Uso: 250/250</span>
+<span class="text-primary font-bold">100%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-full rounded-full"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<span class="text-xs font-bold text-on-surface uppercase tracking-wider">Inativo</span>
+</div>
+<span class="text-[10px] font-label text-outline">Finalizado</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="coupon-card-gradient p-6 rounded-lg relative overflow-hidden group hover:shadow-xl transition-all border border-outline-variant/10">
+<div class="flex justify-between items-start mb-6">
+<div class="flex flex-col">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-xs font-bold w-fit mb-2">FRETE GRÁTIS</span>
+<h3 class="font-headline font-extrabold text-2xl tracking-tight text-on-surface">DELICITASFREE</h3>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-outline font-label">Validade</span>
+<span class="text-on-surface font-semibold">15 Dez, 2023</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between items-center text-xs mb-1">
+<span class="text-outline font-label">Uso: 342/1000</span>
+<span class="text-secondary font-bold">34.2%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[34.2%] rounded-full"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-xs font-bold text-on-surface uppercase tracking-wider">Ativo</span>
+</div>
+<span class="text-[10px] font-label text-outline">Campanha Natal</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 pb-6 pt-2 bg-white/70 backdrop-blur-xl shadow-[0_-10px_30px_rgba(37,24,24,0.04)] rounded-t-[2.5rem]">
+<a class="flex flex-col items-center justify-center text-gray-400 p-2 hover:text-[#FF6B6B] transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-xs font-semibold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#FF6B6B] text-white rounded-full p-3 mb-2 scale-110" href="#">
+<span class="material-symbols-outlined" data-weight="fill">confirmation_number</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-semibold">Coupons</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 p-2 hover:text-[#FF6B6B] transition-all" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-['Be_Vietnam_Pro'] text-xs font-semibold">Stats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 p-2 hover:text-[#FF6B6B] transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-xs font-semibold">Profile</span>
+</a>
+</nav>
+<!-- FAB (Contextual for Desktop/Mobile) -->
+<button class="fixed bottom-24 right-6 md:bottom-12 md:right-12 bg-primary text-on-primary w-14 h-14 rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform md:hidden">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

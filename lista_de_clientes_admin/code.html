@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#ff6b6b",
+              "on-error-container": "#93000a",
+              "primary-fixed": "#ffdad8",
+              "on-tertiary-fixed-variant": "#524600",
+              "primary": "#ae2f34",
+              "on-tertiary-container": "#4a3f00",
+              "error-container": "#ffdad6",
+              "secondary": "#006a65",
+              "on-background": "#251818",
+              "inverse-primary": "#ffb3b0",
+              "surface-container-low": "#fff0ef",
+              "on-primary-fixed": "#410006",
+              "inverse-surface": "#3b2d2c",
+              "surface-bright": "#fff8f7",
+              "surface-tint": "#ae2f34",
+              "tertiary": "#6d5e00",
+              "surface-dim": "#ecd5d3",
+              "on-secondary-container": "#006f69",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#8c1520",
+              "on-primary-container": "#6d0010",
+              "error": "#ba1a1a",
+              "tertiary-container": "#c1ab38",
+              "on-tertiary": "#ffffff",
+              "surface-variant": "#f5dddb",
+              "on-error": "#ffffff",
+              "inverse-on-surface": "#ffedeb",
+              "background": "#fff8f7",
+              "outline-variant": "#e0bfbd",
+              "outline": "#8c706f",
+              "primary-fixed-dim": "#ffb3b0",
+              "surface-container-high": "#fbe3e1",
+              "secondary-fixed-dim": "#5dd9d0",
+              "on-surface-variant": "#584140",
+              "on-secondary-fixed": "#00201e",
+              "surface-container-highest": "#f5dddb",
+              "on-surface": "#251818",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#fbe36a",
+              "on-tertiary-fixed": "#211b00",
+              "surface-container": "#ffe9e7",
+              "surface": "#fff8f7",
+              "secondary-fixed": "#7cf6ec",
+              "secondary-container": "#79f3ea",
+              "on-secondary-fixed-variant": "#00504c",
+              "tertiary-fixed-dim": "#dec651",
+              "on-primary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body { font-family: 'Be Vietnam Pro', sans-serif; }
+      h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+      .glass-nav {
+        background: rgba(255, 248, 247, 0.7);
+        backdrop-filter: blur(12px);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-[#fff8f7] dark:bg-slate-950 flex items-center justify-between px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<button class="text-[#251818] dark:text-slate-400 active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex items-center gap-2">
+<img alt="I Love Delicitas Logo" class="h-8 w-auto" data-alt="Logotipo da marca I Love Delicitas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsVdbcoxh9Wnyg4XkY06uxshaDoCmM3FXugCm_-hB_0t0ROumdzh8htA6OB59-Zqlf7DqudTzx7NCYbu7IT1wRYnbqzVE7gFjmDmNrcLfVWB1ZaXobAEgViGdKP4-HLfPSyEfjC3RmiYzfhznge2Ssw_T3wHUa1wS0O4OJDWRnB-cRSu7-zwLZEwYoD0SVbQaIPvkcTdXVEKSI_jOb5Aj85Ia-ikHqcEh9AhVOEFETozge8akn2Eeo8b4HwQ1xSGH8k91aURwyR2TX"/>
+<h1 class="font-plus-jakarta-sans font-bold text-lg tracking-tight text-[#FF6B6B] dark:text-[#FF6B6B]">I Love Delicitas</h1>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#251818] dark:text-slate-400 active:scale-95 duration-200">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<main class="px-6 pt-6 max-w-5xl mx-auto">
+<!-- Search and Stats Header -->
+<section class="mb-8">
+<div class="mb-6">
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface mb-2">Lista de Clientes</h2>
+<p class="text-on-surface-variant text-sm">Gerencie sua base de clientes e acompanhe o engajamento.</p>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-md py-4 pl-12 pr-4 focus:ring-2 focus:ring-secondary/40 text-on-surface placeholder:text-outline/60 transition-all" placeholder="Buscar por nome ou e-mail..." type="text"/>
+</div>
+</section>
+<!-- Bento Grid Stats (Subtle) -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm">
+<p class="text-[10px] uppercase font-bold tracking-widest text-outline mb-1">Total Clientes</p>
+<p class="text-2xl font-bold text-secondary">1.284</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm">
+<p class="text-[10px] uppercase font-bold tracking-widest text-outline mb-1">Novos (Mês)</p>
+<p class="text-2xl font-bold text-primary-container">+42</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm">
+<p class="text-[10px] uppercase font-bold tracking-widest text-outline mb-1">Ativos</p>
+<p class="text-2xl font-bold text-tertiary">85%</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm">
+<p class="text-[10px] uppercase font-bold tracking-widest text-outline mb-1">Ticket Médio</p>
+<p class="text-2xl font-bold text-secondary">R$ 84</p>
+</div>
+</div>
+<!-- Customer List Layout -->
+<div class="space-y-4">
+<!-- Customer Card 1 -->
+<div class="bg-surface-container-lowest rounded-lg p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:bg-surface-container duration-300">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover ring-2 ring-secondary/10" data-alt="Retrato de uma cliente sorridente" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAMR0_sYeq8SHnMkLELeqgEg8c8Mvg0ERsXXP-VX-k2g1-1J4P8-bQg0Wg1XtCCZLg5tw_3zPqYhcXAw4VCvDGTfv-55udxMKxybkG-MhuCb5dDfNgW_jlDdACZCk_DHTLFvLvle66ryLMEPmaIfH1im4ZYt9oOSDA147CTZtd-KHMFJD16gCvZLuiJMGB0IlfMu8fYKQ_SA_rU2crqba2ctH3nf7vn_0wcga1haHPbHn7GXVTCh7mbc6tS-0x3qlKyGps8kU9286f"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface text-lg">Ana Beatriz Silva</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+                            ana.beatriz@email.com
+                        </p>
+<p class="text-xs text-outline mt-1">+55 11 98765-4321</p>
+</div>
+</div>
+<div class="flex flex-row md:flex-row items-center justify-between md:gap-8 border-t md:border-t-0 pt-4 md:pt-0 border-outline-variant/15">
+<div class="text-center md:text-right">
+<p class="text-[10px] uppercase font-bold text-outline">Pedidos</p>
+<p class="text-xl font-black text-secondary">24</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 hover:bg-secondary-fixed transition-colors active:scale-90">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+                            Mensagem
+                        </button>
+<button class="bg-surface-container text-on-surface px-4 py-2 rounded-full text-sm font-semibold hover:bg-surface-dim transition-colors active:scale-90">
+                            Detalhes
+                        </button>
+</div>
+</div>
+</div>
+<!-- Customer Card 2 -->
+<div class="bg-surface-container-lowest rounded-lg p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:bg-surface-container duration-300">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover ring-2 ring-secondary/10" data-alt="Retrato de um cliente masculino" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWzamFGIQuOgdG_45clvt1lxULv88TtvOy3udbve4LSH4LHLlukPhHZXvCRbT7Y89bhzrwPh45mugCF4x39JghzC8AGty9O0OfY_5PpcimXIxsWUNyvcsmHgH6h9gc9Pbb1JX5G3HCOqO08Z6DoQDun2UfmuTKOrF1zU0fzt69NDMrCtdPwoEYyXL81n_IulYvAzPNLyxvcr9zxA7f8kivoAAd-aDitExxLFeGk6V7e3zXUo7GshP3rEtUMfkuwNKJs6FE7n0YxN7W"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 bg-gray-300 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface text-lg">Carlos Eduardo</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+                            carlos.edu@provedor.com.br
+                        </p>
+<p class="text-xs text-outline mt-1">+55 21 99887-7665</p>
+</div>
+</div>
+<div class="flex flex-row md:flex-row items-center justify-between md:gap-8 border-t md:border-t-0 pt-4 md:pt-0 border-outline-variant/15">
+<div class="text-center md:text-right">
+<p class="text-[10px] uppercase font-bold text-outline">Pedidos</p>
+<p class="text-xl font-black text-secondary">08</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 hover:bg-secondary-fixed transition-colors active:scale-90">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+                            Mensagem
+                        </button>
+<button class="bg-surface-container text-on-surface px-4 py-2 rounded-full text-sm font-semibold hover:bg-surface-dim transition-colors active:scale-90">
+                            Detalhes
+                        </button>
+</div>
+</div>
+</div>
+<!-- Customer Card 3 -->
+<div class="bg-surface-container-lowest rounded-lg p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:bg-surface-container duration-300">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover ring-2 ring-secondary/10" data-alt="Retrato de uma cliente profissional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxzShJq0AqUWnat6QtWm-uB_KXWSKJXAXJ28J5X00K275nyipCyfOa2t-N1vBRIDTENUxYbklg6q2DlviYPWEoWreII1Ikg8SoEo0k1_We_YBWDRC6l-bOtLcbuGkt8bXWHi1hQF1jlF294wgWaSZ6vlt6qdHi_t9LUnlNAPYFrlwSrXSOfYLukQkYDs2ZEYt_xy_EFtdbRX0931FjFQEOOsc6CbYA6-uYNwQBZaD0N5S8Jkd5QJu2szy6KMrLrbpnXLOEv2e6aNKL"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface text-lg">Mariana Oliveira</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+                            mari.oliveira@empresa.com
+                        </p>
+<p class="text-xs text-outline mt-1">+55 31 97766-5544</p>
+</div>
+</div>
+<div class="flex flex-row md:flex-row items-center justify-between md:gap-8 border-t md:border-t-0 pt-4 md:pt-0 border-outline-variant/15">
+<div class="text-center md:text-right">
+<p class="text-[10px] uppercase font-bold text-outline">Pedidos</p>
+<p class="text-xl font-black text-secondary">15</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 hover:bg-secondary-fixed transition-colors active:scale-90">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+                            Mensagem
+                        </button>
+<button class="bg-surface-container text-on-surface px-4 py-2 rounded-full text-sm font-semibold hover:bg-surface-dim transition-colors active:scale-90">
+                            Detalhes
+                        </button>
+</div>
+</div>
+</div>
+<!-- Customer Card 4 -->
+<div class="bg-surface-container-lowest rounded-lg p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:bg-surface-container duration-300 opacity-80">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover ring-2 ring-secondary/10" data-alt="Retrato de um cliente masculino casual" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGDWjdmZgNxxyjEmDQ5UrnnIwLUgWr5CRNSQZlHkZ9o0actigBi6GTLXsB5pNb3lrmOaYhKOy4LKBkVTdsSHFMLjP0YmpPAmlrc5mB2KctcNJxFS_F2C0gjSH4D_7NAE0OnEqwtQ7iNe89NDU0mUNHHRl5qIHgLgHWnuZz4Sa6gHa34m-4S8643w0vliCy9FPA9GfllOxyBkMcprTjs0F5KyxkR-nsaw24qmFEvmxhivAvoG4jKJud7sw9hE-2n04ZMxsLbuctGv8D"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 bg-gray-300 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface text-lg">Ricardo Santos</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+                            ricardo.santos@web.com
+                        </p>
+<p class="text-xs text-outline mt-1">+55 41 99911-2233</p>
+</div>
+</div>
+<div class="flex flex-row md:flex-row items-center justify-between md:gap-8 border-t md:border-t-0 pt-4 md:pt-0 border-outline-variant/15">
+<div class="text-center md:text-right">
+<p class="text-[10px] uppercase font-bold text-outline">Pedidos</p>
+<p class="text-xl font-black text-secondary">03</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 hover:bg-secondary-fixed transition-colors active:scale-90">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+                            Mensagem
+                        </button>
+<button class="bg-surface-container text-on-surface px-4 py-2 rounded-full text-sm font-semibold hover:bg-surface-dim transition-colors active:scale-90">
+                            Detalhes
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More Section -->
+<div class="mt-8 text-center pb-12">
+<button class="text-secondary font-bold hover:underline flex items-center justify-center gap-2 mx-auto">
+<span class="material-symbols-outlined">expand_more</span>
+                Carregar mais clientes
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#ffffff]/70 dark:bg-slate-900/70 backdrop-blur-xl rounded-t-[3rem] shadow-[0_-4px_20px_rgba(37,24,24,0.06)] border-t border-[#4ECDC4]/15">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-6 py-2 hover:text-[#4ECDC4] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-be-vietnam-pro text-[11px] font-semibold uppercase tracking-wider mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#4ECDC4]/10 text-[#4ECDC4] rounded-full px-6 py-2 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-be-vietnam-pro text-[11px] font-semibold uppercase tracking-wider mt-1">Customers</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-6 py-2 hover:text-[#4ECDC4] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-be-vietnam-pro text-[11px] font-semibold uppercase tracking-wider mt-1">Orders</span>
+</a>
+</nav>
+<!-- Floating Action Button (FAB) - Filter -->
+<button class="fixed right-6 bottom-28 w-14 h-14 bg-primary rounded-full shadow-lg shadow-primary/20 flex items-center justify-center text-white active:scale-90 transition-all z-40">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</body></html>

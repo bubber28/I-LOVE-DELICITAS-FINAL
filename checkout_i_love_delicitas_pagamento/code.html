@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout - Sweet Order</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#ff6b6b",
+              "on-primary-container": "#6d0010",
+              "error": "#ba1a1a",
+              "inverse-primary": "#ffb3b0",
+              "primary-fixed-dim": "#ffb3b0",
+              "surface": "#fff8f7",
+              "background": "#fff8f7",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#ffedeb",
+              "outline": "#8c706f",
+              "surface-container-high": "#fbe3e1",
+              "tertiary-fixed-dim": "#dec651",
+              "secondary-fixed": "#7cf6ec",
+              "secondary-fixed-dim": "#5dd9d0",
+              "secondary": "#006a65",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#4a3f00",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#8c1520",
+              "on-primary": "#ffffff",
+              "tertiary": "#6d5e00",
+              "secondary-container": "#79f3ea",
+              "error-container": "#ffdad6",
+              "on-tertiary": "#ffffff",
+              "on-secondary-container": "#006f69",
+              "primary": "#ae2f34",
+              "surface-container-highest": "#f5dddb",
+              "on-tertiary-fixed-variant": "#524600",
+              "on-secondary-fixed-variant": "#00504c",
+              "surface-bright": "#fff8f7",
+              "on-background": "#251818",
+              "on-surface-variant": "#584140",
+              "surface-variant": "#f5dddb",
+              "tertiary-container": "#c1ab38",
+              "on-surface": "#251818",
+              "surface-container": "#ffe9e7",
+              "primary-fixed": "#ffdad8",
+              "on-primary-fixed": "#410006",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#fbe36a",
+              "surface-dim": "#ecd5d3",
+              "on-tertiary-fixed": "#211b00",
+              "on-secondary-fixed": "#00201e",
+              "surface-tint": "#ae2f34",
+              "surface-container-low": "#fff0ef",
+              "outline-variant": "#e0bfbd",
+              "inverse-surface": "#3b2d2c"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Be Vietnam Pro', sans-serif; background-color: #fff8f7; color: #251818; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-nav { background: rgba(255, 248, 247, 0.7); backdrop-filter: blur(12px); }
+        input:focus { outline: none; box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.4); }
+        .spring-action:active { transform: scale(0.9); }
+    </style>
+<style>
+        body { min-height: max(884px, 100dvh); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen pb-32">
+<!-- TopAppBar Component -->
+<header class="fixed top-0 w-full z-50 bg-[#fff8f7]/70 backdrop-blur-xl shadow-[0_10px_30px_-15px_rgba(37,24,24,0.06)] h-16">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-200 text-[#FF6B6B] hover:bg-[#fff0ef] p-2 rounded-full transition-colors ease-out">
+<span class="material-symbols-outlined" data-icon="bubble_chart">bubble_chart</span>
+</button>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold tracking-tight text-[#FF6B6B] text-lg">Sweet Order</h1>
+</div>
+<div class="flex items-center gap-2">
+<img alt="I Love Delicitas Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ug9pEscIuL2DlpA17jlxEDClMUUl57IcXfA7OVPOBmhp5sAf7PwxKnpbI1tY9CcPsm_Q_lnh_6nc7K9s-Ufu8Vl1c-OjwARYp7iAHfnZcmG0DBwt67Xn07BOzLg_PKmoimX0VhBx_7sWyf5BR1B5okOzwW7leBDUVxtd-hraOOegasbSbL6SufvbUq093ykJtCjJbgzAXz6oOZhTDNVOwf2jgT_67YQ89bs9nwJk_awO3yEeaN9p4lZbmtoAwd21a5JeopnxomDwkc"/>
+<span class="text-2xl font-black text-[#FF6B6B] italic font-['Plus_Jakarta_Sans']">I Love Delicitas</span>
+</div>
+<button class="active:scale-95 duration-200 text-[#FF6B6B] hover:bg-[#fff0ef] p-2 rounded-full transition-colors ease-out">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+</button>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-6 pt-24 pb-12">
+<div class="flex flex-col md:grid md:grid-cols-12 gap-8">
+<!-- Left Column: Checkout Details -->
+<div class="md:col-span-7 space-y-8">
+<!-- Section 1: Identification -->
+<section class="bg-surface-container-low p-6 rounded-lg space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+<h2 class="text-xl font-bold tracking-tight">Identification</h2>
+</div>
+<div class="grid gap-4">
+<div class="space-y-1">
+<label class="text-sm font-semibold ml-2 text-on-surface-variant">Full Name</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-md px-4 py-3 text-on-surface placeholder:text-outline-variant" placeholder="Your name" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-semibold ml-2 text-on-surface-variant">Phone Number</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-md px-4 py-3 text-on-surface placeholder:text-outline-variant" placeholder="(00) 00000-0000" type="tel"/>
+</div>
+</div>
+</section>
+<!-- Section 2: Delivery Method -->
+<section class="bg-surface-container-low p-6 rounded-lg space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
+<h2 class="text-xl font-bold tracking-tight">Delivery Method</h2>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<label class="relative flex flex-col items-center justify-center p-4 rounded-md bg-surface-container-lowest cursor-pointer border-2 border-transparent has-[:checked]:border-secondary-container transition-all">
+<input checked="" class="hidden" name="method" type="radio"/>
+<span class="material-symbols-outlined text-secondary mb-1" data-icon="delivery_dining">delivery_dining</span>
+<span class="font-bold text-sm">Delivery</span>
+</label>
+<label class="relative flex flex-col items-center justify-center p-4 rounded-md bg-surface-container-lowest cursor-pointer border-2 border-transparent has-[:checked]:border-secondary-container transition-all">
+<input class="hidden" name="method" type="radio"/>
+<span class="material-symbols-outlined text-secondary mb-1" data-icon="store">store</span>
+<span class="font-bold text-sm">Pick up</span>
+</label>
+</div>
+</section>
+<!-- Section 3: Delivery Address -->
+<section class="bg-surface-container-low p-6 rounded-lg space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<h2 class="text-xl font-bold tracking-tight">Delivery Address</h2>
+</div>
+<div class="grid grid-cols-6 gap-4">
+<div class="col-span-6 md:col-span-2 space-y-1">
+<label class="text-sm font-semibold ml-2 text-on-surface-variant">CEP</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-md px-4 py-3 text-on-surface placeholder:text-outline-variant" placeholder="00000-000" type="text"/>
+</div>
+<div class="col-span-6 md:col-span-4 space-y-1">
+<label class="text-sm font-semibold ml-2 text-on-surface-variant">Street</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-md px-4 py-3 text-on-surface placeholder:text-outline-variant" placeholder="Enter street name" type="text"/>
+</div>
+<div class="col-span-6 md:col-span-2 space-y-1">
+<label class="text-sm font-semibold ml-2 text-on-surface-variant">Number</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-md px-4 py-3 text-on-surface placeholder:text-outline-variant" placeholder="123" type="text"/>
+</div>
+<div class="col-span-6 md:col-span-4 space-y-1">
+<label class="text-sm font-semibold ml-2 text-on-surface-variant">Complement</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-md px-4 py-3 text-on-surface placeholder:text-outline-variant" placeholder="Apt, Suite, etc." type="text"/>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary (Sticky) -->
+<aside class="md:col-span-5">
+<div class="sticky top-24 space-y-6">
+<div class="bg-white p-8 rounded-lg shadow-xl shadow-[#251818]/5 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary to-primary-container"></div>
+<h2 class="text-2xl font-extrabold mb-6 tracking-tight flex items-center gap-2">
+                        Order Summary
+                    </h2>
+<!-- Product List -->
+<div class="space-y-6 mb-8">
+<div class="flex gap-4 items-center">
+<div class="relative w-16 h-16 shrink-0">
+<img alt="Belgian Chocolate Brownie" class="w-full h-full object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBgOv8p6DRp7lSOfNgdhSWFPS-IaB85RCdgWWoxVQdbB-0_8sZP0R6t2E8jhJ9FrevYjUpcW_bfAOkT8udHFtCwnOfsQJVVaNxLN6CJdcPb2eA8VnKeRyPJa-zuc4E50Y9p2nr9EQ3eVELDYqRytvngN-uh-f61xHRXkQ-Muwn2820EMdgxn_wdmoqJYG4lDpYpXikVhvKDG8NLM-J5Xfc7nwRsLpNorEa9Zf2g7QyrZamZozI2wRzMXz-Sk1EDxJFAOmfhC5U76Xx"/>
+<span class="absolute -top-2 -right-2 bg-secondary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">2x</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-sm">Belgian Chocolate Brownie</h4>
+<p class="text-xs text-on-surface-variant">Extra Fudge topping</p>
+</div>
+<span class="font-bold text-sm text-primary">$18.00</span>
+</div>
+<div class="flex gap-4 items-center">
+<div class="relative w-16 h-16 shrink-0">
+<img alt="Strawberry Glazed Donut" class="w-full h-full object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhDC9v4WW7QPWThaevVdbVXA769KkD3LaIl2G5IeywBvX86v9umtvctjV9wgb9AX8LccmaoyFLHAyuZPqBRygGOg50hO7LU0PL6arypjWOceYqfMvDNtOUZTymFwg-j1FCEi2jykHPPwJJKd4cHcBrIw5_IcKirYx7m3j316suVVrooq9_3jzjD4iPRTijrM54F1h-MNUt10BzeHQ9uXCfnxgaMEabsoIebpoukIF5wIqTfPkYBpN8eImpJOU7wlOYUXDr9Dlo-4v1"/>
+<span class="absolute -top-2 -right-2 bg-secondary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">1x</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-sm">Strawberry Glazed Donut</h4>
+<p class="text-xs text-on-surface-variant">Sprinkles edition</p>
+</div>
+<span class="font-bold text-sm text-primary">$4.50</span>
+</div>
+</div>
+<!-- Payment Method Section (Forma de Pagamento) -->
+<div class="mb-6 p-4 bg-surface-container-low rounded-lg border border-outline-variant/30">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="payments">payments</span>
+<h3 class="font-bold text-sm uppercase tracking-wider">Forma de Pagamento</h3>
+</div>
+<div class="grid grid-cols-1 gap-2">
+<label class="flex items-center gap-3 p-3 rounded-md bg-white cursor-pointer border-2 border-transparent has-[:checked]:border-primary transition-all shadow-sm">
+<input checked="" class="text-primary focus:ring-primary h-4 w-4" name="payment_method" type="radio" value="pix"/>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="qr_code_2">qr_code_2</span>
+<span class="text-sm font-semibold">Pix</span>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-md bg-white cursor-pointer border-2 border-transparent has-[:checked]:border-primary transition-all shadow-sm">
+<input class="text-primary focus:ring-primary h-4 w-4" name="payment_method" type="radio" value="cash"/>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="payments">payments</span>
+<span class="text-sm font-semibold">Dinheiro</span>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-md bg-zinc-100/50 cursor-not-allowed border-2 border-transparent opacity-60">
+<input class="text-zinc-400 h-4 w-4" disabled="" name="payment_method" type="radio" value="card"/>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-zinc-400 text-lg" data-icon="credit_card">credit_card</span>
+<div class="flex flex-col">
+<span class="text-sm font-semibold">Cartão</span>
+<span class="text-[10px] font-bold text-primary italic">(em breve)</span>
+</div>
+</div>
+</label>
+</div>
+</div>
+<!-- Summary Totals -->
+<div class="bg-surface-container-low rounded-md p-4 space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Subtotal</span>
+<span class="font-medium">$22.50</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Delivery Fee</span>
+<span class="font-medium">$5.00</span>
+</div>
+<div class="flex justify-between text-sm text-secondary">
+<span class="font-semibold">Discount (SWEET10)</span>
+<span class="font-bold">-$2.25</span>
+</div>
+<div class="flex justify-between text-xs py-1 border-t border-dashed border-outline-variant/30 mt-2">
+<span class="text-on-surface-variant font-medium">Payment:</span>
+<span class="font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="qr_code_2">qr_code_2</span>
+                                Pix
+                            </span>
+</div>
+<div class="pt-4 mt-2 border-t border-outline-variant/20 flex justify-between items-end">
+<span class="text-lg font-black uppercase tracking-tighter">Total</span>
+<span class="text-3xl font-black text-primary tracking-tighter">$25.25</span>
+</div>
+</div>
+<button class="w-full mt-8 bg-gradient-to-r from-primary to-primary-container text-white font-bold py-5 rounded-full shadow-lg shadow-primary/30 active:scale-95 transition-all flex items-center justify-center gap-2">
+<span>Confirm Order</span>
+<span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span>
+</button>
+<p class="text-center text-[10px] mt-4 text-on-surface-variant uppercase font-bold tracking-[0.2em]">
+                        Estimated delivery: 25 - 40 min
+                    </p>
+</div>
+<!-- Trust Badge -->
+<div class="flex items-center justify-center gap-4 text-outline">
+<span class="material-symbols-outlined text-4xl" data-icon="verified_user">verified_user</span>
+<div class="leading-tight">
+<p class="text-[10px] font-bold uppercase tracking-widest">Secure Checkout</p>
+<p class="text-[11px]">Your data is protected by SSL</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#fff8f7]/80 backdrop-blur-xl shadow-[0_-10px_40px_rgba(37,24,24,0.08)] rounded-t-[3rem] z-50">
+<a class="flex flex-col items-center justify-center text-[#251818]/50 opacity-80 hover:opacity-100 transition-all active:scale-90 duration-300 spring-action" href="#">
+<span class="material-symbols-outlined" data-icon="bakery_dining">bakery_dining</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest">Store</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#FF6B6B] text-white rounded-full px-6 py-2 scale-110 shadow-lg shadow-[#FF6B6B]/30 active:scale-90 duration-300 spring-action" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#251818]/50 opacity-80 hover:opacity-100 transition-all active:scale-90 duration-300 spring-action" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#251818]/50 opacity-80 hover:opacity-100 transition-all active:scale-90 duration-300 spring-action" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard_customize">dashboard_customize</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest">Admin</span>
+</a>
+</nav>
+</body></html>

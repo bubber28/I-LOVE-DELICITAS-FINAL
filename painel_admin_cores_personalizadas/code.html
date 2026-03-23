@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SweetAdmin - I Love Delicitas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ae2f34", // Brand Deep Red from logo
+              "brand-coral": "#FF6B6B", // Brand Coral
+              "brand-gold": "#d4af37", // From logo text
+              "slate-bg": "#f8fafc", // Soft slate background
+              "slate-card": "#ffffff", 
+              "on-background": "#334155", // Slate 700
+              "on-surface-variant": "#64748b", // Slate 500
+              "surface-container": "#f1f5f9", // Slate 100
+              "secondary": "#0ea5e9", // Sky blue for professional accents
+              "secondary-container": "#e0f2fe",
+              "error": "#ef4444",
+              "surface-container-low": "#f8fafc"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "0.75rem", "lg": "1.5rem", "xl": "2.25rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        body {
+            background-color: #f8fafc; /* slate-50 */
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="text-on-background font-body antialiased min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-40 bg-white/80 dark:bg-slate-950/70 flex justify-between items-center px-6 py-4 backdrop-blur-xl border-b border-slate-200/60 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center overflow-hidden shadow-sm">
+<img alt="Brand Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ug9pEscIuL2DlpA17jlxEDClMUUl57IcXfA7OVPOBmhp5sAf7PwxKnpbI1tY9CcPsm_Q_lnh_6nc7K9s-Ufu8Vl1c-OjwARYp7iAHfnZcmG0DBwt67Xn07BOzLg_PKmoimX0VhBx_7sWyf5BR1B5okOzwW7leBDUVxtd-hraOOegasbSbL6SufvbUq093ykJtCjJbgzAXz6oOZhTDNVOwf2jgT_67YQ89bs9nwJk_awO3yEeaN9p4lZbmtoAwd21a5JeopnxomDwkc"/>
+</div>
+<div class="flex flex-col">
+<span class="text-primary font-['Plus_Jakarta_Sans'] font-extrabold text-xl tracking-tight leading-none">SweetAdmin</span>
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest mt-0.5">Management Suite</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors active:scale-95 duration-200 text-slate-600">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="px-6 py-6 space-y-8">
+<!-- Welcome Hero with professional gradient -->
+<section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-[#8c252a] p-6 text-white shadow-lg shadow-primary/10">
+<div class="relative z-10 max-w-[65%]">
+<h1 class="font-headline font-extrabold text-2xl leading-tight mb-2">Boa tarde, Chef!</h1>
+<p class="text-white/80 text-sm leading-relaxed font-medium">As delícias "I Love Delicitas" estão com alta demanda hoje. Acompanhe o desempenho em tempo real.</p>
+</div>
+<div class="absolute -right-6 -bottom-6 w-48 h-48 transform rotate-6 opacity-95 pointer-events-none">
+<img class="w-full h-full object-contain drop-shadow-2xl" data-alt="High quality chocolate cake" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4XV4OXdwWk0lbe3LCn9IeRkTro34far_1BFXqD7RGtBCnEkgW26Vkobg1B8PpQP49rC-5sG_9mDMhgCA0c9vZ8CJp0nIMeJ6KOEoSyShpeflYeUgDn43SvMvjWI0sp6LnUbt-GoYZ8M9VGwNOe-5jn9-cp3MlTOy983SWGbduA6n0rxOJAw1sfgdhVvtYJt2Sq5BwbGUzjbg-KvlT8X4ZEMFZklzKqC4-gk6eACf2BzWwpFjHdYwx-sLZTKWMHoL3-REY6eEX093h"/>
+</div>
+</section>
+<!-- Quick Actions -->
+<section class="flex gap-3 overflow-x-auto hide-scrollbar -mx-6 px-6">
+<button class="flex-shrink-0 flex items-center gap-2 bg-slate-800 text-white px-5 py-3.5 rounded-xl font-bold shadow-md active:scale-95 transition-all text-sm">
+<span class="material-symbols-outlined text-lg" data-icon="add_circle">add_circle</span>
+<span>Novo Produto</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-2 bg-white border border-slate-200 text-slate-700 px-5 py-3.5 rounded-xl font-bold shadow-sm active:scale-95 transition-all text-sm">
+<span class="material-symbols-outlined text-lg" data-icon="list_alt">list_alt</span>
+<span>Ver Pedidos</span>
+</button>
+</section>
+<!-- Metrics Grid -->
+<section class="grid grid-cols-2 gap-4">
+<div class="col-span-2 bg-white p-6 rounded-2xl border border-slate-100 shadow-sm relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1">Faturamento Total</p>
+<h2 class="font-headline font-extrabold text-3xl text-slate-800">R$ 12.450</h2>
+</div>
+<div class="bg-brand-coral/10 p-2.5 rounded-xl">
+<span class="material-symbols-outlined text-brand-coral" data-icon="payments">payments</span>
+</div>
+</div>
+<!-- Refined Sparkline -->
+<div class="mt-8 flex items-end gap-1.5 h-10">
+<div class="flex-1 bg-slate-200 h-1/2 rounded-full"></div>
+<div class="flex-1 bg-slate-200 h-2/3 rounded-full"></div>
+<div class="flex-1 bg-slate-200 h-1/2 rounded-full"></div>
+<div class="flex-1 bg-brand-coral/40 h-3/4 rounded-full"></div>
+<div class="flex-1 bg-brand-coral/60 h-1/2 rounded-full"></div>
+<div class="flex-1 bg-brand-coral h-full rounded-full"></div>
+<div class="flex-1 bg-brand-coral/30 h-2/3 rounded-full"></div>
+</div>
+</div>
+<div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between h-32">
+<div class="bg-sky-50 w-9 h-9 rounded-xl flex items-center justify-center border border-sky-100">
+<span class="material-symbols-outlined text-sky-600 text-base" data-icon="shopping_bag">shopping_bag</span>
+</div>
+<div>
+<p class="text-on-surface-variant text-[10px] font-bold uppercase tracking-wide">Pedidos</p>
+<h3 class="font-headline font-bold text-xl text-slate-800">145</h3>
+</div>
+</div>
+<div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between h-32">
+<div class="bg-amber-50 w-9 h-9 rounded-xl flex items-center justify-center border border-amber-100">
+<span class="material-symbols-outlined text-amber-600 text-base" data-icon="bakery_dining">bakery_dining</span>
+</div>
+<div>
+<p class="text-on-surface-variant text-[10px] font-bold uppercase tracking-wide">Ativos</p>
+<h3 class="font-headline font-bold text-xl text-slate-800">24</h3>
+</div>
+</div>
+</section>
+<!-- Performance Chart -->
+<section class="space-y-4">
+<h3 class="font-headline font-extrabold text-lg px-1 flex items-center gap-2">
+<span class="w-1.5 h-6 bg-primary rounded-full"></span>
+Tendência de Pedidos
+</h3>
+<div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+<div class="flex justify-between items-center mb-8">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Últimos 7 Dias</span>
+<div class="flex items-center gap-1.5 bg-emerald-50 text-emerald-600 font-bold text-xs px-2.5 py-1 rounded-full border border-emerald-100">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span>+12.5%</span>
+</div>
+</div>
+<div class="flex items-end justify-between h-32 gap-3 px-2">
+<div class="w-full bg-slate-100 rounded-t-lg h-[40%]"></div>
+<div class="w-full bg-slate-100 rounded-t-lg h-[60%]"></div>
+<div class="w-full bg-brand-coral rounded-t-lg h-[85%] relative">
+<div class="absolute -top-7 left-1/2 -translate-x-1/2 bg-slate-800 text-[10px] text-white px-2 py-1 rounded-md font-bold">28</div>
+</div>
+<div class="w-full bg-slate-100 rounded-t-lg h-[55%]"></div>
+<div class="w-full bg-slate-100 rounded-t-lg h-[70%]"></div>
+<div class="w-full bg-slate-100 rounded-t-lg h-[45%]"></div>
+<div class="w-full bg-primary/20 rounded-t-lg h-[90%]"></div>
+</div>
+<div class="flex justify-between mt-4 px-1">
+<span class="text-[10px] text-on-surface-variant font-bold">Seg</span>
+<span class="text-[10px] text-on-surface-variant font-bold">Ter</span>
+<span class="text-[10px] text-on-surface-variant font-bold">Qua</span>
+<span class="text-[10px] text-on-surface-variant font-bold">Qui</span>
+<span class="text-[10px] text-on-surface-variant font-bold">Sex</span>
+<span class="text-[10px] text-on-surface-variant font-bold">Sáb</span>
+<span class="text-[10px] text-on-surface-variant font-bold">Dom</span>
+</div>
+</div>
+</section>
+<!-- Recent Activity -->
+<section class="space-y-4">
+<div class="flex justify-between items-center px-1">
+<h3 class="font-headline font-extrabold text-lg flex items-center gap-2">
+<span class="w-1.5 h-6 bg-primary rounded-full"></span>
+Últimos Pedidos
+</h3>
+<button class="text-primary font-extrabold text-sm hover:underline">Ver tudo</button>
+</div>
+<div class="space-y-3">
+<!-- Order Item -->
+<div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center justify-between group active:bg-slate-50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 font-extrabold text-base border border-slate-200/50">
+                            MC
+                        </div>
+<div>
+<p class="font-bold text-slate-800">Maria Clara</p>
+<p class="text-[11px] text-on-surface-variant font-medium">2 cupcakes • R$ 28,00</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-600 text-[9px] font-extrabold uppercase tracking-wider mb-1 border border-emerald-100">Novo</span>
+<p class="text-[10px] text-on-surface-variant font-bold">2m ago</p>
+</div>
+</div>
+<!-- Order Item -->
+<div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center justify-between active:bg-slate-50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 font-extrabold text-base border border-slate-200/50">
+                            JO
+                        </div>
+<div>
+<p class="font-bold text-slate-800">João Oliveira</p>
+<p class="text-[11px] text-on-surface-variant font-medium">1 bolo de pote • R$ 15,00</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2.5 py-1 rounded-lg bg-sky-50 text-sky-600 text-[9px] font-extrabold uppercase tracking-wider mb-1 border border-sky-100">Preparo</span>
+<p class="text-[10px] text-on-surface-variant font-bold">15m ago</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-8 pt-4 backdrop-blur-xl bg-white/90 border-t border-slate-200/60 z-50 rounded-t-[2.5rem] shadow-2xl">
+<a class="flex flex-col items-center justify-center text-primary px-5 py-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold mt-1 uppercase tracking-tighter">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-1 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold mt-1 uppercase tracking-tighter">Vendas</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-1 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="bakery_dining">bakery_dining</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold mt-1 uppercase tracking-tighter">Produtos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-1 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold mt-1 uppercase tracking-tighter">Ajustes</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Delicitas - Admin Product Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#584140",
+                        "primary": "#ae2f34",
+                        "tertiary-fixed-dim": "#dec651",
+                        "outline-variant": "#e0bfbd",
+                        "on-tertiary-fixed-variant": "#524600",
+                        "on-secondary-container": "#006f69",
+                        "on-secondary-fixed": "#00201e",
+                        "secondary-container": "#79f3ea",
+                        "secondary": "#006a65",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#7cf6ec",
+                        "outline": "#8c706f",
+                        "on-tertiary-container": "#4a3f00",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#ecd5d3",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb3b0",
+                        "primary-container": "#ff6b6b",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#ffedeb",
+                        "surface": "#fff8f7",
+                        "primary-fixed": "#ffdad8",
+                        "on-tertiary-fixed": "#211b00",
+                        "surface-container": "#ffe9e7",
+                        "background": "#fff8f7",
+                        "surface-container-high": "#fbe3e1",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#fbe36a",
+                        "surface-container-low": "#fff0ef",
+                        "primary-fixed-dim": "#ffb3b0",
+                        "on-primary-fixed-variant": "#8c1520",
+                        "tertiary-container": "#c1ab38",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#f5dddb",
+                        "on-surface": "#251818",
+                        "surface-tint": "#ae2f34",
+                        "surface-bright": "#fff8f7",
+                        "on-primary-container": "#6d0010",
+                        "inverse-surface": "#3b2d2c",
+                        "on-primary-fixed": "#410006",
+                        "surface-variant": "#f5dddb",
+                        "on-background": "#251818",
+                        "tertiary": "#6d5e00",
+                        "on-secondary-fixed-variant": "#00504c",
+                        "secondary-fixed-dim": "#5dd9d0"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .admin-sidebar-active {
+            @apply bg-primary text-white shadow-lg shadow-primary/20;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fff8f7]/80 backdrop-blur-xl border-b border-outline-variant/20 flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden border-2 border-primary/20">
+<img alt="Delicitas Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ug9pEscIuL2DlpA17jlxEDClMUUl57IcXfA7OVPOBmhp5sAf7PwxKnpbI1tY9CcPsm_Q_lnh_6nc7K9s-Ufu8Vl1c-OjwARYp7iAHfnZcmG0DBwt67Xn07BOzLg_PKmoimX0VhBx_7sWyf5BR1B5okOzwW7leBDUVxtd-hraOOegasbSbL6SufvbUq093ykJtCjJbgzAXz6oOZhTDNVOwf2jgT_67YQ89bs9nwJk_awO3yEeaN9p4lZbmtoAwd21a5JeopnxomDwkc"/>
+</div>
+<span class="text-2xl font-black text-primary italic font-['Plus_Jakarta_Sans'] tracking-tight">Delicitas</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<button class="flex items-center gap-2 group p-1 pr-3 rounded-full hover:bg-surface-container-high transition-colors border border-outline-variant/20">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-lg">admin_panel_settings</span>
+</div>
+<span class="font-bold text-sm hidden md:block text-on-surface">Admin</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-8 max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+<div>
+<h1 class="text-4xl font-extrabold text-on-surface tracking-tight mb-2">Gerenciamento de Produtos</h1>
+<p class="text-on-surface-variant font-medium">Controle seu estoque de doçuras e edite o catálogo em tempo real.</p>
+</div>
+<button class="bg-primary text-white px-8 py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all shadow-xl shadow-primary/25">
+<span class="material-symbols-outlined">add_circle</span>
+                Novo Produto
+            </button>
+</div>
+<!-- Dashboard Stats (Refined Admin Look) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/20 shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-8xl">inventory</span>
+</div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2 opacity-70">Total de Itens</p>
+<div class="flex items-end gap-2">
+<h3 class="text-4xl font-black text-on-surface">128</h3>
+<span class="text-secondary text-sm font-bold mb-1">+4 esta semana</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/20 shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-8xl">warning</span>
+</div>
+<p class="text-xs font-bold text-primary uppercase tracking-widest mb-2 opacity-70">Baixo Estoque</p>
+<div class="flex items-end gap-2">
+<h3 class="text-4xl font-black text-primary">12</h3>
+<span class="text-primary/70 text-sm font-bold mb-1">Requer atenção</span>
+</div>
+</div>
+<div class="bg-primary p-6 rounded-2xl border border-primary/10 shadow-xl shadow-primary/10 relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-8xl text-white">star</span>
+</div>
+<p class="text-xs font-bold text-white/70 uppercase tracking-widest mb-2">Mais Vendido</p>
+<h3 class="text-2xl font-black text-white">Macaron Rosé</h3>
+</div>
+</div>
+<!-- Filters and Search -->
+<div class="bg-surface-container-lowest p-4 rounded-2xl mb-8 flex flex-col lg:flex-row gap-4 items-center border border-outline-variant/20 shadow-sm">
+<div class="relative w-full lg:w-1/3">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/60">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border border-transparent rounded-xl focus:ring-2 focus:ring-primary/40 focus:bg-white transition-all placeholder:text-on-surface-variant/50 text-sm" placeholder="Buscar por nome ou categoria..." type="text"/>
+</div>
+<div class="flex gap-2 w-full lg:w-auto overflow-x-auto pb-2 lg:pb-0 scrollbar-hide">
+<button class="whitespace-nowrap px-5 py-2.5 bg-primary text-white rounded-full text-xs font-bold shadow-md shadow-primary/10">Todos</button>
+<button class="whitespace-nowrap px-5 py-2.5 bg-surface-container-low text-on-surface-variant border border-outline-variant/10 rounded-full text-xs font-bold hover:bg-surface-container transition-colors">Bolos</button>
+<button class="whitespace-nowrap px-5 py-2.5 bg-surface-container-low text-on-surface-variant border border-outline-variant/10 rounded-full text-xs font-bold hover:bg-surface-container transition-colors">Doces Finos</button>
+<button class="whitespace-nowrap px-5 py-2.5 bg-surface-container-low text-on-surface-variant border border-outline-variant/10 rounded-full text-xs font-bold hover:bg-surface-container transition-colors">Bebidas</button>
+<button class="whitespace-nowrap px-5 py-2.5 bg-surface-container-low text-on-surface-variant border border-outline-variant/10 rounded-full text-xs font-bold hover:bg-surface-container transition-colors">Sazonais</button>
+</div>
+<div class="lg:ml-auto flex gap-2">
+<button class="p-2.5 border border-outline-variant/30 rounded-xl hover:bg-surface-container-high transition-colors" title="Exportar CSV">
+<span class="material-symbols-outlined text-on-surface-variant">download</span>
+</button>
+<button class="p-2.5 border border-outline-variant/30 rounded-xl hover:bg-surface-container-high transition-colors" title="Configurações da Tabela">
+<span class="material-symbols-outlined text-on-surface-variant">settings_input_component</span>
+</button>
+</div>
+</div>
+<!-- Product Table Container -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/20 shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50 border-b border-outline-variant/20">
+<th class="px-6 py-5 font-bold text-on-surface-variant text-[11px] uppercase tracking-widest">Produto</th>
+<th class="px-6 py-5 font-bold text-on-surface-variant text-[11px] uppercase tracking-widest">Categoria</th>
+<th class="px-6 py-5 font-bold text-on-surface-variant text-[11px] uppercase tracking-widest">Preço</th>
+<th class="px-6 py-5 font-bold text-on-surface-variant text-[11px] uppercase tracking-widest">Estoque</th>
+<th class="px-6 py-5 font-bold text-on-surface-variant text-[11px] uppercase tracking-widest">Status</th>
+<th class="px-6 py-5 font-bold text-on-surface-variant text-[11px] uppercase tracking-widest text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-primary-container/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden flex-shrink-0 border border-outline-variant/10 shadow-sm">
+<img alt="Strawberry Cupcake" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Close up of a pink gourmet strawberry cupcake" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz0SM66ibaDJsc2mp-Tu9Ex83-KtmrRZ2I3h6Ly3dyz-CSkf68LdpnZwQOknXqRBtouDH-fCiW-WMuqFGvIAD5s5L-sfiIGUYBL9Mz3i8EEUSEDpxeZ6izXOWgZrVuH-nOhTkvggnJkk-4zMNsEASK1hXDxZ71KC6TQSUXM6u1XybTzPsEOj7z_uUWvHkKcVcPTxZrd7ZFyQ4hsI-PcM5NWsnfTU-lczR1G_pZnDwVDADeJ9faSfmup3JYY0dRW2EOimGdtuHEGrEO"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Cupcake de Morango Real</p>
+<p class="text-[10px] text-on-surface-variant font-medium">REF: #10293</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-semibold text-on-surface-variant">Doces Finos</span>
+</td>
+<td class="px-6 py-5 font-bold text-on-surface text-sm">R$ 18,90</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[65%]"></div>
+</div>
+<span class="text-xs font-bold text-on-surface">42 un.</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex px-3 py-1 rounded-full text-[10px] font-bold bg-secondary/10 text-secondary uppercase border border-secondary/20">Ativo</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 hover:bg-primary-fixed rounded-xl text-primary transition-colors" title="Editar">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container/50 rounded-xl text-error transition-colors" title="Excluir">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-primary-container/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden flex-shrink-0 border border-outline-variant/10 shadow-sm">
+<img alt="Chocolate Truffle" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Selection of dark chocolate truffles with gold leaf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdoOaknHmnAg6BUXUc3qcG9SQQFIfkdXYGe9oCkKcjRZ2--s6L_GJRvc4ERXoyzOY-C5B7EftSUEnTdBDKQJ0dVYX9hThB81fWDETgrbAlKpD3ntc1pRBq_D_tvUrrJZ3R6V61HeCuJyEBLLA-lIV71pNdHVLwJO1zZ1lpsIo6eHMlvlcIq_eqnv46woKlXYsYeHuUpzNUxkmBsuo34xMe4ftVKX9hy9pQ28WeyIm0Kolc3hEETPqv1oVfeV03JwtA3zUvlzijnDjZ"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Trufa Belga 70%</p>
+<p class="text-[10px] text-on-surface-variant font-medium">REF: #10294</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-semibold text-on-surface-variant">Chocolateria</span>
+</td>
+<td class="px-6 py-5 font-bold text-on-surface text-sm">R$ 12,50</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[15%]"></div>
+</div>
+<span class="text-xs font-bold text-primary">5 un.</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex px-3 py-1 rounded-full text-[10px] font-bold bg-primary/10 text-primary uppercase border border-primary/20">Crítico</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 hover:bg-primary-fixed rounded-xl text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container/50 rounded-xl text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-primary-container/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden flex-shrink-0 border border-outline-variant/10 shadow-sm">
+<img alt="Pistachio Macaron" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Plate of colorful French macarons with pistachio highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtFzPOlJRCT0epNz4xv7y6mZchF2YpKquDY2hQ1_AmGe3onKHlvjQkE9WtX_iXQQUNBbQOHCLvCS_S1hPFQNNEgTuHZ4gaq5ww_s3zO1EiavD_ZJyZp8WLbycnmoNHg7K6M6fPRoSA9J0zVQ3p5pORxBb-m4GwZ5lbHo2lguZrlcnwlEjqNfnGuyxRVLHslwwtwiwi6ajjsI0TxgOVogMzfLtuor7oy2moBVq0W7hkxoUF7iHL_Nqag1ZKwMry6CrVm72POGLnItaj"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Macaron de Pistache</p>
+<p class="text-[10px] text-on-surface-variant font-medium">REF: #10295</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-semibold text-on-surface-variant">Doces Finos</span>
+</td>
+<td class="px-6 py-5 font-bold text-on-surface text-sm">R$ 9,00</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[90%]"></div>
+</div>
+<span class="text-xs font-bold text-on-surface">115 un.</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex px-3 py-1 rounded-full text-[10px] font-bold bg-secondary/10 text-secondary uppercase border border-secondary/20">Ativo</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 hover:bg-primary-fixed rounded-xl text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container/50 rounded-xl text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-primary-container/5 transition-colors group opacity-60">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container overflow-hidden flex-shrink-0 border border-outline-variant/10 shadow-sm grayscale">
+<img alt="Red Velvet Cake" class="w-full h-full object-cover" data-alt="Red velvet cake with white cream frosting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnZmV_5LCLGFzqsf4fsGjJqfW9l8O2-fuk4U3_IkksS8HPPSSdHE1Q5BYkplJqU--0ElqlfOYXUoIsXKcWfVXVLlV1Iraiiool-PaxlU_NyzZbe2kHR-Fcr3iftAhYAzlvrfVvnR_Ati_w7nPNbOMAppjr8TDuKF4ypq32KM2sIerlqdx3gPK8E-gykk8eUJWVY_UB_tWhf3rnwP-xnNyWTpLMdKtm0PkRTFa6469A0AGX264pNoyxA761iXB49tltJdVkUJ4c5Lid"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Bolo Red Velvet P</p>
+<p class="text-[10px] text-on-surface-variant font-medium">REF: #10296</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-semibold text-on-surface-variant">Bolos</span>
+</td>
+<td class="px-6 py-5 font-bold text-on-surface text-sm">R$ 85,00</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-outline w-0"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">0 un.</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex px-3 py-1 rounded-full text-[10px] font-bold bg-outline-variant/30 text-on-surface-variant uppercase border border-outline-variant/40">Inativo</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 hover:bg-primary-fixed rounded-xl text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+<button class="p-2 hover:bg-primary-fixed rounded-xl text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-surface-container-low/30 flex items-center justify-between border-t border-outline-variant/20">
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Exibindo 4 de 128 produtos</span>
+<div class="flex gap-2">
+<button class="w-9 h-9 rounded-full bg-white border border-outline-variant/30 text-on-surface flex items-center justify-center hover:bg-primary-fixed transition-all">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold shadow-md shadow-primary/20">1</button>
+<button class="w-9 h-9 rounded-full bg-white border border-outline-variant/30 text-on-surface flex items-center justify-center hover:bg-primary-fixed transition-all text-sm font-bold">2</button>
+<button class="w-9 h-9 rounded-full bg-white border border-outline-variant/30 text-on-surface flex items-center justify-center hover:bg-primary-fixed transition-all">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Layout - Admin Context) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/90 backdrop-blur-xl border-t border-outline-variant/20 z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-tighter">Dash</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-tighter">Pedidos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary px-4 py-2 relative" href="#">
+<div class="absolute -top-1 w-12 h-1 bg-primary rounded-full"></div>
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-tighter">Produtos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-tighter">Relatórios</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Delicitas - Entrar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#FF6B6B",
+              "primary-foreground": "#ffffff",
+              "background": "#fffcfc",
+              "surface": "#ffffff",
+              "on-surface": "#2d1a1a",
+              "muted": "#f4ebeb",
+              "on-muted": "#7c6a6a",
+              "border": "#f0e1e1",
+              "input": "#f9f1f1",
+              "ring": "#FF6B6B"
+            },
+            fontFamily: {
+              "sans": ["Plus Jakarta Sans", "sans-serif"],
+              "headline": ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: {
+              "lg": "1.25rem",
+              "md": "0.75rem",
+              "sm": "0.5rem"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        background: radial-gradient(circle at top right, #fff5f5, #ffffff);
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 107, 107, 0.1);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      }
+    </style>
+</head>
+<body class="font-sans text-on-surface min-h-screen flex flex-col items-center justify-center p-6 bg-background">
+<main class="w-full max-w-[400px]">
+<!-- Brand/Logo Section -->
+<div class="flex flex-col items-center mb-10 text-center">
+<div class="mb-6 relative">
+<div class="absolute inset-0 bg-primary/10 rounded-full blur-2xl"></div>
+<img alt="Logo Delicitas" class="w-32 h-32 object-contain relative rounded-full shadow-sm" src="https://lh3.googleusercontent.com/aida/ADBb0ug9pEscIuL2DlpA17jlxEDClMUUl57IcXfA7OVPOBmhp5sAf7PwxKnpbI1tY9CcPsm_Q_lnh_6nc7K9s-Ufu8Vl1c-OjwARYp7iAHfnZcmG0DBwt67Xn07BOzLg_PKmoimX0VhBx_7sWyf5BR1B5okOzwW7leBDUVxtd-hraOOegasbSbL6SufvbUq093ykJtCjJbgzAXz6oOZhTDNVOwf2jgT_67YQ89bs9nwJk_awO3yEeaN9p4lZbmtoAwd21a5JeopnxomDwkc"/>
+</div>
+<h1 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface mb-2">Bem-vindo(a)</h1>
+<p class="text-on-muted text-sm font-medium">
+                Entre para saborear o que há de melhor em nossa confeitaria editorial.
+            </p>
+</div>
+<!-- Login Card (shadcn-like structure) -->
+<div class="glass-card rounded-lg p-6 md:p-8 shadow-xl shadow-primary/5">
+<form class="space-y-5">
+<!-- Email Field -->
+<div class="space-y-1.5">
+<label class="text-sm font-semibold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="email">E-mail</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-muted">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<input class="flex h-12 w-full rounded-md border border-input bg-input/50 px-11 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-on-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all" id="email" placeholder="seu@email.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center">
+<label class="text-sm font-semibold leading-none" for="password">Senha</label>
+<a class="text-xs font-bold text-primary hover:underline underline-offset-4 transition-all" href="#">Esqueci minha senha</a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-muted">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<input class="flex h-12 w-full rounded-md border border-input bg-input/50 px-11 py-2 text-sm ring-offset-background placeholder:text-on-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all" id="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-on-muted hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="pt-2">
+<button class="inline-flex items-center justify-center rounded-full text-sm font-bold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-4 py-2 w-full shadow-lg shadow-primary/20 active:scale-[0.98] gap-2" type="submit">
+                        Entrar
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Separator -->
+<div class="relative my-8">
+<div class="absolute inset-0 flex items-center">
+<span class="w-full border-t border-border"></span>
+</div>
+<div class="relative flex justify-center text-xs uppercase">
+<span class="bg-white px-3 text-on-muted font-bold tracking-wider">Ou continue com</span>
+</div>
+</div>
+<!-- Social Auth -->
+<div class="grid grid-cols-2 gap-3">
+<button class="inline-flex items-center justify-center rounded-md text-xs font-bold border border-input bg-background hover:bg-muted h-10 px-4 py-2 transition-colors gap-2">
+<img alt="Google" class="w-4 h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCBLEOwRj-VyM1aFQvoCDHZGedpkg9DQ1_czk3gD8czwZhVPbS2FgDANGMWSycp1WDAg_7cRxOz_fRJGt4y8PJC-l6rjUFmv9_VAIgiZq5vL4mRT-SW3mQ71EwYhLj0AKuXtXoP25IBkJp7KVTZ88rqsczg4SnVHE2Q8bdIzvH5rG2n_Gw6QSuqC18-waz9CZG7rRwRLbNdY1x2UE3ygV-tAvoh5qo4giXPkpQ0yB-RAOSExYQYbfRQICPFqfxJwO2X9dESP7hBxFL"/>
+                    Google
+                </button>
+<button class="inline-flex items-center justify-center rounded-md text-xs font-bold border border-input bg-background hover:bg-muted h-10 px-4 py-2 transition-colors gap-2">
+<span class="material-symbols-outlined text-[#1877F2] text-[18px]" style="font-variation-settings: 'FILL' 1;">facebook</span>
+                    Facebook
+                </button>
+</div>
+</div>
+<!-- Footer link -->
+<div class="mt-8 text-center">
+<p class="text-on-muted text-sm font-medium">
+                Não tem uma conta? 
+                <a class="text-primary font-bold hover:underline underline-offset-4 transition-all ml-1" href="#">Criar conta</a>
+</p>
+</div>
+<!-- Footnote -->
+<div class="mt-12 text-center text-[10px] text-on-muted/40 tracking-widest uppercase font-bold">
+            © 2024 I Love Delicitas • Boutique Editorial
+        </div>
+</main>
+</body></html>

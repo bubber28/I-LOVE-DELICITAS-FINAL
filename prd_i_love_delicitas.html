@@ -1,0 +1,36 @@
+# PRD: I Love Delicitas - App de Delivery de Doces
+
+## Objetivo
+Criar um aplicativo web de delivery de doces chamado "I Love Delicitas", com frontend em React/TypeScript/Vite, backend Supabase, e deploy na Vercel.
+
+## Tecnologias
+- React 18+, TypeScript, Vite, Tailwind CSS, shadcn/ui.
+- Supabase (Auth, Database, Storage).
+
+## Estrutura de Dados (Supabase)
+- `products`: id, name, description, price_cents, stock, active, image_url, category_id, cores, tamanhos.
+- `categories`: id, name.
+- `orders`: id, customer_name, customer_phone, status, total_cents.
+- `order_items`: id, order_id, product_id, product_name, unit_price_cents, quantity, line_total_cents.
+- `cupons`: id, codigo, desconto, validade, uso_maximo, usos_atual.
+- `admins`: user_id.
+- `app_config`: logo_text, logo_image_url, hero_title, hero_subtitle, primary_color (#FF6B6B), secondary_color (#4ECDC4), accent_color (#FFE66D).
+
+## Rotas Cliente
+- `/`: Home com Hero e destaques.
+- `/catalogo`: Lista completa com filtros.
+- `/carrinho`: Gestão de itens.
+- `/checkout`: Finalização de pedido.
+- `/pedidos`: Histórico.
+- `/login` / `/cadastro`: Autenticação.
+
+## Rotas Admin
+- `/admin/dashboard`: Métricas.
+- `/admin/produtos`: CRUD de produtos.
+- `/admin/pedidos`: Gestão de status.
+- `/admin/configuracoes`: Identidade visual e textos.
+
+## Regras de Design
+- Usar shadcn/ui rigorosamente.
+- Cores dinâmicas vindas do `app_config`.
+- Responsividade mobile-first.

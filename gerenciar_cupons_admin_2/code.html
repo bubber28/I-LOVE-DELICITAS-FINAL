@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Coupon Management - I Love Delicitas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#fff8f7",
+              "inverse-on-surface": "#ffedeb",
+              "primary-container": "#ff6b6b",
+              "on-secondary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#5dd9d0",
+              "secondary-fixed": "#7cf6ec",
+              "tertiary-fixed": "#fbe36a",
+              "on-secondary-fixed-variant": "#00504c",
+              "primary": "#ae2f34",
+              "surface-container-low": "#fff0ef",
+              "surface-bright": "#fff8f7",
+              "primary-fixed-dim": "#ffb3b0",
+              "on-primary": "#ffffff",
+              "surface-variant": "#f5dddb",
+              "primary-fixed": "#ffdad8",
+              "on-surface": "#251818",
+              "secondary": "#006a65",
+              "surface-dim": "#ecd5d3",
+              "on-background": "#251818",
+              "outline": "#8c706f",
+              "on-primary-fixed": "#410006",
+              "on-primary-container": "#6d0010",
+              "on-primary-fixed-variant": "#8c1520",
+              "on-tertiary-fixed-variant": "#524600",
+              "tertiary-fixed-dim": "#dec651",
+              "surface-container-high": "#fbe3e1",
+              "surface-container": "#ffe9e7",
+              "error": "#ba1a1a",
+              "surface-container-highest": "#f5dddb",
+              "error-container": "#ffdad6",
+              "surface-tint": "#ae2f34",
+              "on-secondary-fixed": "#00201e",
+              "outline-variant": "#e0bfbd",
+              "on-tertiary": "#ffffff",
+              "secondary-container": "#79f3ea",
+              "on-secondary-container": "#006f69",
+              "inverse-surface": "#3b2d2c",
+              "tertiary": "#6d5e00",
+              "on-tertiary-container": "#4a3f00",
+              "surface": "#fff8f7",
+              "inverse-primary": "#ffb3b0",
+              "on-surface-variant": "#584140",
+              "tertiary-container": "#c1ab38",
+              "on-tertiary-fixed": "#211b00",
+              "on-error-container": "#93000a",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-nav {
+        background: rgba(255, 248, 247, 0.7);
+        backdrop-filter: blur(12px);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body antialiased pb-24 md:pb-0 md:pl-72">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-30 bg-[#fff8f7] dark:bg-slate-950 flex items-center justify-between px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#FF6B6B] md:hidden">menu</span>
+<div class="flex items-center gap-2">
+<img alt="I Love Delicitas Logo" class="h-8 w-auto" data-alt="Logotipo I Love Delicitas doceria gourmet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIb-pDluE5V4hyO_pcBySZGeH_1bwAQKpaOU6byIHI96JxvjH_TVEwM4bPWRnlTrieQziOUFSJIzF6KAbUCKy3__NdPNXc3nyETqL2GtWdhhOJNscXPCZvx6Wgap9UiOpvJRbx98h5zdmjRfMlw5SZlfzf7M16UV1X8kA5xcILoo_ThHmVKi-LxMUerBFOdJRnkfGxjk_19oNG_91fj_iybUsYFLpDqHE6LLu64w7OXoya5Wr1O9VkT-7DcSq-i7lKKMZ7T-jIDs6O"/>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold text-2xl tracking-tight text-[#FF6B6B] dark:text-[#FF6B6B]">Coupon Management</h1>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-[#FF6B6B] p-2 hover:bg-[#ffe9e7] transition-colors rounded-full">search</button>
+<span class="material-symbols-outlined text-[#FF6B6B]">account_circle</span>
+</div>
+</header>
+<!-- NavigationDrawer (Desktop) -->
+<aside class="hidden md:flex fixed left-0 top-0 h-screen z-40 flex flex-col bg-[#fff8f7] dark:bg-slate-950 h-full w-72 rounded-r-[3rem] shadow-xl shadow-[#251818]/5">
+<div class="p-8 flex flex-col items-start gap-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-white overflow-hidden shadow-lg shadow-primary/20">
+<img alt="Admin" class="w-full h-full object-cover" data-alt="Foto de perfil do administrador" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRdbu7Ezrah2gcfes2eEb4tg4aG0EoaUYkrtjNGPRE-_KFG-jMl0rN_WONkC58-4mjFh49mh5tztpedAaBBVF0rSeNj0yXcE9g_DKZjhkSujmRRXBioyqRukp4DNMCRe7TL7Jc8Ve-4YPbydullzHnlU7qOCxeUjJB202JiodOJKY2-A7y8qNWMRo44UzBapt3BUamFonG-gBFZhWEQH2KX486UXC-HiXkomiSKOC0EAzvIk1s1LaWI-3uVxz3WESMzfDcANOHPvUs"/>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface">Admin Panel</p>
+<p class="text-xs text-on-surface-variant">Store Manager</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 text-[#251818] dark:text-slate-400 px-4 py-3 mx-2 hover:bg-[#fff0ef] rounded-full transition-all duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 bg-[#ffe9e7] dark:bg-slate-800 text-[#FF6B6B] font-bold rounded-full mx-2 px-4 py-3 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Coupons</span>
+</a>
+<a class="flex items-center gap-3 text-[#251818] dark:text-slate-400 px-4 py-3 mx-2 hover:bg-[#fff0ef] rounded-full transition-all duration-300" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Orders</span>
+</a>
+<a class="flex items-center gap-3 text-[#251818] dark:text-slate-400 px-4 py-3 mx-2 hover:bg-[#fff0ef] rounded-full transition-all duration-300" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Customers</span>
+</a>
+<a class="flex items-center gap-3 text-[#251818] dark:text-slate-400 px-4 py-3 mx-2 hover:bg-[#fff0ef] rounded-full transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Settings</span>
+</a>
+</nav>
+<div class="p-8">
+<div class="bg-surface-container-low rounded-lg p-4 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-16 h-16 bg-primary opacity-10 rounded-full"></div>
+<p class="text-xs font-bold text-primary uppercase tracking-tighter mb-1">Dica Pro</p>
+<p class="text-[10px] leading-tight text-on-surface-variant">Cupons com tempo limitado convertem 30% mais.</p>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="p-6 md:p-10 max-w-5xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="font-headline text-3xl md:text-4xl font-extrabold text-on-surface tracking-tight mb-2">Gerenciar Cupons</h2>
+<p class="text-on-surface-variant max-w-md">Crie, edite e monitore o desempenho das suas promoções de doces.</p>
+</div>
+<button class="bg-primary text-white font-headline font-bold py-4 px-8 rounded-full flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-transform w-full md:w-auto">
+<span class="material-symbols-outlined">add</span>
+                Novo Cupom
+            </button>
+</section>
+<!-- Search & Filter Bar -->
+<div class="bg-surface-container-low rounded-xl p-4 mb-8 flex flex-col md:flex-row gap-4 items-center">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-white border-none rounded-full py-3 pl-12 pr-6 focus:ring-2 focus:ring-secondary/40 text-on-surface placeholder-outline-variant font-medium" placeholder="Buscar por código ou valor..." type="text"/>
+</div>
+<div class="flex gap-2 w-full md:w-auto shrink-0">
+<button class="bg-white px-5 py-3 rounded-full flex items-center gap-2 text-sm font-bold border border-outline-variant/10 shadow-sm">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                    Filtros
+                </button>
+<button class="bg-white px-5 py-3 rounded-full flex items-center gap-2 text-sm font-bold border border-outline-variant/10 shadow-sm">
+<span class="material-symbols-outlined text-sm">swap_vert</span>
+                    Ordenar
+                </button>
+</div>
+</div>
+<!-- Coupons List Grid -->
+<div class="space-y-6">
+<div class="flex items-center justify-between mb-4 px-2">
+<h3 class="font-headline font-bold text-xl flex items-center gap-2">
+                    Ativos 
+                    <span class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-0.5 rounded-full">3 DISPONÍVEIS</span>
+</h3>
+</div>
+<!-- Coupon Card 1 -->
+<div class="group relative bg-surface-container-lowest rounded-lg p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary opacity-5 -mr-16 -mt-16 rounded-full group-hover:scale-110 transition-transform duration-500"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+<div class="flex items-start gap-4">
+<div class="bg-primary-container/10 p-4 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-headline font-extrabold text-2xl tracking-widest text-on-surface">DOCE10</span>
+<span class="bg-secondary/10 text-secondary text-[10px] font-bold px-2 py-1 rounded-full uppercase">Ativo</span>
+</div>
+<p class="text-on-surface-variant font-medium text-sm">Desconto de R$ 10,00 em pedidos acima de R$ 50,00</p>
+<div class="flex items-center gap-4 mt-3 text-xs font-bold text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">calendar_today</span> Expira: 24/11/2023</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">history</span> Criado há 2 dias</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 min-w-[200px]">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-on-surface-variant">Uso: 50/100</span>
+<span class="text-secondary">50%</span>
+</div>
+<div class="w-full h-3 bg-surface-container-low rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full w-1/2"></div>
+</div>
+</div>
+<div class="flex justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-full transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/5 rounded-full transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Coupon Card 2 -->
+<div class="group relative bg-surface-container-lowest rounded-lg p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary opacity-5 -mr-16 -mt-16 rounded-full group-hover:scale-110 transition-transform duration-500"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+<div class="flex items-start gap-4">
+<div class="bg-primary-container/10 p-4 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-headline font-extrabold text-2xl tracking-widest text-on-surface">BEMVINDO25</span>
+<span class="bg-secondary/10 text-secondary text-[10px] font-bold px-2 py-1 rounded-full uppercase">Ativo</span>
+</div>
+<p class="text-on-surface-variant font-medium text-sm">25% de desconto para novos clientes</p>
+<div class="flex items-center gap-4 mt-3 text-xs font-bold text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">calendar_today</span> Expira: 30/12/2023</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">history</span> Criado há 1 semana</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 min-w-[200px]">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-on-surface-variant">Uso: 124/200</span>
+<span class="text-secondary">62%</span>
+</div>
+<div class="w-full h-3 bg-surface-container-low rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full w-[62%]"></div>
+</div>
+</div>
+<div class="flex justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-full transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/5 rounded-full transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Inactive Section -->
+<div class="pt-8 opacity-60">
+<h3 class="font-headline font-bold text-xl mb-4 px-2">Inativos</h3>
+<div class="bg-surface-container rounded-lg p-6 border border-dashed border-outline-variant/50">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<div class="bg-outline-variant/20 p-4 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-3xl">confirmation_number</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-headline font-extrabold text-2xl tracking-widest text-on-surface">BLACKFRIDAY</span>
+<span class="bg-outline-variant/30 text-outline text-[10px] font-bold px-2 py-1 rounded-full uppercase">Expirado</span>
+</div>
+<p class="text-on-surface-variant font-medium text-sm">50% de desconto em todo o site</p>
+<div class="flex items-center mt-2 text-xs font-bold text-outline">
+                                    Expirado em 26/11/2022
+                                </div>
+</div>
+</div>
+<div class="flex justify-end gap-2">
+<button class="bg-white/50 px-4 py-2 rounded-full text-xs font-bold hover:bg-white transition-colors">Reativar</button>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#ffffff]/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-[0_-10px_40px_rgba(37,24,24,0.06)] rounded-t-[2.5rem]">
+<a class="flex flex-col items-center justify-center text-[#251818] dark:text-slate-400 opacity-60 hover:opacity-100 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#FF6B6B] text-white rounded-[1.5rem] px-5 py-2 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold">Coupons</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#251818] dark:text-slate-400 opacity-60 hover:opacity-100 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold">Reports</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#251818] dark:text-slate-400 opacity-60 hover:opacity-100 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold">Profile</span>
+</a>
+</nav>
+<!-- Contextual FAB (Only on main dashboard/lists as per rules) -->
+<button class="fixed bottom-24 right-6 md:hidden w-16 h-16 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center z-40 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

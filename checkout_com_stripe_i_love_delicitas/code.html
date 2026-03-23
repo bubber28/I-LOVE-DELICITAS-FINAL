@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#f5dddb",
+              "background": "#fff8f7",
+              "on-primary-fixed-variant": "#8c1520",
+              "on-secondary-fixed-variant": "#00504c",
+              "surface-bright": "#fff8f7",
+              "surface": "#fff8f7",
+              "outline": "#8c706f",
+              "on-secondary-container": "#006f69",
+              "surface-tint": "#ae2f34",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-surface": "#251818",
+              "inverse-surface": "#3b2d2c",
+              "on-tertiary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#5dd9d0",
+              "surface-variant": "#f5dddb",
+              "surface-container-high": "#fbe3e1",
+              "primary-fixed": "#ffdad8",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#fbe36a",
+              "tertiary-fixed-dim": "#dec651",
+              "surface-container": "#ffe9e7",
+              "primary-fixed-dim": "#ffb3b0",
+              "on-primary-fixed": "#410006",
+              "outline-variant": "#e0bfbd",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#7cf6ec",
+              "primary-container": "#ff6b6b",
+              "on-primary-container": "#6d0010",
+              "tertiary-container": "#c1ab38",
+              "tertiary": "#6d5e00",
+              "on-tertiary-fixed": "#211b00",
+              "on-surface-variant": "#584140",
+              "surface-container-low": "#fff0ef",
+              "inverse-on-surface": "#ffedeb",
+              "secondary-container": "#79f3ea",
+              "on-tertiary-container": "#4a3f00",
+              "secondary": "#006a65",
+              "on-tertiary-fixed-variant": "#524600",
+              "on-secondary": "#ffffff",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#00201e",
+              "inverse-primary": "#ffb3b0",
+              "primary": "#ae2f34",
+              "surface-dim": "#ecd5d3",
+              "on-background": "#251818"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      .glass-effect { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fff8f7]/70 dark:bg-[#1a1110]/70 backdrop-blur-xl flex items-center justify-between px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-200 text-[#FF6B6B] dark:text-[#ff8e8e]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold text-lg tracking-tight text-[#FF6B6B]">Checkout</h1>
+</div>
+<div class="text-[#FF6B6B] font-black italic">I Love Delicitas</div>
+</nav>
+<div class="fixed top-0 w-full z-40 bg-gradient-to-b from-[#fff0ef] to-transparent h-2 mt-16"></div>
+<main class="mt-20 px-4 max-w-2xl mx-auto space-y-6">
+<!-- Delivery Address Section -->
+<section class="bg-surface-container-low rounded-xl p-6 relative overflow-hidden">
+<div class="flex items-start justify-between relative z-10">
+<div class="space-y-1">
+<span class="text-xs font-bold uppercase tracking-widest text-primary/70 font-label">Endereço de Entrega</span>
+<h2 class="text-on-surface font-bold text-xl">Rua das Amêndoas, 123</h2>
+<p class="text-on-surface-variant text-sm">Bairro Doce Colina • São Paulo, SP</p>
+</div>
+<button class="bg-surface-container p-3 rounded-full text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+</div>
+<!-- Editorial overlap element -->
+<div class="absolute -right-4 -bottom-4 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-8xl" data-icon="location_on">location_on</span>
+</div>
+</section>
+<!-- Order Items List (Editorial Style) -->
+<section class="space-y-4">
+<h3 class="font-headline font-extrabold text-2xl text-on-surface px-2">Seu Pedido</h3>
+<div class="space-y-3">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest rounded-lg p-4 flex items-center gap-4 shadow-sm">
+<div class="w-20 h-20 rounded-full overflow-hidden bg-primary-container/20 flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Bolo de chocolate trufado" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQJKYtfmOvzPn2u5ms5qIFGWqz8ZNWB9ZFijoIAZA9fvz2Zrkp4DEREot6YkELC4XJn4AFR3Pvy80fe13M3S0ShqTE0N9MR9wGf2oaab6iJK6Drf6Oz5itEmHudfJ8P8kk0oMDspJ1vVhdh9kVTfed8TWUYPMs-r-rPfXAtur7YnxnCen6kxPIzZWDUZZh7SuiIKaZYT9uMH-50CncD9iGs9rqXuWol2g6VmYihQzKyxazSAzO_ZSPR-W6OlsjurBV4ALvfAK-6_zO"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-on-surface">Bolo Trufado Belga</h4>
+<span class="font-headline font-bold text-primary">R$ 89,90</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">1 unidade • Extra Cobertura</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest rounded-lg p-4 flex items-center gap-4 shadow-sm">
+<div class="w-20 h-20 rounded-full overflow-hidden bg-primary-container/20 flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Donuts coloridos variados" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxzSDuXeiy_OaU38xrTFeSvo5Q-0zCe9MjSvYNYE4EnCgxkkUoStVyQaXWiCImW6qGMCJS3jsFWX4ahvJsy7CwmmNfGWXzR-912MU8BjgPmm0iav3etJnfZezPppzEXvNQ5Ff9sBhKXJkkgATN4D47seRUfNMe0ErRYxWMT4rCJZvRjohxormEWcGY61ieG_ifm0WWml8746j8-GS4FvKOw1nhSSLXKGkOtKJVbEfsIE0QKx9jkoLOVddkn8t9nme2DBMd87dkB-2q"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-on-surface">Combo Sweet Box</h4>
+<span class="font-headline font-bold text-primary">R$ 45,00</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">6 donuts artesanais</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Payment Selection -->
+<section class="space-y-4">
+<h3 class="font-headline font-extrabold text-2xl text-on-surface px-2">Pagamento</h3>
+<div class="grid grid-cols-1 gap-3">
+<!-- Option Dinheiro -->
+<label class="group relative cursor-pointer">
+<input checked="" class="peer hidden" name="payment" type="radio"/>
+<div class="flex items-center gap-4 p-5 rounded-lg bg-surface-container-low border-2 border-transparent peer-checked:border-secondary-container transition-all group-hover:bg-surface-container">
+<div class="bg-surface-container p-3 rounded-full text-secondary">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<div class="flex-grow">
+<p class="font-bold text-on-surface">Dinheiro</p>
+<p class="text-xs text-on-surface-variant">Pagamento local na entrega</p>
+</div>
+<div class="opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</label>
+<!-- Option Cartão -->
+<label class="group relative cursor-pointer">
+<input class="peer hidden" name="payment" type="radio"/>
+<div class="flex items-center gap-4 p-5 rounded-lg bg-surface-container-low border-2 border-transparent peer-checked:border-secondary-container transition-all group-hover:bg-surface-container">
+<div class="bg-surface-container p-3 rounded-full text-secondary">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+</div>
+<div class="flex-grow">
+<p class="font-bold text-on-surface">Cartão de Crédito</p>
+<p class="text-xs text-on-surface-variant">Processado via Stripe</p>
+</div>
+<div class="opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</label>
+<!-- Option Pix -->
+<label class="group relative cursor-pointer">
+<input class="peer hidden" name="payment" type="radio"/>
+<div class="flex items-center gap-4 p-5 rounded-lg bg-surface-container-low border-2 border-transparent peer-checked:border-secondary-container transition-all group-hover:bg-surface-container">
+<div class="bg-surface-container p-3 rounded-full text-secondary">
+<span class="material-symbols-outlined" data-icon="qr_code_2">qr_code_2</span>
+</div>
+<div class="flex-grow">
+<p class="font-bold text-on-surface">Pix</p>
+<p class="text-xs text-on-surface-variant">Liberação imediata via Stripe</p>
+</div>
+<div class="opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</label>
+</div>
+</section>
+<!-- Summary & Totals -->
+<section class="bg-surface-container-high rounded-xl p-6 space-y-3">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal</span>
+<span>R$ 134,90</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Taxa de Entrega</span>
+<span class="text-secondary font-bold">Grátis</span>
+</div>
+<div class="pt-3 border-t border-outline-variant/30 flex justify-between items-end">
+<span class="font-headline font-bold text-lg">Total</span>
+<div class="text-right">
+<p class="text-primary font-headline font-black text-3xl">R$ 134,90</p>
+</div>
+</div>
+</section>
+<!-- Dynamic Action Button (Based on Selection Logic) -->
+<div class="pt-4 pb-8">
+<!-- State 1: Cash (Default/Active) -->
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-white py-5 rounded-full font-headline font-extrabold text-lg shadow-xl shadow-primary/20 active:scale-95 transition-transform">
+                Finalizar Pedido
+            </button>
+<!-- State 2: Card/Pix (Visual example of Stripe flow note) -->
+<p class="text-center text-xs text-on-surface-variant mt-4 px-8">
+                Ao selecionar Cartão ou Pix, você será redirecionado para o ambiente seguro do <span class="font-bold">Stripe Checkout</span> para concluir seu pagamento.
+            </p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-8 pt-4 bg-[#fff8f7]/70 dark:bg-[#1a1110]/70 backdrop-blur-xl z-50 rounded-t-[3rem] shadow-[0_-8px_30px_rgba(37,24,24,0.06)]">
+<div class="flex flex-col items-center justify-center text-[#251818]/60 dark:text-[#f5e9e8]/60 px-6 py-2 hover:bg-[#fff0ef] transition-all rounded-full">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest mt-1">Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#251818]/60 dark:text-[#f5e9e8]/60 px-6 py-2 hover:bg-[#fff0ef] transition-all rounded-full">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest mt-1">Orders</span>
+</div>
+<div class="scale-110 flex flex-col items-center justify-center bg-[#ffe9e7] dark:bg-[#3d2a29] text-[#FF6B6B] rounded-full px-6 py-2 transition-all">
+<span class="material-symbols-outlined" data-icon="shopping_bag" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest mt-1">Cart</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#251818]/60 dark:text-[#f5e9e8]/60 px-6 py-2 hover:bg-[#fff0ef] transition-all rounded-full">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

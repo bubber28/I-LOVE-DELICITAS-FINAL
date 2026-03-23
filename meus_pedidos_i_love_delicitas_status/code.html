@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#ff6b6b",
+              "on-primary-container": "#6d0010",
+              "error": "#ba1a1a",
+              "inverse-primary": "#ffb3b0",
+              "primary-fixed-dim": "#ffb3b0",
+              "surface": "#fff8f7",
+              "background": "#fff8f7",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#ffedeb",
+              "outline": "#8c706f",
+              "surface-container-high": "#fbe3e1",
+              "tertiary-fixed-dim": "#dec651",
+              "secondary-fixed": "#7cf6ec",
+              "secondary-fixed-dim": "#5dd9d0",
+              "secondary": "#006a65",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#4a3f00",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#8c1520",
+              "on-primary": "#ffffff",
+              "tertiary": "#6d5e00",
+              "secondary-container": "#79f3ea",
+              "error-container": "#ffdad6",
+              "on-tertiary": "#ffffff",
+              "on-secondary-container": "#006f69",
+              "primary": "#ae2f34",
+              "surface-container-highest": "#f5dddb",
+              "on-tertiary-fixed-variant": "#524600",
+              "on-secondary-fixed-variant": "#00504c",
+              "surface-bright": "#fff8f7",
+              "on-background": "#251818",
+              "on-surface-variant": "#584140",
+              "surface-variant": "#f5dddb",
+              "tertiary-container": "#c1ab38",
+              "on-surface": "#251818",
+              "surface-container": "#ffe9e7",
+              "primary-fixed": "#ffdad8",
+              "on-primary-fixed": "#410006",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#fbe36a",
+              "surface-dim": "#ecd5d3",
+              "on-tertiary-fixed": "#211b00",
+              "on-secondary-fixed": "#00201e",
+              "surface-tint": "#ae2f34",
+              "surface-container-low": "#fff0ef",
+              "outline-variant": "#e0bfbd",
+              "inverse-surface": "#3b2d2c"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .asymmetric-blob {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      }
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar Component -->
+<header class="fixed top-0 w-full z-50 bg-[#fff8f7]/70 dark:bg-[#251818]/70 backdrop-blur-xl shadow-[0_10px_30px_-15px_rgba(37,24,24,0.06)] flex items-center justify-between px-6 h-16">
+<div class="flex items-center w-10">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#fff0ef] dark:hover:bg-[#3d2b2b] transition-colors active:scale-95 duration-200 ease-out text-[#FF6B6B] dark:text-[#FF8E8E]">
+<span class="material-symbols-outlined" data-icon="bubble_chart">bubble_chart</span>
+</button>
+</div>
+<img alt="I Love Delicitas Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ug9pEscIuL2DlpA17jlxEDClMUUl57IcXfA7OVPOBmhp5sAf7PwxKnpbI1tY9CcPsm_Q_lnh_6nc7K9s-Ufu8Vl1c-OjwARYp7iAHfnZcmG0DBwt67Xn07BOzLg_PKmoimX0VhBx_7sWyf5BR1B5okOzwW7leBDUVxtd-hraOOegasbSbL6SufvbUq093ykJtCjJbgzAXz6oOZhTDNVOwf2jgT_67YQ89bs9nwJk_awO3yEeaN9p4lZbmtoAwd21a5JeopnxomDwkc"/>
+<div class="flex items-center justify-end w-10">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#fff0ef] dark:hover:bg-[#3d2b2b] transition-colors active:scale-95 duration-200 ease-out text-[#FF6B6B] dark:text-[#FF8E8E]">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-40 px-6 max-w-2xl mx-auto">
+<!-- Hero Success Section -->
+<section class="text-center mb-10 relative">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-64 h-64 bg-primary-container/10 asymmetric-blob -z-10"></div>
+<div class="inline-flex items-center justify-center w-20 h-20 bg-primary-container rounded-full mb-6 shadow-xl shadow-primary-container/20">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h2 class="font-headline font-extrabold text-3xl text-on-surface mb-2 tracking-tight">Pedido Recebido!</h2>
+<p class="font-body text-on-surface-variant text-base max-w-xs mx-auto">Sua doçura está sendo preparada com todo carinho.</p>
+</section>
+<!-- Status & Payment Info Grid -->
+<div class="grid grid-cols-2 gap-3 mb-6">
+<!-- Order ID -->
+<div class="bg-surface-container-low rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-primary-container mb-1 text-xl" data-icon="tag">tag</span>
+<span class="text-[10px] font-label text-on-surface-variant uppercase tracking-widest mb-1">Pedido</span>
+<span class="text-lg font-headline font-bold text-on-surface">#DEL-2404</span>
+</div>
+<!-- Status Pago/Aguardando -->
+<div class="bg-surface-container-low rounded-2xl p-4 flex flex-col items-center justify-center text-center border-l-4 border-secondary">
+<span class="material-symbols-outlined text-secondary mb-1 text-xl" data-icon="verified_user">verified_user</span>
+<span class="text-[10px] font-label text-on-surface-variant uppercase tracking-widest mb-1">Status</span>
+<span class="text-lg font-headline font-bold text-secondary">Pago</span>
+</div>
+<!-- Payment Method -->
+<div class="bg-surface-container-low rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-tertiary mb-1 text-xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-[10px] font-label text-on-surface-variant uppercase tracking-widest mb-1">Pagamento</span>
+<span class="text-lg font-headline font-bold text-on-surface">Pix</span>
+</div>
+<!-- Estimated Time -->
+<div class="bg-surface-container-low rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-primary mb-1 text-xl" data-icon="schedule">schedule</span>
+<span class="text-[10px] font-label text-on-surface-variant uppercase tracking-widest mb-1">Previsão</span>
+<span class="text-lg font-headline font-bold text-on-surface">30-45 min</span>
+</div>
+</div>
+<!-- Order Summary Card -->
+<section class="bg-surface-container-lowest rounded-3xl p-6 shadow-sm mb-6 relative overflow-hidden border border-outline-variant/20">
+<h3 class="font-headline font-bold text-lg mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="shopping_basket">shopping_basket</span>
+                Resumo do Pedido
+            </h3>
+<div class="space-y-5 mb-6">
+<!-- Item 1 -->
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-xl overflow-hidden bg-surface-container shrink-0">
+<img alt="Chocolate Cupcake" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAAPdhpk2AyhsolISt9hEGJyavthSwyZn98T6BD7z-mqWYPF4yxa2hPLxKj0zNJmudcTHXe0VJv3p3fgXo5OA3yoIdZ0CjuavdZj8q4PLS3Rr3jtmGIo2BZ1iuF3pYHAC8IeolKK1OhcSd7v_JxJb6dZ6xnsYHZ0X8cno90YX0g4pslLxxPga9NoJG_8JpyluHGIxEyYU2NIHYocGKNxbhHNofXEqHd72EZsDFB8J15PbvgrYnNGxiNf5VV7scCffny4XAD_qtRdhc"/>
+</div>
+<div class="flex-1">
+<p class="font-headline font-bold text-on-surface text-sm">Cupcake de Nutella (2x)</p>
+<p class="text-xs text-on-surface-variant">Extra cobertura</p>
+</div>
+<span class="font-headline font-bold text-on-surface text-sm">R$ 28,00</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-xl overflow-hidden bg-surface-container shrink-0">
+<img alt="Glazed Donut" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv74HIN657W_j6rfo46Fb1ElSBPcV6_NxR42gRLVNLhaNn0RnY6q6HTRPI9TYjdVku_j6IvABO7kVVXnCRf4PNkOGEClBjlxSDZRSTcYSI4HTeXzHvE7T5M0Ildry_F3TAHhTRTsLohT8gmpFHFj6Yep3KKw9Jm72Ic_ohlDMRx2k6iIFGGkkafXgxmsFm74zjFfaH5WHps3l5Fv6XOqNnk6QakyQR8PPwZ2Ilk-vtIGyeykVPIrep5M7Aw2LvdUYQ_huLi80EbCIP"/>
+</div>
+<div class="flex-1">
+<p class="font-headline font-bold text-on-surface text-sm">Donut de Morango</p>
+<p class="text-xs text-on-surface-variant">Massa artesanal</p>
+</div>
+<span class="font-headline font-bold text-on-surface text-sm">R$ 14,00</span>
+</div>
+</div>
+<!-- Total Calculation -->
+<div class="space-y-2 pt-5 border-t border-outline-variant/30">
+<div class="flex justify-between text-xs text-on-surface-variant">
+<span>Subtotal</span>
+<span>R$ 42,00</span>
+</div>
+<div class="flex justify-between text-xs text-on-surface-variant">
+<span>Taxa de Entrega</span>
+<span>R$ 5,90</span>
+</div>
+<div class="flex justify-between items-center pt-3">
+<span class="font-headline font-bold text-base text-on-surface">Total Pago</span>
+<span class="font-headline font-extrabold text-xl text-primary">R$ 47,90</span>
+</div>
+</div>
+</section>
+<!-- Delivery Progress Visualization -->
+<section class="bg-surface-container-low rounded-2xl p-5 mb-8">
+<div class="flex items-center justify-between mb-4">
+<span class="font-headline font-bold text-on-surface text-sm">Status da Entrega</span>
+<span class="text-secondary font-bold text-[10px] bg-secondary-container px-3 py-1 rounded-full uppercase tracking-wider">Na Cozinha</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-1/4 rounded-full"></div>
+</div>
+<div class="flex justify-between mt-3 text-[9px] font-label uppercase tracking-tighter text-on-surface-variant">
+<span class="font-bold text-secondary">Recebido</span>
+<span>Preparo</span>
+<span>Rota</span>
+<span>Entregue</span>
+</div>
+</section>
+<!-- Actions -->
+<div class="flex flex-col gap-3">
+<button class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-white rounded-full font-headline font-bold text-base shadow-xl shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl" data-icon="map">map</span>
+                Acompanhar no Mapa
+            </button>
+</div>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-8 pt-3 bg-[#fff8f7]/80 dark:bg-[#251818]/80 backdrop-blur-xl rounded-t-[3rem] shadow-[0_-10px_40px_rgba(37,24,24,0.08)] z-50">
+<button class="flex flex-col items-center justify-center text-[#251818]/50 dark:text-[#fff8f7]/50 opacity-80 hover:opacity-100 transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined" data-icon="bakery_dining">bakery_dining</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-semibold uppercase tracking-widest mt-1">Loja</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-[#FF6B6B] text-white rounded-full px-6 py-2 scale-110 shadow-lg shadow-[#FF6B6B]/30 transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-semibold uppercase tracking-widest mt-1">Pedidos</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#251818]/50 dark:text-[#fff8f7]/50 opacity-80 hover:opacity-100 transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-semibold uppercase tracking-widest mt-1">Carteira</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#251818]/50 dark:text-[#fff8f7]/50 opacity-80 hover:opacity-100 transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined" data-icon="dashboard_customize">dashboard_customize</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-semibold uppercase tracking-widest mt-1">Painel</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be_Vietnam_Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed-dim": "#dec651",
+              "surface-container-low": "#fff0ef",
+              "on-secondary-fixed": "#00201e",
+              "error": "#ba1a1a",
+              "primary-fixed-dim": "#ffb3b0",
+              "on-tertiary-container": "#4a3f00",
+              "on-tertiary": "#ffffff",
+              "on-secondary-container": "#006f69",
+              "inverse-on-surface": "#ffedeb",
+              "on-error-container": "#93000a",
+              "surface-tint": "#ae2f34",
+              "secondary": "#006a65",
+              "on-primary-container": "#6d0010",
+              "inverse-primary": "#ffb3b0",
+              "tertiary-fixed": "#fbe36a",
+              "outline-variant": "#e0bfbd",
+              "on-primary": "#ffffff",
+              "secondary-fixed-dim": "#5dd9d0",
+              "surface": "#fff8f7",
+              "on-background": "#251818",
+              "background": "#fff8f7",
+              "primary-fixed": "#ffdad8",
+              "secondary-fixed": "#7cf6ec",
+              "surface-dim": "#ecd5d3",
+              "tertiary": "#6d5e00",
+              "secondary-container": "#79f3ea",
+              "error-container": "#ffdad6",
+              "surface-container": "#ffe9e7",
+              "surface-container-high": "#fbe3e1",
+              "outline": "#8c706f",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-container": "#c1ab38",
+              "on-error": "#ffffff",
+              "surface-variant": "#f5dddb",
+              "on-primary-fixed": "#410006",
+              "on-surface": "#251818",
+              "surface-container-highest": "#f5dddb",
+              "on-tertiary-fixed-variant": "#524600",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#3b2d2c",
+              "on-secondary-fixed-variant": "#00504c",
+              "primary": "#ae2f34",
+              "primary-container": "#ff6b6b",
+              "surface-bright": "#fff8f7",
+              "on-surface-variant": "#584140",
+              "on-tertiary-fixed": "#211b00",
+              "on-primary-fixed-variant": "#8c1520"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fff8f7]/70 backdrop-blur-xl flex items-center justify-between px-6 h-16 shadow-[0_4px_20px_-4px_rgba(37,24,24,0.06)]">
+<div class="flex items-center gap-4">
+<button class="text-[#FF6B6B] active:scale-95 duration-200 p-2 rounded-full hover:bg-[#ffe9e7]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex items-center gap-3">
+<img alt="Logo" class="h-8 w-auto object-contain" data-alt="Corporate logo with deep red accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_gcRjSfRV5UIpLfgSIMC98DrE75JHt7ZOBMuMDlONI4ZQX_qwSUWM5f1dYKd61-HxCvKLcx8YJbuBAEURIvXLa4Ge1EkAfVFN-s3lHnJmfdz54_DAdI9Y1W1AJ7Ium6UXxxKru6n9_CuN4X0d9N3sCeDvMv-l3CY5bS-jO2X2CzofZTAEC154KzWcdEE1zr5Fh4v_Kj_BMs0oyhaqQxLofw0eA3VAPlikK0gGHeYp72qfgAj9m9WemLGR4RKWG8mvnrXmY4nCdfz2"/>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold text-lg tracking-tight text-[#251818]">Gerenciar Categorias</h1>
+</div>
+</div>
+<div class="hidden md:flex gap-6">
+<span class="text-[#251818]/60 font-semibold text-sm">Dashboard</span>
+<span class="text-[#FF6B6B] font-bold text-sm">Categories</span>
+<span class="text-[#251818]/60 font-semibold text-sm">Inventory</span>
+</div>
+</header>
+<main class="flex-1 mt-16 mb-24 px-4 py-6 max-w-5xl mx-auto w-full">
+<!-- Action Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-md py-3 pl-12 pr-4 text-sm focus:ring-2 focus:ring-secondary/40 placeholder:text-on-surface-variant/40" placeholder="Buscar categoria..." type="text"/>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-on-primary font-bold px-6 py-3 rounded-full flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Nova Categoria
+            </button>
+</div>
+<!-- Category Grid/List -->
+<div class="space-y-4">
+<!-- Table Header (Desktop Only) -->
+<div class="hidden md:grid grid-cols-12 px-6 py-2 text-xs font-bold uppercase tracking-widest text-on-surface-variant/60">
+<div class="col-span-5">Categoria</div>
+<div class="col-span-4">Criado em</div>
+<div class="col-span-3 text-right">Ações</div>
+</div>
+<!-- List Items -->
+<div class="grid gap-4">
+<!-- Category Card 1 -->
+<div class="bg-surface-container-lowest md:bg-transparent md:grid grid-cols-12 items-center p-5 md:px-6 rounded-lg shadow-sm md:shadow-none hover:bg-surface-container-low transition-colors group">
+<div class="col-span-5 flex items-center gap-4 mb-4 md:mb-0">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="cake">cake</span>
+</div>
+<div>
+<p class="font-bold text-on-surface text-lg md:text-base">Bolos Gourmet</p>
+<p class="text-xs text-on-surface-variant md:hidden">Criado em 12 Out 2023</p>
+</div>
+</div>
+<div class="hidden md:block col-span-4 text-sm text-on-surface-variant font-medium">
+                        12 de Outubro, 2023
+                    </div>
+<div class="col-span-3 flex justify-end gap-2 border-t border-surface-variant pt-4 md:border-none md:pt-0">
+<button class="p-2 rounded-full text-secondary hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-full text-error hover:bg-error-container transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Category Card 2 -->
+<div class="bg-surface-container-lowest md:bg-transparent md:grid grid-cols-12 items-center p-5 md:px-6 rounded-lg shadow-sm md:shadow-none hover:bg-surface-container-low transition-colors group">
+<div class="col-span-5 flex items-center gap-4 mb-4 md:mb-0">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="ice_cream">icecream</span>
+</div>
+<div>
+<p class="font-bold text-on-surface text-lg md:text-base">Sorvetes Artesanais</p>
+<p class="text-xs text-on-surface-variant md:hidden">Criado em 15 Out 2023</p>
+</div>
+</div>
+<div class="hidden md:block col-span-4 text-sm text-on-surface-variant font-medium">
+                        15 de Outubro, 2023
+                    </div>
+<div class="col-span-3 flex justify-end gap-2 border-t border-surface-variant pt-4 md:border-none md:pt-0">
+<button class="p-2 rounded-full text-secondary hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-full text-error hover:bg-error-container transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Category Card 3 -->
+<div class="bg-surface-container-lowest md:bg-transparent md:grid grid-cols-12 items-center p-5 md:px-6 rounded-lg shadow-sm md:shadow-none hover:bg-surface-container-low transition-colors group">
+<div class="col-span-5 flex items-center gap-4 mb-4 md:mb-0">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="cookie">cookie</span>
+</div>
+<div>
+<p class="font-bold text-on-surface text-lg md:text-base">Cookies &amp; Brownies</p>
+<p class="text-xs text-on-surface-variant md:hidden">Criado em 18 Out 2023</p>
+</div>
+</div>
+<div class="hidden md:block col-span-4 text-sm text-on-surface-variant font-medium">
+                        18 de Outubro, 2023
+                    </div>
+<div class="col-span-3 flex justify-end gap-2 border-t border-surface-variant pt-4 md:border-none md:pt-0">
+<button class="p-2 rounded-full text-secondary hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-full text-error hover:bg-error-container transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Category Card 4 -->
+<div class="bg-surface-container-lowest md:bg-transparent md:grid grid-cols-12 items-center p-5 md:px-6 rounded-lg shadow-sm md:shadow-none hover:bg-surface-container-low transition-colors group">
+<div class="col-span-5 flex items-center gap-4 mb-4 md:mb-0">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="bakery_dining">bakery_dining</span>
+</div>
+<div>
+<p class="font-bold text-on-surface text-lg md:text-base">Pães Especiais</p>
+<p class="text-xs text-on-surface-variant md:hidden">Criado em 22 Out 2023</p>
+</div>
+</div>
+<div class="hidden md:block col-span-4 text-sm text-on-surface-variant font-medium">
+                        22 de Outubro, 2023
+                    </div>
+<div class="col-span-3 flex justify-end gap-2 border-t border-surface-variant pt-4 md:border-none md:pt-0">
+<button class="p-2 rounded-full text-secondary hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-full text-error hover:bg-error-container transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Example (Hidden by Default) -->
+<div class="hidden flex-col items-center justify-center py-20 text-center">
+<div class="w-48 h-48 bg-surface-container-low rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-7xl text-primary/20" data-icon="category">category</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-2">Nenhuma categoria encontrada</h3>
+<p class="text-on-surface-variant max-w-xs mx-auto">Comece criando sua primeira categoria para organizar seu catálogo de produtos.</p>
+<button class="mt-8 text-primary font-bold flex items-center gap-2 hover:underline">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                Adicionar Primeira Categoria
+            </button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#fff8f7]/70 backdrop-blur-xl z-50 shadow-[0_-4px_30px_-10px_rgba(37,24,24,0.08)] rounded-t-[3rem]">
+<div class="flex flex-col items-center justify-center text-[#251818]/60 px-5 py-2">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest mt-1">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#ffe9e7] text-[#FF6B6B] rounded-full px-5 py-2">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest mt-1">Categories</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#251818]/60 px-5 py-2">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest mt-1">Inventory</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#251818]/60 px-5 py-2">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-widest mt-1">Settings</span>
+</div>
+</nav>
+<!-- Modal Mockup (Overlay) - Hidden by default, just for structural presence -->
+<div class="hidden fixed inset-0 z-[100] bg-on-background/20 backdrop-blur-sm flex items-center justify-center p-4">
+<div class="bg-surface rounded-lg w-full max-w-md overflow-hidden shadow-2xl">
+<div class="p-6">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold text-on-surface">Nova Categoria</h2>
+<button class="text-on-surface-variant hover:bg-surface-container rounded-full p-1 transition-colors">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-bold text-on-surface mb-2">Nome da Categoria</label>
+<input class="w-full bg-surface-container-low border-none rounded-md py-3 px-4 text-sm focus:ring-2 focus:ring-secondary/40" placeholder="Ex: Tortas Salgadas" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-bold text-on-surface mb-2">Ícone Representativo</label>
+<div class="grid grid-cols-4 gap-2">
+<button class="aspect-square rounded-md bg-surface-container text-primary flex items-center justify-center border-2 border-primary">
+<span class="material-symbols-outlined" data-icon="cake">cake</span>
+</button>
+<button class="aspect-square rounded-md bg-surface-container-low text-on-surface-variant flex items-center justify-center hover:bg-surface-container">
+<span class="material-symbols-outlined" data-icon="ice_cream">icecream</span>
+</button>
+<button class="aspect-square rounded-md bg-surface-container-low text-on-surface-variant flex items-center justify-center hover:bg-surface-container">
+<span class="material-symbols-outlined" data-icon="cookie">cookie</span>
+</button>
+<button class="aspect-square rounded-md bg-surface-container-low text-on-surface-variant flex items-center justify-center hover:bg-surface-container">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-8 flex gap-3">
+<button class="flex-1 bg-surface-variant text-on-surface-variant font-bold py-3 rounded-full active:scale-95 transition-all">Cancelar</button>
+<button class="flex-1 bg-primary text-on-primary font-bold py-3 rounded-full shadow-lg shadow-primary/20 active:scale-95 transition-all">Salvar</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

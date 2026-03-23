@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout - Delicitas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "surface-container-low": "#fff0ef",
+                "surface-bright": "#fff8f7",
+                "primary-fixed-dim": "#ffb3b0",
+                "surface-variant": "#f5dddb",
+                "on-primary": "#ffffff",
+                "secondary": "#006a65",
+                "primary-fixed": "#ffdad8",
+                "on-surface": "#251818",
+                "surface-dim": "#ecd5d3",
+                "on-background": "#251818",
+                "outline": "#8c706f",
+                "on-primary-fixed": "#410006",
+                "on-primary-container": "#6d0010",
+                "inverse-on-surface": "#ffedeb",
+                "background": "#fff8f7",
+                "primary-container": "#ff6b6b",
+                "on-secondary": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed-dim": "#5dd9d0",
+                "secondary-fixed": "#7cf6ec",
+                "tertiary-fixed": "#fbe36a",
+                "primary": "#ae2f34",
+                "on-secondary-fixed-variant": "#00504c",
+                "tertiary": "#6d5e00",
+                "on-tertiary-container": "#4a3f00",
+                "surface": "#fff8f7",
+                "inverse-primary": "#ffb3b0",
+                "tertiary-container": "#c1ab38",
+                "on-surface-variant": "#584140",
+                "on-error": "#ffffff",
+                "on-tertiary-fixed": "#211b00",
+                "on-error-container": "#93000a",
+                "on-tertiary-fixed-variant": "#524600",
+                "on-primary-fixed-variant": "#8c1520",
+                "surface-container-highest": "#f5dddb",
+                "error-container": "#ffdad6",
+                "tertiary-fixed-dim": "#dec651",
+                "surface-container-high": "#fbe3e1",
+                "surface-container": "#ffe9e7",
+                "error": "#ba1a1a",
+                "on-secondary-fixed": "#00201e",
+                "surface-tint": "#ae2f34",
+                "outline-variant": "#e0bfbd",
+                "on-tertiary": "#ffffff",
+                "on-secondary-container": "#006f69",
+                "inverse-surface": "#3b2d2c",
+                "secondary-container": "#79f3ea"
+              },
+              fontFamily: {
+                "headline": ["Plus Jakarta Sans"],
+                "body": ["Be Vietnam Pro"],
+                "label": ["Be Vietnam Pro"]
+              },
+              borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pix-gradient {
+            background: linear-gradient(135deg, #32bcad 0%, #006a65 100%);
+        }
+        .sugar-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation -->
+<header class="sticky top-0 w-full z-50 bg-[#fff8f7]/70 backdrop-blur-xl shadow-[0_4px_30px_rgba(37,24,24,0.06)] flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#fff0ef] active:scale-95 duration-200 text-[#251818]">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline font-bold tracking-tight text-[#FF6B6B] text-xl">Checkout</h1>
+</div>
+<div class="flex items-center gap-2">
+<img class="h-8 w-auto" data-alt="Delicitas brand logo featuring a stylized dessert icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYyBKMGMyHC9KkRH8dKNbAgnA_iIqGYHFLEW28GI8oSdr9QN_RY5Qc3EYfgCpano1csDMJwi7FWEJHxUKq5CO16nIBpxcMSqBBfTQ9jUKaJobfGOMVRLsL-nnWcocT0K7WK_xrH8kiwpQ0Hg50-Hw42TVVMXZZOdqy0txrbioHQrFt1MEeszTAayVIZlNy9p77qlN4k3OnWZkC3Vo_s_izV3MPvrgo9I5W8oZpvARESL5pYp5T27CzYHjukvEud5Yee0352qwjHMmo"/>
+</div>
+</header>
+<main class="max-w-2xl mx-auto px-6 pt-8 pb-32">
+<!-- Order Summary Section -->
+<section class="mb-10">
+<div class="flex items-baseline justify-between mb-6">
+<h2 class="font-headline text-2xl font-bold tracking-tight">Your Selection</h2>
+<span class="text-primary font-semibold text-sm">2 Items</span>
+</div>
+<div class="space-y-4">
+<!-- Item 1: Brownie -->
+<div class="bg-surface-container-low p-5 rounded-lg flex items-center gap-5 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 -mr-8 -mt-8 bg-primary-container/10 rounded-full blur-2xl"></div>
+<div class="w-20 h-20 rounded-full overflow-hidden flex-shrink-0 shadow-sm border-2 border-surface-container">
+<img class="w-full h-full object-cover" data-alt="Dense fudge Belgian chocolate brownie with sea salt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT-FOwUO2GBUJHUwc5z0RAHCGJahmGG5EIS-Va4hnTjcjkW-Qda7tp-YEP7NzD86rr24pt8tPj63OnN9U-0jl-DTLot4-uCnqxKpjo7Bp_ApQVqCDc0QhwefA81TiblgHAj7G-x3R1C50scRKeU1vs0HY_DG01XZWXGJyjRYKWWi1pg6lwrU4882aNCZVERKeoDUGX6fkGU7cCQkjMWIr8AEMWnaxrHcW3nO4Urira_kaaQ43EHQgSEVdvVF_7DkWI3cMxPQN9g7xy"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline font-bold text-lg leading-tight">Belgian Chocolate Brownie</h3>
+<p class="text-on-surface-variant text-sm mt-1">Double fudge, sea salt flake</p>
+<div class="flex justify-between items-center mt-3">
+<span class="font-bold text-primary">$6.50</span>
+<div class="flex items-center bg-surface-container rounded-full px-3 py-1 gap-3">
+<span class="text-xs font-bold">Qty 1</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2: Donut -->
+<div class="bg-surface-container-low p-5 rounded-lg flex items-center gap-5 relative overflow-hidden">
+<div class="w-20 h-20 rounded-full overflow-hidden flex-shrink-0 shadow-sm border-2 border-surface-container">
+<img class="w-full h-full object-cover" data-alt="Bright pink strawberry glazed donut with sprinkles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL9mbZOSgoxZvV4Oz9gyrikfH0rW4FL8yLCowpPHESht_6Qv1dfUxUzjG6N2Id1thWmAmydXODCbPR52WK6l6Btzus83LleHGnZgexXqNjbLa13wAihkjqaL2u8Ou9P1JU8fXS6xW0f6oVDybohU3KPgJM4qwbbMZ7SYxM2uYHgdcwH44DIG03_QMLzbc0p9dxnMvFXRSLXI-wjFTgNlJWvhq3wqTvc4naLacIJ40gLkwMRfU-LS49vMa56lM0itEhdQtIZJx2kzr2"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline font-bold text-lg leading-tight">Strawberry Glazed Donut</h3>
+<p class="text-on-surface-variant text-sm mt-1">Fresh berry glaze, rainbow pearls</p>
+<div class="flex justify-between items-center mt-3">
+<span class="font-bold text-primary">$4.25</span>
+<div class="flex items-center bg-surface-container rounded-full px-3 py-1 gap-3">
+<span class="text-xs font-bold">Qty 1</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Payment Method: Pix Highlight -->
+<section class="mb-10">
+<h2 class="font-headline text-xl font-bold mb-4 px-1">Payment Method</h2>
+<!-- Pix Card (Active State) -->
+<div class="relative p-6 rounded-xl border-2 border-secondary bg-secondary/5 mb-4 group cursor-pointer transition-all">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 pix-gradient rounded-lg flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<div>
+<span class="font-headline font-extrabold text-lg text-secondary">Pay with Pix</span>
+<p class="text-sm text-secondary/70">Instant confirmation &amp; secure</p>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-secondary flex items-center justify-center">
+<div class="w-3 h-3 bg-secondary rounded-full"></div>
+</div>
+</div>
+<div class="mt-6 p-4 bg-surface-container-lowest rounded-lg border border-secondary/20 flex items-center gap-4">
+<div class="flex-shrink-0 w-10 h-10 bg-tertiary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-xl">bolt</span>
+</div>
+<p class="text-xs font-medium text-on-surface-variant">Get 5% Sweet Rewards points by paying with Pix today!</p>
+</div>
+</div>
+<!-- Other Methods (Inactive) -->
+<div class="bg-surface-container-low p-5 rounded-xl flex items-center justify-between opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-not-allowed">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-surface-variant rounded-lg flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<span class="font-bold">Credit Card</span>
+</div>
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</section>
+<!-- Totals Card -->
+<section class="bg-surface-container p-6 rounded-xl relative overflow-hidden">
+<div class="absolute bottom-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mb-16 -mr-16 blur-3xl"></div>
+<div class="space-y-3 mb-6 relative z-10">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal</span>
+<span class="font-semibold">$10.75</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Delivery Fee</span>
+<span class="font-semibold">$2.50</span>
+</div>
+<div class="flex justify-between text-secondary">
+<span>Pix Discount (5%)</span>
+<span class="font-semibold">-$0.54</span>
+</div>
+<div class="h-px bg-outline-variant/30 my-2"></div>
+<div class="flex justify-between text-on-surface">
+<span class="font-headline font-bold text-lg">Total</span>
+<span class="font-headline font-extrabold text-2xl text-primary">$12.71</span>
+</div>
+</div>
+<button class="w-full py-5 pix-gradient text-white rounded-full font-headline font-bold text-lg shadow-[0_8px_25px_rgba(0,106,101,0.25)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">qr_code_2</span>
+                Generate Pix QR Code
+            </button>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Suppressed for transactional screen as per protocol, 
+         but technically present as a shell placeholder if needed by logic - 
+         Filtering for Checkout: Suppressed to prioritize focus on payment) -->
+<!-- Footer Space -->
+<footer class="fixed bottom-0 left-0 w-full p-4 bg-background/80 backdrop-blur-md flex flex-col items-center gap-2">
+<div class="flex items-center gap-2 text-on-surface-variant/40 text-[10px] font-bold tracking-widest uppercase">
+<span class="material-symbols-outlined text-xs">lock</span>
+            Secure 256-bit Encrypted Transaction
+        </div>
+<div class="w-24 h-1 bg-surface-dim rounded-full mb-2"></div>
+</footer>
+</body></html>

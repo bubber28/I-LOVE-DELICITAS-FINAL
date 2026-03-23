@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#584140",
+                        "primary-container": "#ff6b6b",
+                        "surface-bright": "#fff8f7",
+                        "on-primary-fixed-variant": "#8c1520",
+                        "on-tertiary-fixed": "#211b00",
+                        "on-secondary-fixed-variant": "#00504c",
+                        "primary": "#ae2f34",
+                        "surface-container-highest": "#f5dddb",
+                        "surface-variant": "#f5dddb",
+                        "on-primary-fixed": "#410006",
+                        "on-surface": "#251818",
+                        "on-tertiary-fixed-variant": "#524600",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#3b2d2c",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#8c706f",
+                        "tertiary-container": "#c1ab38",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#ffdad8",
+                        "secondary-fixed": "#7cf6ec",
+                        "surface-container": "#ffe9e7",
+                        "surface-container-high": "#fbe3e1",
+                        "surface-dim": "#ecd5d3",
+                        "tertiary": "#6d5e00",
+                        "secondary-container": "#79f3ea",
+                        "error-container": "#ffdad6",
+                        "surface": "#fff8f7",
+                        "on-background": "#251818",
+                        "background": "#fff8f7",
+                        "tertiary-fixed": "#fbe36a",
+                        "outline-variant": "#e0bfbd",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#5dd9d0",
+                        "surface-tint": "#ae2f34",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#6d0010",
+                        "inverse-primary": "#ffb3b0",
+                        "secondary": "#006a65",
+                        "primary-fixed-dim": "#ffb3b0",
+                        "on-tertiary-container": "#4a3f00",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#dec651",
+                        "surface-container-low": "#fff0ef",
+                        "on-secondary-fixed": "#00201e",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#ffedeb",
+                        "on-secondary-container": "#006f69"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-[#fff8f7] dark:bg-slate-950/70 backdrop-blur-xl flex items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4 w-full justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FF6B6B] active:scale-95 duration-200 cursor-pointer">arrow_back</span>
+<img alt="I Love Delicitas Logo" class="h-8 w-auto" data-alt="I Love Delicitas pink confectionery brand logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM-nia5kiFN73HajEKJIF95pLRoC_SFeohPubWIHHdNnuyAV_T4pSufbhUm6XQgSYOI276TLHvK0FsVsqzQqZDDQAVI5XytuLnLdIyTsaDfP0AKUs1gseZkaBmy4ZOADZRfCdosJZxXDwLe1LeLNDOtuN_kXPUojjjk8V7qmNfZLbaisBDvi7To664ifFW8jTLUWnl9SW5Gg4WJJBUFx0CT_qMetubaEGnLDwd_6azIwK92NLi56u7JYwVSujmr0MtF1Z4p5-L-GBz"/>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold text-xl tracking-tight text-[#FF6B6B]">Relatórios de Vendas</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-[#ffe9e7] transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[#FF6B6B]">calendar_month</span>
+</button>
+</div>
+</div>
+</header>
+<main class="px-4 pt-6 space-y-6 max-w-4xl mx-auto">
+<!-- Time Filter Chips -->
+<section class="flex gap-2 overflow-x-auto hide-scrollbar pb-2">
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-label text-sm font-semibold whitespace-nowrap shadow-sm">Últimos 7 Dias</button>
+<button class="bg-surface-container-low text-on-surface-variant px-6 py-2.5 rounded-full font-label text-sm font-semibold whitespace-nowrap border border-outline-variant/20">Últimos 30 Dias</button>
+<button class="bg-surface-container-low text-on-surface-variant px-6 py-2.5 rounded-full font-label text-sm font-semibold whitespace-nowrap border border-outline-variant/20">Este Mês</button>
+</section>
+<!-- Metric Cards Bento Grid -->
+<section class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div class="col-span-2 md:col-span-1 bg-surface-container-lowest p-6 rounded-lg shadow-sm border border-outline-variant/10 relative overflow-hidden group">
+<div class="absolute -top-4 -right-4 w-24 h-24 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors"></div>
+<p class="text-on-surface-variant text-xs font-label font-bold uppercase tracking-widest mb-1">Faturamento</p>
+<h3 class="text-3xl font-headline font-extrabold text-primary">R$ 12.840</h3>
+<div class="flex items-center gap-1 mt-2 text-secondary font-bold text-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<span>+12%</span>
+<span class="text-on-surface-variant/60 font-medium ml-1">vs anterior</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-lg border border-outline-variant/5">
+<p class="text-on-surface-variant text-xs font-label font-bold uppercase tracking-widest mb-1">Ticket Médio</p>
+<h3 class="text-xl font-headline font-bold text-on-surface">R$ 64,20</h3>
+<p class="text-on-surface-variant/60 text-[10px] mt-1 font-medium">Estável este mês</p>
+</div>
+<div class="bg-surface-container-low p-5 rounded-lg border border-outline-variant/5">
+<p class="text-on-surface-variant text-xs font-label font-bold uppercase tracking-widest mb-1">Pedidos</p>
+<h3 class="text-xl font-headline font-bold text-on-surface">204</h3>
+<p class="text-secondary text-[10px] mt-1 font-bold">+5% novos clientes</p>
+</div>
+</section>
+<!-- Sales Chart Section -->
+<section class="bg-surface-container-lowest p-6 rounded-lg border border-outline-variant/10 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline font-bold text-lg text-on-surface">Vendas Diárias</h2>
+<span class="material-symbols-outlined text-on-surface-variant/40">more_vert</span>
+</div>
+<div class="h-48 flex items-end justify-between gap-2 px-2">
+<!-- Bar Chart Elements -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-highest rounded-t-full h-[40%] group-hover:bg-primary/20 transition-all"></div>
+<span class="text-[10px] font-bold text-on-surface-variant/60">SEG</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-highest rounded-t-full h-[65%] group-hover:bg-primary/20 transition-all"></div>
+<span class="text-[10px] font-bold text-on-surface-variant/60">TER</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-highest rounded-t-full h-[55%] group-hover:bg-primary/20 transition-all"></div>
+<span class="text-[10px] font-bold text-on-surface-variant/60">QUA</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-container rounded-t-full h-[85%] group-hover:brightness-95 transition-all relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">R$2.4k</div>
+</div>
+<span class="text-[10px] font-bold text-primary">QUI</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-highest rounded-t-full h-[70%] group-hover:bg-primary/20 transition-all"></div>
+<span class="text-[10px] font-bold text-on-surface-variant/60">SEX</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-highest rounded-t-full h-[95%] group-hover:bg-primary/20 transition-all"></div>
+<span class="text-[10px] font-bold text-on-surface-variant/60">SAB</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-highest rounded-t-full h-[80%] group-hover:bg-primary/20 transition-all"></div>
+<span class="text-[10px] font-bold text-on-surface-variant/60">DOM</span>
+</div>
+</div>
+</section>
+<!-- Top Selling & Categories -->
+<div class="grid md:grid-cols-2 gap-6">
+<!-- Top Selling Products -->
+<section class="bg-surface-container-lowest p-6 rounded-lg border border-outline-variant/10 shadow-sm">
+<h2 class="font-headline font-bold text-lg text-on-surface mb-4">Top 3 Vendidos</h2>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">01</div>
+<div class="flex-1">
+<h4 class="font-bold text-sm">Macaron Rosé</h4>
+<p class="text-xs text-on-surface-variant/60">142 unidades vendidas</p>
+</div>
+<span class="font-bold text-primary text-sm">R$ 2.840</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">02</div>
+<div class="flex-1">
+<h4 class="font-bold text-sm">Trufa Belga</h4>
+<p class="text-xs text-on-surface-variant/60">98 unidades vendidas</p>
+</div>
+<span class="font-bold text-primary text-sm">R$ 1.960</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">03</div>
+<div class="flex-1">
+<h4 class="font-bold text-sm">Bolo Red Velvet</h4>
+<p class="text-xs text-on-surface-variant/60">45 unidades vendidas</p>
+</div>
+<span class="font-bold text-primary text-sm">R$ 1.800</span>
+</div>
+</div>
+</section>
+<!-- Sales by Category -->
+<section class="bg-surface-container-lowest p-6 rounded-lg border border-outline-variant/10 shadow-sm">
+<h2 class="font-headline font-bold text-lg text-on-surface mb-4">Vendas por Categoria</h2>
+<div class="space-y-5 mt-2">
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-bold uppercase tracking-wider text-on-surface-variant">
+<span>Bolos</span>
+<span>45%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-bold uppercase tracking-wider text-on-surface-variant">
+<span>Doces Finos</span>
+<span>35%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 35%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-bold uppercase tracking-wider text-on-surface-variant">
+<span>Sorvetes</span>
+<span>20%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container rounded-full" style="width: 20%"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-[#fff8f7]/80 dark:bg-slate-950/80 backdrop-blur-md rounded-t-[3rem] z-50 shadow-2xl">
+<a class="flex flex-col items-center justify-center text-[#251818]/60 dark:text-slate-400 px-6 py-2 hover:text-[#FF6B6B] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-semibold uppercase tracking-widest mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#ffe9e7] dark:bg-[#FF6B6B]/20 text-[#FF6B6B] rounded-full px-6 py-2 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-semibold uppercase tracking-widest mt-1">Reports</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#251818]/60 dark:text-slate-400 px-6 py-2 hover:text-[#FF6B6B] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">bakery_dining</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-semibold uppercase tracking-widest mt-1">Products</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#251818]/60 dark:text-slate-400 px-6 py-2 hover:text-[#FF6B6B] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-semibold uppercase tracking-widest mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

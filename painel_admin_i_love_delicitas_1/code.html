@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Dashboard - I Love Delicitas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#ffdad8",
+              "surface-container-lowest": "#ffffff",
+              "primary-container": "#ff6b6b",
+              "on-secondary-fixed": "#00201e",
+              "tertiary-fixed": "#fbe36a",
+              "on-surface-variant": "#584140",
+              "on-surface": "#251818",
+              "surface-variant": "#f5dddb",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#ecd5d3",
+              "primary-fixed-dim": "#ffb3b0",
+              "on-tertiary-fixed": "#211b00",
+              "surface-bright": "#fff8f7",
+              "on-secondary-fixed-variant": "#00504c",
+              "inverse-on-surface": "#ffedeb",
+              "outline-variant": "#e0bfbd",
+              "on-primary-fixed-variant": "#8c1520",
+              "secondary-fixed": "#7cf6ec",
+              "outline": "#8c706f",
+              "secondary-fixed-dim": "#5dd9d0",
+              "surface-tint": "#ae2f34",
+              "inverse-primary": "#ffb3b0",
+              "secondary": "#006a65",
+              "primary": "#ae2f34",
+              "background": "#fff8f7",
+              "secondary-container": "#79f3ea",
+              "tertiary-container": "#c1ab38",
+              "on-primary-fixed": "#410006",
+              "on-tertiary-fixed-variant": "#524600",
+              "tertiary": "#6d5e00",
+              "on-primary-container": "#6d0010",
+              "surface-container-high": "#fbe3e1",
+              "on-error-container": "#93000a",
+              "on-tertiary": "#ffffff",
+              "error": "#ba1a1a",
+              "on-background": "#251818",
+              "inverse-surface": "#3b2d2c",
+              "error-container": "#ffdad6",
+              "on-primary": "#ffffff",
+              "on-secondary-container": "#006f69",
+              "surface-container": "#ffe9e7",
+              "tertiary-fixed-dim": "#dec651",
+              "surface-container-highest": "#f5dddb",
+              "on-error": "#ffffff",
+              "surface-container-low": "#fff0ef",
+              "surface": "#fff8f7",
+              "on-tertiary-container": "#4a3f00"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body text-on-surface">
+<header class="fixed top-0 w-full z-50 bg-[#fff8f7]/70 dark:bg-slate-950/70 backdrop-blur-xl shadow-sm shadow-[#251818]/5">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FF6B6B] text-2xl" data-icon="bakery_dining">bakery_dining</span>
+<h1 class="font-['Plus_Jakarta_Sans'] font-black text-[#FF6B6B] tracking-tight text-xl">I Love Delicitas</h1>
+<span class="ml-2 px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold uppercase rounded-full tracking-wider">Admin</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#FF6B6B] font-bold font-['Plus_Jakarta_Sans'] text-sm hover:bg-[#fff0ef] transition-colors px-3 py-1 rounded-full" href="#">Dashboard</a>
+<a class="text-[#251818]/60 font-medium font-['Plus_Jakarta_Sans'] text-sm hover:bg-[#fff0ef] transition-colors px-3 py-1 rounded-full" href="#">Produtos</a>
+<a class="text-[#251818]/60 font-medium font-['Plus_Jakarta_Sans'] text-sm hover:bg-[#fff0ef] transition-colors px-3 py-1 rounded-full" href="#">Pedidos</a>
+<a class="text-[#251818]/60 font-medium font-['Plus_Jakarta_Sans'] text-sm hover:bg-[#fff0ef] transition-colors px-3 py-1 rounded-full" href="#">Configurações</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-[#fff0ef] rounded-full transition-colors" data-icon="notifications">notifications</button>
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border-2 border-primary-fixed shadow-sm">
+<img alt="Admin Avatar" class="w-full h-full object-cover" data-alt="User profile avatar image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu5qcLQMya88xKeDcBSq6_6kEjApqO-J2U94-d5vCoyt3Uur1BOOuWNeNqJDTebHs6gx2Yi7ibTNM7672_DEw3vFEN-h9nJiZugPNr7-RfRhXY1HqenIidfFa5SLwYMzvqOe1GCGyFikZUTEGmHJv6d4ocFO1kQMfCjz2aL_aiAd7Aq0r6mM2OyhvxH4rOanFYk1l-gngKys9kAmHGN7EPo0cU2hbEppq50Ji1qE8EAPLxyV6dXDS8FQBTrdoh73EvOqDT9pmIUnj3"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<section class="mb-10">
+<h2 class="font-headline font-extrabold text-3xl text-on-surface tracking-tight mb-2">Painel de Controle</h2>
+<p class="text-on-surface-variant font-medium">Bem-vindo de volta, Chef. Aqui está o resumo de hoje.</p>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<div class="bg-surface-container-low p-6 rounded-lg shadow-sm flex items-center gap-6 group hover:bg-surface-container transition-colors duration-300">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="shopping_basket">shopping_basket</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">Total de Pedidos</p>
+<p class="text-3xl font-headline font-extrabold text-on-surface">148</p>
+<p class="text-xs font-bold text-secondary flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span> +12% vs ontem
+                    </p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg shadow-sm flex items-center gap-6 group hover:bg-surface-container transition-colors duration-300">
+<div class="w-14 h-14 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="payments">payments</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">Receita Diária</p>
+<p class="text-3xl font-headline font-extrabold text-on-surface">R$ 2.450</p>
+<p class="text-xs font-bold text-secondary flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span> +8% vs ontem
+                    </p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg shadow-sm flex items-center gap-6 group hover:bg-surface-container transition-colors duration-300">
+<div class="w-14 h-14 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="star">star</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">Média Avaliações</p>
+<p class="text-3xl font-headline font-extrabold text-on-surface">4.9</p>
+<p class="text-xs font-bold text-primary flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span> 98% positivas
+                    </p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2">
+<div class="bg-surface-container-lowest rounded-lg p-1 mb-6 flex gap-1 shadow-sm border border-outline-variant/10">
+<button class="flex-1 py-3 px-4 rounded-[1.5rem] bg-primary text-on-primary font-bold text-sm transition-all shadow-md">Pedidos Recentes</button>
+<button class="flex-1 py-3 px-4 rounded-[1.5rem] text-on-surface-variant font-bold text-sm hover:bg-surface-container transition-all">Status de Entrega</button>
+<button class="flex-1 py-3 px-4 rounded-[1.5rem] text-on-surface-variant font-bold text-sm hover:bg-surface-container transition-all">Aguardando Pagamento</button>
+</div>
+<div class="bg-surface-container-low rounded-lg p-6 shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full border-separate border-spacing-y-4">
+<thead>
+<tr class="text-left text-on-surface-variant font-bold text-xs uppercase tracking-widest">
+<th class="pb-2 px-4">Pedido ID</th>
+<th class="pb-2 px-4">Cliente</th>
+<th class="pb-2 px-4">Item Principal</th>
+<th class="pb-2 px-4 text-center">Status</th>
+<th class="pb-2 px-4 text-right">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-surface-container-lowest hover:bg-surface-container transition-colors duration-200">
+<td class="py-4 px-4 rounded-l-xl font-bold text-primary">#DEL-2401</td>
+<td class="py-4 px-4 font-medium">Beatriz Silveira</td>
+<td class="py-4 px-4 text-on-surface-variant">Red Velvet Cupcake (x4)</td>
+<td class="py-4 px-4 text-center">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded-full uppercase">Preparando</span>
+</td>
+<td class="py-4 px-4 rounded-r-xl text-right font-extrabold">R$ 52,00</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container transition-colors duration-200">
+<td class="py-4 px-4 rounded-l-xl font-bold text-primary">#DEL-2402</td>
+<td class="py-4 px-4 font-medium">Marcos Andrade</td>
+<td class="py-4 px-4 text-on-surface-variant">Bolo de Pistache M</td>
+<td class="py-4 px-4 text-center">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold rounded-full uppercase">Em Rota</span>
+</td>
+<td class="py-4 px-4 rounded-r-xl text-right font-extrabold">R$ 145,00</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container transition-colors duration-200">
+<td class="py-4 px-4 rounded-l-xl font-bold text-primary">#DEL-2403</td>
+<td class="py-4 px-4 font-medium">Juliana Costa</td>
+<td class="py-4 px-4 text-on-surface-variant">Macarons Variados (x12)</td>
+<td class="py-4 px-4 text-center">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold rounded-full uppercase">Pendente</span>
+</td>
+<td class="py-4 px-4 rounded-r-xl text-right font-extrabold">R$ 88,00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<div class="bg-surface-container-low rounded-lg p-6 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold text-lg text-on-surface">Mais Populares</h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-4 group">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-sm transition-transform group-hover:scale-105">
+<img alt="Red Velvet" class="w-full h-full object-cover" data-alt="Close up of a red velvet cupcake with cream frosting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhnWzQaSqQTsedV6PPQwt5E4eoE3TKovS2LdQbuxb0EU0SgjI8OiUDJmvih4fkFDY8mAd-21cx4LzRDIJ6Bf7NpXxRxC6vtqqbvyc-EIOQFUNblu2YnyR1GSZqOY7J9M9oIZQ5iJbOlSUg84l78KWUhI3RfVY_PWjup62SNxRmDEEfVR7vfJZw1d2mvPB2p2NLdyx353uKzZvBbR-H9K4tGf_08S-QWdNBMFmGJFGnnuHc9L8XQktuSIc9kJn8yu2k0GDLkX1HGNc8"/>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface group-hover:text-primary transition-colors">Red Velvet Special</p>
+<p class="text-xs text-on-surface-variant">242 pedidos este mês</p>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2">
+<div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 group">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-sm transition-transform group-hover:scale-105">
+<img alt="Chocolate Cookie" class="w-full h-full object-cover" data-alt="Chunky chocolate chip cookies on a plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXPmG4tSywm9tlwJ5NT_wEA9YElHjXR2rXifmEgrn5vHtg3nbSeNt3Da6kF26OSBxnaBr7fl_QqohBOY7SlbVmzRT9fsOboKKmmqupmUXUBob4rhx3Q2sjrwQw46xhK1qh_zNairRF-u6NSJRPYg5BwRE6xldCjL634iylNrvqdl1nSYzkPKPcyzAX_nhfIaZw8UM598qcimvz9lrdgdMyEeBUkGImEZbdXBpzqZXAX_7kJ6_BR8HcEpdp8aghk2Y8z0eXVFrpmcnH"/>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface group-hover:text-primary transition-colors">Cookies Belgas</p>
+<p class="text-xs text-on-surface-variant">198 pedidos este mês</p>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2">
+<div class="bg-secondary h-full rounded-full" style="width: 65%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 group">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-sm transition-transform group-hover:scale-105">
+<img alt="Macarons" class="w-full h-full object-cover" data-alt="Colorful french macarons in a stack" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwBM08yjiFsFu5TO1aWLNidSWwI9XdYR0KxC3lsZPsSOfggPZV8xITkRbW_JaTt6ET_0ttDxf8J8z0dFAMW2m6pU3mf0XLspx4NKxOkoxx6InKBqtivhgxEl_A1qvpmcJnU5OOFra4625HUqcVFmWtqOc40AySXoR81SYSSwe2_PQc1EwdG2eSrQ7030ZJx5DlcPhtLA5vSgvKcxF2SfZuTGgUiWTaOYCrvIAPC6x0drVY53lEYu1W0dmFXeKlcokmt400E92PVMQZ"/>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface group-hover:text-primary transition-colors">Macarons Pastel</p>
+<p class="text-xs text-on-surface-variant">156 pedidos este mês</p>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2">
+<div class="bg-tertiary h-full rounded-full" style="width: 50%"></div>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 rounded-full border-2 border-primary-fixed text-primary font-bold text-sm hover:bg-primary-fixed transition-colors">Ver Catálogo Completo</button>
+</div>
+<div class="bg-primary text-on-primary rounded-lg p-6 shadow-lg relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-headline font-bold text-xl mb-2">Suporte Prioritário</h4>
+<p class="text-sm text-primary-fixed/80 mb-6 font-medium">Precisa de ajuda com as configurações da loja?</p>
+<button class="bg-surface-container-lowest text-primary px-6 py-2.5 rounded-full font-extrabold text-sm shadow-sm active:scale-95 duration-200">Falar com Consultor</button>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl text-white/10 rotate-12" data-icon="support_agent">support_agent</span>
+</div>
+</div>
+</div>
+</main>
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#fff8f7]/80 dark:bg-slate-950/80 backdrop-blur-xl rounded-t-[3rem] z-50 shadow-[0_-4px_20px_rgba(255,107,107,0.08)]">
+<a class="flex flex-col items-center justify-center bg-[#ffe9e7] dark:bg-red-950/30 text-[#FF6B6B] rounded-full px-5 py-2 hover:scale-110 transition-transform active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#251818]/60 dark:text-slate-400 hover:scale-110 transition-transform active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="reorder">reorder</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium">Catálogo</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#251818]/60 dark:text-slate-400 hover:scale-110 transition-transform active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium">Pedidos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#251818]/60 dark:text-slate-400 hover:scale-110 transition-transform active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium">Perfil</span>
+</a>
+</nav>
+<footer class="w-full mt-auto bg-[#fff0ef] dark:bg-slate-900 no-border tonal-bg-shift">
+<div class="w-full px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-['Plus_Jakarta_Sans'] font-extrabold text-[#FF6B6B] text-xl">I Love Delicitas</span>
+<p class="font-['Be_Vietnam_Pro'] text-sm text-[#251818]/70 dark:text-slate-400">© 2024 I Love Delicitas. Doce momento.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-[#251818]/70 dark:text-slate-400 font-['Be_Vietnam_Pro'] text-sm hover:text-[#FF6B6B] transition-colors" href="#">Instagram</a>
+<a class="text-[#251818]/70 dark:text-slate-400 font-['Be_Vietnam_Pro'] text-sm hover:text-[#FF6B6B] transition-colors" href="#">WhatsApp</a>
+<a class="text-[#251818]/70 dark:text-slate-400 font-['Be_Vietnam_Pro'] text-sm hover:text-[#FF6B6B] transition-colors" href="#">Contato</a>
+<a class="text-[#251818]/70 dark:text-slate-400 font-['Be_Vietnam_Pro'] text-sm hover:text-[#FF6B6B] transition-colors" href="#">Privacidade</a>
+</div>
+</div>
+</footer>
+</body></html>

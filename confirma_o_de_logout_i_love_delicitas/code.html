@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#6d5e00",
+                        "outline-variant": "#e0bfbd",
+                        "on-primary-fixed": "#410006",
+                        "background": "#fff8f7",
+                        "on-primary-container": "#6d0010",
+                        "surface-container-high": "#fbe3e1",
+                        "inverse-surface": "#3b2d2c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#251818",
+                        "on-tertiary-container": "#4a3f00",
+                        "surface-container": "#ffe9e7",
+                        "primary-container": "#ff6b6b",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#ffb3b0",
+                        "on-error-container": "#93000a",
+                        "primary": "#ae2f34",
+                        "surface-dim": "#ecd5d3",
+                        "on-tertiary-fixed": "#211b00",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#fbe36a",
+                        "tertiary-container": "#c1ab38",
+                        "surface-container-low": "#fff0ef",
+                        "on-background": "#251818",
+                        "on-surface-variant": "#584140",
+                        "on-primary-fixed-variant": "#8c1520",
+                        "on-tertiary-fixed-variant": "#524600",
+                        "tertiary-fixed-dim": "#dec651",
+                        "primary-fixed": "#ffdad8",
+                        "on-secondary-fixed": "#00201e",
+                        "secondary-container": "#79f3ea",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#5dd9d0",
+                        "secondary": "#006a65",
+                        "on-secondary-fixed-variant": "#00504c",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "outline": "#8c706f",
+                        "inverse-primary": "#ffb3b0",
+                        "surface-container-highest": "#f5dddb",
+                        "surface-tint": "#ae2f34",
+                        "surface-bright": "#fff8f7",
+                        "surface-variant": "#f5dddb",
+                        "inverse-on-surface": "#ffedeb",
+                        "secondary-fixed": "#7cf6ec",
+                        "on-secondary-container": "#006f69",
+                        "surface": "#fff8f7",
+                        "on-primary": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopAppBar - Frozen Glass Style -->
+<header class="bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl text-red-400 dark:text-red-300 docked full-width top-0 sticky z-50 no-border shadow-sm shadow-red-100/20 flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a smiling user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn-oHsMh9CjxmlKUBRINCTwHq5hW6C1GV5jjuXT9xKaD03-2Qr5R9mmuYu7U4oooJHPL8vMngAi5BY_XH7TtzppA0MrvWFEl4yZ0Iqeoiz9syBAjnw_AkSpgH5tiMxnQs6l3CyPfpcG2LANuUqNFL3ZtJccYI1Egm_hpwLhP2wNyTM2iaa-YBPct504Qnj1XraF1Dmb-rdsLITo4Ah1RGqNYnhHyTy5blOhcPuAoQRDWDt962EEtQ101g3FINbGWYeI4ZBjFCptQJ-"/>
+</div>
+<span class="text-xl font-extrabold text-red-500 dark:text-red-400 font-['Plus_Jakarta_Sans'] tracking-tight">Sweet Moments</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors p-2 rounded-full active:scale-95 transition-transform duration-200" data-icon="shopping_basket">shopping_basket</button>
+</div>
+</header>
+<main class="max-w-md mx-auto px-6 py-8 pb-32">
+<!-- Profile Content (Background for the Modal) -->
+<div class="space-y-8 opacity-40 select-none pointer-events-none">
+<section class="flex flex-col items-center text-center space-y-4">
+<div class="relative">
+<div class="w-32 h-32 rounded-xl bg-surface-container-high p-1 shadow-xl shadow-red-500/5">
+<img alt="User" class="w-full h-full object-cover rounded-xl" data-alt="Large circular profile picture of a man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMTvc8eAdpMopeWbWYJK122ldgECSfRkYXyObeyX0vEf4FTXsqf0A5aJEcr1CsGf28rX14tJDX2fWG5ANhyWRg8iknhtILFrzLQo5frjU8Mqa-RmNQZuwuS90YhRhUD810GknafvtX1eTt2Rk0t3_zJS79Gw6-pOkoqvsgTyYFv37qFkmuJG8sRJpMmgjx7QZzusmdHWNe3Bn2dCIKV0PnSwSKbf-zNuHLZHv22yJi2qRB51vC0GhDGJ8Ko3ojb1Yha-BGn55qhtwf"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-tertiary-fixed text-on-tertiary-fixed p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-bold tracking-tight">João Silva</h2>
+<p class="text-on-surface-variant">Apaixonado por Brigadeiros</p>
+</div>
+</section>
+<section class="space-y-3">
+<div class="bg-surface-container-low p-5 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</div>
+<div>
+<p class="font-semibold">Meus Favoritos</p>
+<p class="text-xs text-on-surface-variant">12 itens salvos</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="bg-surface-container-low p-5 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+</div>
+<div>
+<p class="font-semibold">Endereços</p>
+<p class="text-xs text-on-surface-variant">Casa e Trabalho</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="bg-surface-container-low p-5 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<div>
+<p class="font-semibold">Pagamento</p>
+<p class="text-xs text-on-surface-variant">Cartão final 4432</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</section>
+</div>
+</main>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-[60] flex items-center justify-center p-6 glass-effect bg-on-surface/30">
+<!-- Dialog Container -->
+<div class="bg-surface-container-lowest w-full max-w-xs rounded-xl shadow-[0_20px_60px_rgba(37,24,24,0.15)] overflow-hidden flex flex-col transform transition-all duration-300 animate-in fade-in zoom-in slide-in-from-bottom-4">
+<!-- Visual Accent (Brand Logo or Thematic Icon) -->
+<div class="pt-10 pb-4 flex flex-col items-center">
+<div class="relative mb-4">
+<!-- Subtle Glow Effect -->
+<div class="absolute inset-0 bg-primary-container blur-2xl opacity-20 rounded-full"></div>
+<div class="relative bg-surface-container-high w-20 h-20 rounded-full flex items-center justify-center">
+<img alt="I Love Delicitas Logo" class="w-14 h-14 object-contain" data-alt="Stylized pink cupcake logo on white circle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPSD5SCU57d6fllkXjhJoXvt9A-SuRaMwE5Fk5a8DPPODlscYtK_ua9Hfp15VmaFyDxr9e670HsdlLXFXvgsow2wlwoWU37u0yVT6iFJRaghUdI6Y9-ecPOQk-1yC_ykvjDrCUPuvzioqunfuPNubcJudQT7go9NV76Thf2PpIJf0oPWybnWMbjjoQZvzpEOcPWa8ERrH-YKK0IK_wJtPZS7fkwCgo62PHhPvKVc7MnpLhKhww3BHyGQW2j3IXg2fmX5LLgb8NWngJ"/>
+</div>
+</div>
+<!-- Logout Icon Overlap -->
+<div class="absolute top-8 right-8">
+<div class="bg-white rounded-full p-2 shadow-sm">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="logout">logout</span>
+</div>
+</div>
+</div>
+<!-- Content Area -->
+<div class="px-8 pb-8 text-center space-y-2">
+<h3 class="text-xl font-bold text-on-surface font-headline leading-tight">Deseja sair?</h3>
+<p class="text-on-surface-variant text-sm font-body leading-relaxed">Você precisará entrar novamente para fazer novos pedidos.</p>
+</div>
+<!-- Action Buttons -->
+<div class="px-6 pb-8 flex flex-col gap-3">
+<!-- Primary Sair Button -->
+<button class="w-full bg-primary-container hover:bg-primary text-on-primary-container font-bold py-4 px-6 rounded-full shadow-lg shadow-red-500/20 active:scale-95 transition-all duration-200">
+                    Sair
+                </button>
+<!-- Cancelar Button -->
+<button class="w-full bg-transparent hover:bg-surface-container-low text-on-surface-variant font-semibold py-3 px-6 rounded-full transition-colors active:scale-95 duration-200">
+                    Cancelar
+                </button>
+</div>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 left-0 right-0 mx-auto w-[90%] max-w-md z-50 flex justify-around items-center p-2 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-lg rounded-full shadow-[0_20px_40px_rgba(255,107,107,0.1)]">
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-5 py-2 hover:text-red-400 dark:hover:text-red-300 transition-all duration-300 ease-out active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-5 py-2 hover:text-red-400 dark:hover:text-red-300 transition-all duration-300 ease-out active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="cookie">cookie</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold">Treats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-5 py-2 hover:text-red-400 dark:hover:text-red-300 transition-all duration-300 ease-out active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-red-400 dark:bg-red-500 text-white rounded-full px-5 py-2 active:scale-90 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SweetAdmin - I Love Delicitas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed-variant": "#524600",
+              "primary-fixed-dim": "#ffb3b0",
+              "surface-container-high": "#fbe3e1",
+              "surface": "#fff8f7",
+              "outline": "#8c706f",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#211b00",
+              "error-container": "#ffdad6",
+              "tertiary": "#6d5e00",
+              "secondary-container": "#79f3ea",
+              "tertiary-container": "#c1ab38",
+              "inverse-primary": "#ffb3b0",
+              "primary-fixed": "#ffdad8",
+              "on-primary-fixed-variant": "#8c1520",
+              "on-tertiary": "#ffffff",
+              "outline-variant": "#e0bfbd",
+              "inverse-surface": "#3b2d2c",
+              "on-background": "#251818",
+              "tertiary-fixed-dim": "#dec651",
+              "on-surface": "#251818",
+              "surface-container-low": "#fff0ef",
+              "surface-container-highest": "#f5dddb",
+              "surface-dim": "#ecd5d3",
+              "on-secondary-fixed": "#00201e",
+              "on-secondary": "#ffffff",
+              "error": "#ba1a1a",
+              "secondary-fixed-dim": "#5dd9d0",
+              "surface-bright": "#fff8f7",
+              "inverse-on-surface": "#ffedeb",
+              "primary": "#ae2f34",
+              "surface-tint": "#ae2f34",
+              "on-surface-variant": "#584140",
+              "background": "#fff8f7",
+              "primary-container": "#ff6b6b",
+              "on-tertiary-container": "#4a3f00",
+              "on-primary-fixed": "#410006",
+              "surface-variant": "#f5dddb",
+              "on-primary-container": "#6d0010",
+              "on-secondary-container": "#006f69",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#fbe36a",
+              "on-secondary-fixed-variant": "#00504c",
+              "surface-container": "#ffe9e7",
+              "secondary": "#006a65",
+              "secondary-fixed": "#7cf6ec"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-background font-body antialiased min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-40 bg-[#fff8f7] dark:bg-slate-950/70 flex justify-between items-center px-6 py-4 backdrop-blur-xl bg-opacity-70 shadow-none">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="Admin user profile picture circular avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw5FGYSyP8asznSAbSfewPuVjJ0dcNClHXhXW_L9LnCIAJyDR-31LGPL2dewpMlxO6H2GJL9UlkGv_YxTE6Dci-GgAc0dwhH3WcNPdZnv6hIQjsfdvytZ5D7B4T5lccIJEZfZf18AVZ3TsU6F7PCyNF4VpYGWJwoqqTidQ2HyROC4rJrCFtgBe9aT8FqGjmF8LRR-w3dhOcqH7TFWp1KGRgqw9smQRtjc8ypmhM5nS8iGcmLaFYxFmVnqs25z5rCCg1ocy5tH7AJ3f"/>
+</div>
+<div class="flex flex-col">
+<span class="text-[#FF6B6B] font-['Plus_Jakarta_Sans'] font-bold text-xl tracking-tight">SweetAdmin</span>
+<span class="text-[10px] text-on-surface-variant font-semibold uppercase tracking-widest">Dashboard Panel</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#ffe9e7] transition-colors active:scale-95 duration-200 text-[#251818]">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="px-6 py-4 space-y-8">
+<!-- Welcome Hero Asymmetry -->
+<section class="relative overflow-hidden rounded-xl bg-primary-container p-6 text-on-primary">
+<div class="relative z-10 max-w-[60%]">
+<h1 class="font-headline font-extrabold text-2xl leading-tight mb-2">Boa tarde, Chef!</h1>
+<p class="text-on-primary/80 text-sm leading-relaxed">Suas delícias estão fazendo sucesso hoje. Confira os números abaixo.</p>
+</div>
+<div class="absolute -right-4 -bottom-4 w-40 h-40 transform rotate-12 opacity-90">
+<img class="w-full h-full object-contain" data-alt="High quality chocolate cake with strawberries overlapping container edge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4XV4OXdwWk0lbe3LCn9IeRkTro34far_1BFXqD7RGtBCnEkgW26Vkobg1B8PpQP49rC-5sG_9mDMhgCA0c9vZ8CJp0nIMeJ6KOEoSyShpeflYeUgDn43SvMvjWI0sp6LnUbt-GoYZ8M9VGwNOe-5jn9-cp3MlTOy983SWGbduA6n0rxOJAw1sfgdhVvtYJt2Sq5BwbGUzjbg-KvlT8X4ZEMFZklzKqC4-gk6eACf2BzWwpFjHdYwx-sLZTKWMHoL3-REY6eEX093h"/>
+</div>
+</section>
+<!-- Quick Actions Horizontal Scroll -->
+<section class="flex gap-4 overflow-x-auto hide-scrollbar -mx-6 px-6">
+<button class="flex-shrink-0 flex items-center gap-3 bg-secondary-container text-on-secondary-container px-6 py-4 rounded-full font-bold shadow-none active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span>Add Product</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-3 bg-surface-container-high text-on-surface px-6 py-4 rounded-full font-bold shadow-none active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+<span>View All Orders</span>
+</button>
+</section>
+<!-- Metrics Bento Grid -->
+<section class="grid grid-cols-2 gap-4">
+<div class="col-span-2 bg-surface-container-low p-6 rounded-lg relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-on-surface-variant text-sm font-semibold mb-1">Total Revenue</p>
+<h2 class="font-headline font-extrabold text-3xl text-primary">R$ 12.450</h2>
+</div>
+<div class="bg-primary-container/20 p-2 rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="payments">payments</span>
+</div>
+</div>
+<!-- Small Sparkline Simulation -->
+<div class="mt-6 flex items-end gap-1 h-12">
+<div class="flex-1 bg-primary/20 h-1/2 rounded-full"></div>
+<div class="flex-1 bg-primary/20 h-2/3 rounded-full"></div>
+<div class="flex-1 bg-primary/40 h-1/2 rounded-full"></div>
+<div class="flex-1 bg-primary/30 h-3/4 rounded-full"></div>
+<div class="flex-1 bg-primary/60 h-1/2 rounded-full"></div>
+<div class="flex-1 bg-primary/80 h-full rounded-full"></div>
+<div class="flex-1 bg-primary/40 h-2/3 rounded-full"></div>
+</div>
+</div>
+<div class="bg-surface-container p-5 rounded-lg flex flex-col justify-between h-32">
+<div class="bg-secondary/10 w-8 h-8 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="shopping_bag">shopping_bag</span>
+</div>
+<div>
+<p class="text-on-surface-variant text-xs font-bold">Total Orders</p>
+<h3 class="font-headline font-bold text-xl">145</h3>
+</div>
+</div>
+<div class="bg-tertiary-fixed p-5 rounded-lg flex flex-col justify-between h-32">
+<div class="bg-tertiary/10 w-8 h-8 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="bakery_dining">bakery_dining</span>
+</div>
+<div>
+<p class="text-on-tertiary-fixed-variant text-xs font-bold">Active Products</p>
+<h3 class="font-headline font-bold text-xl">24</h3>
+</div>
+</div>
+</section>
+<!-- Performance Chart Simulation -->
+<section class="space-y-4">
+<h3 class="font-headline font-bold text-lg px-2">Order Trends</h3>
+<div class="bg-surface-container-low p-6 rounded-lg">
+<div class="flex justify-between items-center mb-6">
+<span class="text-xs font-bold text-on-surface-variant">Last 7 Days</span>
+<div class="flex items-center gap-1 text-secondary font-bold text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span>+12.5%</span>
+</div>
+</div>
+<div class="flex items-end justify-between h-32 gap-3 px-2">
+<div class="w-full bg-outline-variant/30 rounded-t-full h-[40%]"></div>
+<div class="w-full bg-outline-variant/30 rounded-t-full h-[60%]"></div>
+<div class="w-full bg-primary-container rounded-t-full h-[85%] relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-on-background text-[10px] text-white px-2 py-1 rounded-md">28</div>
+</div>
+<div class="w-full bg-outline-variant/30 rounded-t-full h-[55%]"></div>
+<div class="w-full bg-outline-variant/30 rounded-t-full h-[70%]"></div>
+<div class="w-full bg-outline-variant/30 rounded-t-full h-[45%]"></div>
+<div class="w-full bg-secondary-fixed-dim rounded-t-full h-[90%]"></div>
+</div>
+<div class="flex justify-between mt-3 px-1">
+<span class="text-[10px] text-on-surface-variant font-bold">Mon</span>
+<span class="text-[10px] text-on-surface-variant font-bold">Tue</span>
+<span class="text-[10px] text-on-surface-variant font-bold">Wed</span>
+<span class="text-[10px] text-on-surface-variant font-bold">Thu</span>
+<span class="text-[10px] text-on-surface-variant font-bold">Fri</span>
+<span class="text-[10px] text-on-surface-variant font-bold">Sat</span>
+<span class="text-[10px] text-on-surface-variant font-bold">Sun</span>
+</div>
+</div>
+</section>
+<!-- Recent Activity List (No-Line Style) -->
+<section class="space-y-4">
+<div class="flex justify-between items-center px-2">
+<h3 class="font-headline font-bold text-lg">Recent Orders</h3>
+<button class="text-primary font-bold text-sm">View All</button>
+</div>
+<div class="bg-surface-container-low rounded-lg overflow-hidden p-2 space-y-2">
+<!-- Order Item -->
+<div class="bg-surface-container-lowest p-4 rounded-md flex items-center justify-between group active:bg-surface-dim transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#ffe9e7] flex items-center justify-center text-primary font-bold text-lg">
+                            MC
+                        </div>
+<div>
+<p class="font-bold text-on-surface">Maria Clara</p>
+<p class="text-xs text-on-surface-variant">2 cupcakes • R$ 28,00</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider mb-1">Novo Pedido</span>
+<p class="text-[10px] text-on-surface-variant">2 mins ago</p>
+</div>
+</div>
+<!-- Order Item -->
+<div class="bg-surface-container-lowest p-4 rounded-md flex items-center justify-between active:bg-surface-dim transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#e7f5f4] flex items-center justify-center text-secondary font-bold text-lg">
+                            JO
+                        </div>
+<div>
+<p class="font-bold text-on-surface">João Oliveira</p>
+<p class="text-xs text-on-surface-variant">1 bolo de pote • R$ 15,00</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-wider mb-1">Em Preparo</span>
+<p class="text-[10px] text-on-surface-variant">15 mins ago</p>
+</div>
+</div>
+<!-- Order Item -->
+<div class="bg-surface-container-lowest p-4 rounded-md flex items-center justify-between active:bg-surface-dim transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant flex items-center justify-center font-bold text-lg">
+                            AS
+                        </div>
+<div>
+<p class="font-bold text-on-surface">Ana Silva</p>
+<p class="text-xs text-on-surface-variant">6 donuts • R$ 42,00</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-wider mb-1">Em Preparo</span>
+<p class="text-[10px] text-on-surface-variant">28 mins ago</p>
+</div>
+</div>
+<!-- Order Item -->
+<div class="bg-surface-container-lowest p-4 rounded-md flex items-center justify-between active:bg-surface-dim transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 text-primary flex items-center justify-center font-bold text-lg">
+                            RP
+                        </div>
+<div>
+<p class="font-bold text-on-surface">Ricardo Pereira</p>
+<p class="text-xs text-on-surface-variant">1 torta de morango • R$ 65,00</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider mb-1">Novo Pedido</span>
+<p class="text-[10px] text-on-surface-variant">45 mins ago</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 backdrop-blur-md bg-[#fff8f7]/70 dark:bg-slate-950/80 rounded-t-[3rem] z-50 shadow-[0_-10px_40px_rgba(37,24,24,0.06)]">
+<!-- Dashboard Active -->
+<a class="flex flex-col items-center justify-center bg-[#ffe9e7] dark:bg-[#FF6B6B]/20 text-[#FF6B6B] rounded-full px-5 py-2 transition-all cubic-bezier(0.4,0,0.2,1) duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold mt-0.5">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#251818]/60 dark:text-slate-500 px-5 py-2 hover:text-[#FF6B6B] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold mt-0.5">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#251818]/60 dark:text-slate-500 px-5 py-2 hover:text-[#FF6B6B] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="bakery_dining">bakery_dining</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold mt-0.5">Products</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#251818]/60 dark:text-slate-500 px-5 py-2 hover:text-[#FF6B6B] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold mt-0.5">Settings</span>
+</a>
+</nav>
+</body></html>

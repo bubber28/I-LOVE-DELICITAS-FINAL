@@ -1,0 +1,57 @@
+# Guia de Deploy Vercel - I Love Delicitas
+
+Para colocar seu app no ar com sucesso, siga estas configurações na sua conta da Vercel.
+
+## 1. Variáveis de Ambiente (Environment Variables)
+No painel da Vercel, vá em **Settings > Environment Variables** e adicione as seguintes chaves exatamente como listadas:
+
+| Key | Value |
+| :--- | :--- |
+| `VITE_SUPABASE_URL` | `https://bizrnjpmsyxdsflgpxcl.supabase.co` |
+| `VITE_SUPABASE_ANON_KEY` | `sb_publishable_l4xxVaXF8srM0JldOJob0Q_2ZRrXFdR` |
+
+---
+
+## 2. Configurações de Build (Framework Preset)
+A Vercel geralmente detecta o Vite automaticamente, mas certifique-se de que os campos estejam assim:
+
+- **Framework Preset:** `Vite`
+- **Root Directory:** `frontend` (ou o diretório onde está seu `package.json`)
+- **Build Command:** `npm run build` ou `vite build`
+- **Output Directory:** `dist`
+
+---
+
+## 3. Configuração do `vercel.json` (Opcional, mas recomendado)
+Para garantir que as rotas do React (SPA) funcionem corretamente (evitando erro 404 ao atualizar a página), crie um arquivo `vercel.json` na raiz do seu projeto:
+
+```json
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+```
+
+---
+
+## 4. Comandos de Terminal para Deploy Manual
+Se preferir subir via CLI, instale a ferramenta da Vercel e rode:
+
+```bash
+npm install -g vercel
+vercel login
+vercel --prod
+```
+
+---
+
+## 5. Checklist Pós-Deploy
+- [ ] Verifique se o **Realtime** está ativo no Dashboard do Supabase para o som de novos pedidos funcionar.
+- [ ] Teste o login e cadastro para garantir que a comunicação com o Supabase está OK.
+- [ ] Verifique se as imagens dos buckets estão carregando (Políticas RLS de leitura pública ativas no Supabase).
+
+Se precisar de ajuda com algum desses passos, é só me chamar!

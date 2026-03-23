@@ -1,0 +1,56 @@
+# Projeto: I Love Delicitas 🍭 - Entrega Técnica
+
+Este documento contém toda a estrutura e instruções necessárias para você criar seu repositório no GitHub e realizar o deploy na Vercel.
+
+## 1. Estrutura do Projeto (Resumo)
+
+O projeto foi construído seguindo rigorosamente o seu PRD:
+
+- **Frontend**: React 18+, TypeScript, Vite, Tailwind CSS, shadcn/ui.
+- **Backend**: Supabase (Auth, Database, Storage, Realtime).
+- **Pagamentos**: Estrutura pronta para Dinheiro, Pix e Stripe (Cartão).
+
+### Diretórios Principais:
+- `/frontend/src/components`: Componentes UI e Layout.
+- `/frontend/src/lib`: Lógica de integração (Supabase, Stripe, Carrinho).
+- `/frontend/src/pages`: Todas as telas do app (Cliente e Admin).
+- `/frontend/api`: Endpoints serverless (Stripe Checkout).
+
+## 2. Passo a Passo: GitHub & Deploy
+
+Como não posso acessar seu GitHub diretamente, siga estes passos simples:
+
+### Passo 1: Criar o Repositório
+1. Vá para [github.com/new](https://github.com/new).
+2. Nomeie como `i-love-delicitas`.
+3. Deixe como **Público** ou **Privado** e clique em **Create repository**.
+
+### Passo 2: Subir o Código via Terminal
+Na pasta raiz do seu projeto no seu computador:
+```bash
+git init
+git add .
+git commit -m "feat: initial commit - delivery app complete"
+git branch -M main
+git remote add origin https://github.com/SEU_USUARIO/i-love-delicitas.git
+git push -u origin main
+```
+
+### Passo 3: Deploy na Vercel
+1. Vá para o dashboard da Vercel e clique em **Add New > Project**.
+2. Importe o repositório `i-love-delicitas`.
+3. Adicione as **Variáveis de Ambiente**:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+   - `STRIPE_SECRET_KEY` (se for usar o backend serverless)
+4. Clique em **Deploy**.
+
+## 3. Checklist de Conclusão
+- [x] Todas as rotas (Home, Catálogo, Carrinho, Checkout, Pedidos, Perfil, Admin) implementadas.
+- [x] Integração com Telefone e Endereço no Supabase.
+- [x] Som de notificação no Admin via Realtime.
+- [x] Tradução completa para Português (BR).
+- [x] Design System Sugar Rush Modern aplicado.
+
+---
+**Dica:** Se precisar de ajuda para baixar os arquivos gerados aqui no Stitch, use o botão **</> View Code** em cada tela no Canvas para copiar o HTML/CSS final.

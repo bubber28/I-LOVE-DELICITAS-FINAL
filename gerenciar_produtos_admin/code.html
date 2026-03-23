@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Delicitas - Admin Product Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#584140",
+                        "primary": "#ae2f34",
+                        "tertiary-fixed-dim": "#dec651",
+                        "outline-variant": "#e0bfbd",
+                        "on-tertiary-fixed-variant": "#524600",
+                        "on-secondary-container": "#006f69",
+                        "on-secondary-fixed": "#00201e",
+                        "secondary-container": "#79f3ea",
+                        "secondary": "#006a65",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#7cf6ec",
+                        "outline": "#8c706f",
+                        "on-tertiary-container": "#4a3f00",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#ecd5d3",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb3b0",
+                        "primary-container": "#ff6b6b",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#ffedeb",
+                        "surface": "#fff8f7",
+                        "primary-fixed": "#ffdad8",
+                        "on-tertiary-fixed": "#211b00",
+                        "surface-container": "#ffe9e7",
+                        "background": "#fff8f7",
+                        "surface-container-high": "#fbe3e1",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#fbe36a",
+                        "surface-container-low": "#fff0ef",
+                        "primary-fixed-dim": "#ffb3b0",
+                        "on-primary-fixed-variant": "#8c1520",
+                        "tertiary-container": "#c1ab38",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#f5dddb",
+                        "on-surface": "#251818",
+                        "surface-tint": "#ae2f34",
+                        "surface-bright": "#fff8f7",
+                        "on-primary-container": "#6d0010",
+                        "inverse-surface": "#3b2d2c",
+                        "on-primary-fixed": "#410006",
+                        "surface-variant": "#f5dddb",
+                        "on-background": "#251818",
+                        "tertiary": "#6d5e00",
+                        "on-secondary-fixed-variant": "#00504c",
+                        "secondary-fixed-dim": "#5dd9d0"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fff8f7]/70 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full bg-gradient-to-b from-[#fff8f7] to-transparent">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">bakery_dining</span>
+</div>
+<span class="text-2xl font-black text-[#FF6B6B] italic font-['Plus_Jakarta_Sans'] tracking-tight">Delicitas</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#251818] hover:opacity-80 transition-opacity p-2">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<button class="flex items-center gap-2 group">
+<span class="material-symbols-outlined text-[#FF6B6B]">account_circle</span>
+<span class="font-semibold text-sm hidden md:block">Admin Panel</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-8 max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+<div>
+<h1 class="text-4xl font-extrabold text-on-surface tracking-tight mb-2">Gerenciamento de Produtos</h1>
+<p class="text-on-surface-variant font-medium">Controle seu estoque de doçuras e edite o catálogo em tempo real.</p>
+</div>
+<button class="bg-[#FF6B6B] text-white px-6 py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-[#FF6B6B]/20">
+<span class="material-symbols-outlined">add_circle</span>
+                Adicionar Produto
+            </button>
+</div>
+<!-- Dashboard Stats (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+<div class="bg-surface-container-low p-6 rounded-lg border-none">
+<p class="text-sm font-bold text-secondary uppercase tracking-wider mb-1">Total de Itens</p>
+<h3 class="text-3xl font-black text-on-surface">128</h3>
+</div>
+<div class="bg-secondary-container/30 p-6 rounded-lg border-none">
+<p class="text-sm font-bold text-on-secondary-container uppercase tracking-wider mb-1">Baixo Estoque</p>
+<h3 class="text-3xl font-black text-primary">12</h3>
+</div>
+<div class="bg-tertiary-fixed p-6 rounded-lg border-none">
+<p class="text-sm font-bold text-on-tertiary-fixed-variant uppercase tracking-wider mb-1">Mais Vendido</p>
+<h3 class="text-3xl font-black text-on-tertiary-fixed">Macaron Rosé</h3>
+</div>
+</div>
+<!-- Filters and Search -->
+<div class="bg-surface-container-lowest p-4 rounded-xl mb-6 flex flex-col md:flex-row gap-4 items-center shadow-sm">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/60">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-none rounded-md focus:ring-2 focus:ring-secondary/40 transition-all placeholder:text-on-surface-variant/50" placeholder="Buscar por nome ou categoria..." type="text"/>
+</div>
+<div class="flex gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
+<button class="whitespace-nowrap px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full text-sm font-bold">Todos</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container-low text-on-surface-variant rounded-full text-sm font-bold hover:bg-surface-container transition-colors">Bolos</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container-low text-on-surface-variant rounded-full text-sm font-bold hover:bg-surface-container transition-colors">Doces Finos</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container-low text-on-surface-variant rounded-full text-sm font-bold hover:bg-surface-container transition-colors">Bebidas</button>
+</div>
+</div>
+<!-- Product Table Container -->
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-none">
+<th class="px-6 py-5 font-bold text-on-surface-variant text-sm uppercase tracking-widest">Produto</th>
+<th class="px-6 py-5 font-bold text-on-surface-variant text-sm uppercase tracking-widest">Preço</th>
+<th class="px-6 py-5 font-bold text-on-surface-variant text-sm uppercase tracking-widest">Estoque</th>
+<th class="px-6 py-5 font-bold text-on-surface-variant text-sm uppercase tracking-widest">Status</th>
+<th class="px-6 py-5 font-bold text-on-surface-variant text-sm uppercase tracking-widest text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+<img alt="Strawberry Cupcake" class="w-full h-full object-cover" data-alt="Close up of a pink gourmet strawberry cupcake" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz0SM66ibaDJsc2mp-Tu9Ex83-KtmrRZ2I3h6Ly3dyz-CSkf68LdpnZwQOknXqRBtouDH-fCiW-WMuqFGvIAD5s5L-sfiIGUYBL9Mz3i8EEUSEDpxeZ6izXOWgZrVuH-nOhTkvggnJkk-4zMNsEASK1hXDxZ71KC6TQSUXM6u1XybTzPsEOj7z_uUWvHkKcVcPTxZrd7ZFyQ4hsI-PcM5NWsnfTU-lczR1G_pZnDwVDADeJ9faSfmup3JYY0dRW2EOimGdtuHEGrEO"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Cupcake de Morango Real</p>
+<p class="text-xs text-on-surface-variant">Categoria: Doces Finos</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-semibold text-on-surface">R$ 18,90</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-on-surface">42 unidades</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex px-3 py-1 rounded-full text-[11px] font-bold bg-secondary-container text-on-secondary-container uppercase">Ativo</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-secondary-container rounded-full text-secondary transition-colors" title="Editar">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container rounded-full text-error transition-colors" title="Excluir">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+<img alt="Chocolate Truffle" class="w-full h-full object-cover" data-alt="Selection of dark chocolate truffles with gold leaf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdoOaknHmnAg6BUXUc3qcG9SQQFIfkdXYGe9oCkKcjRZ2--s6L_GJRvc4ERXoyzOY-C5B7EftSUEnTdBDKQJ0dVYX9hThB81fWDETgrbAlKpD3ntc1pRBq_D_tvUrrJZ3R6V61HeCuJyEBLLA-lIV71pNdHVLwJO1zZ1lpsIo6eHMlvlcIq_eqnv46woKlXYsYeHuUpzNUxkmBsuo34xMe4ftVKX9hy9pQ28WeyIm0Kolc3hEETPqv1oVfeV03JwtA3zUvlzijnDjZ"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Trufa Belga 70%</p>
+<p class="text-xs text-on-surface-variant">Categoria: Chocolateria</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-semibold text-on-surface">R$ 12,50</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="text-on-surface text-error font-bold">5 unidades</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex px-3 py-1 rounded-full text-[11px] font-bold bg-tertiary-fixed text-on-tertiary-fixed uppercase">Estoque Baixo</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-secondary-container rounded-full text-secondary transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container rounded-full text-error transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+<img alt="Pistachio Macaron" class="w-full h-full object-cover" data-alt="Plate of colorful French macarons with pistachio highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtFzPOlJRCT0epNz4xv7y6mZchF2YpKquDY2hQ1_AmGe3onKHlvjQkE9WtX_iXQQUNBbQOHCLvCS_S1hPFQNNEgTuHZ4gaq5ww_s3zO1EiavD_ZJyZp8WLbycnmoNHg7K6M6fPRoSA9J0zVQ3p5pORxBb-m4GwZ5lbHo2lguZrlcnwlEjqNfnGuyxRVLHslwwtwiwi6ajjsI0TxgOVogMzfLtuor7oy2moBVq0W7hkxoUF7iHL_Nqag1ZKwMry6CrVm72POGLnItaj"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Macaron de Pistache</p>
+<p class="text-xs text-on-surface-variant">Categoria: Doces Finos</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-semibold text-on-surface">R$ 9,00</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-on-surface">115 unidades</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex px-3 py-1 rounded-full text-[11px] font-bold bg-secondary-container text-on-secondary-container uppercase">Ativo</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-secondary-container rounded-full text-secondary transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container rounded-full text-error transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors opacity-60 bg-surface-dim/10">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-lg bg-surface-container overflow-hidden flex-shrink-0 grayscale">
+<img alt="Red Velvet Cake" class="w-full h-full object-cover" data-alt="Red velvet cake with white cream frosting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnZmV_5LCLGFzqsf4fsGjJqfW9l8O2-fuk4U3_IkksS8HPPSSdHE1Q5BYkplJqU--0ElqlfOYXUoIsXKcWfVXVLlV1Iraiiool-PaxlU_NyzZbe2kHR-Fcr3iftAhYAzlvrfVvnR_Ati_w7nPNbOMAppjr8TDuKF4ypq32KM2sIerlqdx3gPK8E-gykk8eUJWVY_UB_tWhf3rnwP-xnNyWTpLMdKtm0PkRTFa6469A0AGX264pNoyxA761iXB49tltJdVkUJ4c5Lid"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Bolo Red Velvet P</p>
+<p class="text-xs text-on-surface-variant">Categoria: Bolos</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-semibold text-on-surface">R$ 85,00</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="text-on-surface-variant">0 unidades</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex px-3 py-1 rounded-full text-[11px] font-bold bg-outline-variant text-on-surface-variant uppercase">Inativo</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-secondary-container rounded-full text-secondary transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container rounded-full text-error transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-surface-container-low flex items-center justify-between border-none">
+<span class="text-xs font-bold text-on-surface-variant">Exibindo 4 de 128 produtos</span>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest text-on-surface flex items-center justify-center hover:bg-primary-container hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center font-bold">1</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest text-on-surface flex items-center justify-center hover:bg-primary-container hover:text-white transition-all">2</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest text-on-surface flex items-center justify-center hover:bg-primary-container hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Layout) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#fff8f7]/70 backdrop-blur-xl rounded-t-[3rem] z-50 shadow-[0_-8px_30px_rgb(255,107,107,0.06)]">
+<a class="flex flex-col items-center justify-center text-[#251818]/60 px-4 py-2 hover:text-[#FF6B6B] transition-colors" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#251818]/60 px-4 py-2 hover:text-[#FF6B6B] transition-colors" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#ffe9e7] text-[#FF6B6B] rounded-full px-5 py-2 scale-110 transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold">Manage</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#251818]/60 px-4 py-2 hover:text-[#FF6B6B] transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold">Profile</span>
+</a>
+</nav>
+</body></html>
