@@ -1,0 +1,1 @@
+import { useEffect } from "react"; import { useRouter } from "next/router"; export default function Admin() { const router = useRouter(); useEffect(() => { router.push("/painel_admin_i_love_delicitas_1"); }, []); return <div>Redirecionando...</div>; }

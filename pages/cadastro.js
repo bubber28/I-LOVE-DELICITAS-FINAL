@@ -1,0 +1,1 @@
+import { useEffect } from "react"; import { useRouter } from "next/router"; export default function Cadastro() { const router = useRouter(); useEffect(() => { router.push("/cadastro_i_love_delicitas_1"); }, []); return <div>Redirecionando...</div>; }

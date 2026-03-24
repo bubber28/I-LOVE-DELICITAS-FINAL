@@ -1,0 +1,1 @@
+import { useEffect } from "react"; import { useRouter } from "next/router"; export default function Checkout() { const router = useRouter(); useEffect(() => { router.push("/checkout_i_love_delicitas"); }, []); return <div>Redirecionando...</div>; }
