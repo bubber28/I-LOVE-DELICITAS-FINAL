@@ -1,9 +1,43 @@
 {
 	"cleanUrls": true,
-	"rewrites": [
-		{ "source": "/admin", "destination": "/painel_admin_i_love_delicitas_2/code.html" },
-		{ "source": "/cardapio", "destination": "/cat_logo_de_doces_i_love_delicitas_1/code.html" },
-		{ "source": "/entrar", "destination": "/login_i_love_delicitas_2/code.html" },
-		{ "source": "/finalizar", "destination": "/finalizar.html" }
-	]
-}
+	{
+		"version": 2,
+		"routes": [
+			{
+				"src": "/",
+				"dest": "/p_gina_inicial_i_love_delicitas_1"
+			},
+			{
+				"src": "/login",
+				"dest": "/login_i_love_delicitas_1"
+			},
+			{
+				"src": "/cadastro",
+				"dest": "/cadastro_i_love_delicitas_1"
+			},
+			{
+				"src": "/carrinho",
+				"dest": "/seu_carrinho_i_love_delicitas_1"
+			},
+			{
+				"src": "/checkout",
+				"dest": "/checkout_i_love_delicitas"
+			},
+			{
+				"src": "/admin",
+				"dest": "/painel_admin_i_love_delicitas_1"
+			},
+			{
+				"src": "/pedidos",
+				"dest": "/meus_pedidos_i_love_delicitas_status"
+			},
+			{
+				"src": "/perfil",
+				"dest": "/perfil_do_usu_rio_i_love_delicitas"
+			},
+			{
+				"src": "/api/(.*)",
+				"dest": "/api/$1"
+			}
+		]
+	}
