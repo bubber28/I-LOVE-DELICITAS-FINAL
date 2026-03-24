@@ -1,0 +1,113 @@
+# Página inicial
+/    /index.html    200
+
+# ========== AUTENTICAÇÃO E PERFIL ==========
+/login    /pages/login_i_love_delicitas_1/code.html 200
+/login2   /pages/login_i_love_delicitas_2/code.html 200
+/cadastro /pages/cadastro_i_love_delicitas_1/code.html 200
+/cadastro2 /pages/cadastro_i_love_delicitas_2/code.html 200
+/cadastro-atualizado /pages/cadastro_atualizado_i_love_delicitas/code.html 200
+/perfil   /pages/perfil_do_usu_rio_i_love_delicitas/code.html 200
+/perfil-editar /pages/perfil_atualizado_i_love_delicitas_1/code.html 200
+/perfil-editar2 /pages/perfil_atualizado_i_love_delicitas_2/code.html 200
+/enderecos /pages/meus_endere_os_i_love_delicitas/code.html 200
+/editar-endereco /pages/editar_endere_o_i_love_delicitas/code.html 200
+/logout /pages/confirma_o_de_logout_i_love_delicitas/code.html 200
+
+# ========== RECUPERAR SENHA ==========
+/esqueci-senha /pages/esqueci_minha_senha_i_love_delicitas_1/code.html 200
+/esqueci-senha2 /pages/esqueci_minha_senha_i_love_delicitas_2/code.html 200
+/sucesso-senha /pages/sucesso_redefini_o_de_senha_1/code.html 200
+/sucesso-senha2 /pages/sucesso_redefini_o_de_senha_2/code.html 200
+/sucesso-senha-doce /pages/sucesso_redefini_o_de_senha_doce_cora_o/code.html 200
+
+# ========== PÁGINAS INICIAIS ==========
+/inicio /pages/p_gina_inicial_i_love_delicitas_1/code.html 200
+/inicio2 /pages/p_gina_inicial_i_love_delicitas_2/code.html 200
+/inicio3 /pages/p_gina_inicial_i_love_delicitas_3/code.html 200
+
+# ========== CARRINHO ==========
+/carrinho /pages/seu_carrinho_i_love_delicitas_1/code.html 200
+/carrinho2 /pages/seu_carrinho_i_love_delicitas_2/code.html 200
+/carrinho3 /pages/seu_carrinho_i_love_delicitas_3/code.html 200
+
+# ========== CHECKOUT E PAGAMENTO ==========
+/checkout /pages/checkout_i_love_delicitas/code.html 200
+/checkout-pagamento /pages/checkout_i_love_delicitas_pagamento/code.html 200
+/checkout-atualizado /pages/checkout_atualizado_i_love_delicitas_1/code.html 200
+/checkout-atualizado2 /pages/checkout_atualizado_i_love_delicitas_2/code.html 200
+/checkout-pix /pages/checkout_com_pix_i_love_delicitas/code.html 200
+/checkout-stripe /pages/checkout_com_stripe_i_love_delicitas/code.html 200
+/pagamento/pix /pages/pagamento_pix_i_love_delicitas/code.html 200
+/pagamento/cartao /pages/pagamento_com_cart_o_i_love_delicitas/code.html 200
+
+# ========== PEDIDOS ==========
+/pedidos /pages/meus_pedidos_i_love_delicitas_status/code.html 200
+/acompanhamento /pages/acompanhamento_de_pedido_i_love_delicitas/code.html 200
+/pedido-confirmado /pages/pedido_confirmado_i_love_delicitas_1/code.html 200
+/pedido-confirmado2 /pages/pedido_confirmado_i_love_delicitas_2/code.html 200
+/pedido-pago /pages/pedido_pago_i_love_delicitas/code.html 200
+/pedido-confirmado-doce /pages/pedido_confirmado_doce_cora_o/code.html 200
+
+# ========== PAINEL ADMIN ==========
+/admin /pages/painel_admin_i_love_delicitas_1/code.html 200
+/admin2 /pages/painel_admin_i_love_delicitas_2/code.html 200
+/admin-cores /pages/painel_admin_cores_personalizadas/code.html 200
+/dashboard-mobile /pages/dashboard_admin_mobile/code.html 200
+
+# ========== ADMIN - PRODUTOS E ESTOQUE ==========
+/admin/produtos /pages/gerenciar_produtos_admin/code.html 200
+/admin/produtos-gestao /pages/gest_o_de_produtos_admin_cores_novas/code.html 200
+/admin/adicionar-produto /pages/adicionar_produto_admin/code.html 200
+/admin/estoque /pages/gest_o_de_produtos_admin_cores_novas/code.html 200
+
+# ========== ADMIN - CATEGORIAS ==========
+/admin/categorias /pages/gerenciar_categorias_admin/code.html 200
+
+# ========== ADMIN - PEDIDOS ==========
+/admin/pedidos /pages/gerenciar_pedidos_admin/code.html 200
+/admin/pedidos-som /pages/gerenciar_pedidos_admin_som_pagamento/code.html 200
+/admin/pedidos-cores /pages/gest_o_de_pedidos_admin_cores_novas/code.html 200
+
+# ========== ADMIN - CUPONS ==========
+/admin/cupons /pages/gerenciar_cupons_admin_1/code.html 200
+/admin/cupons2 /pages/gerenciar_cupons_admin_2/code.html 200
+/admin/criar-cupom /pages/criar_cupom_admin/code.html 200
+
+# ========== ADMIN - CLIENTES ==========
+/admin/clientes /pages/lista_de_clientes_admin/code.html 200
+
+# ========== ADMIN - CONFIGURAÇÕES ==========
+/admin/configuracoes /pages/configura_es_do_app_admin/code.html 200
+
+# ========== ADMIN - RELATÓRIOS ==========
+/admin/relatorios /pages/relat_rios_de_vendas_admin/code.html 200
+/relatorio-status /pages/relat_rio_de_status_i_love_delicitas.html 200
+
+# ========== LOGO, BANNER, MÍDIAS ==========
+/logo /pages/cat_logo_de_doces_i_love_delicitas_1/code.html 200
+/logo2 /pages/cat_logo_de_doces_i_love_delicitas_2/code.html 200
+/logo3 /pages/cat_logo_de_doces_i_love_delicitas_3/code.html 200
+/banner /pages/cat_logo_de_doces_i_love_delicitas_1/code.html 200
+/cardapio /pages/cat_logo_de_doces_i_love_delicitas_1/code.html 200
+/imagens /pages/cat_logo_de_doces_i_love_delicitas_1/code.html 200
+
+# ========== PÁGINAS INSTITUCIONAIS ==========
+/termos /pages/termos_de_uso_i_love_delicitas/code.html 200
+/privacidade /pages/privacy_policy_i_love_delicitas/code.html 200
+/ajuda /pages/ajuda_e_suporte_i_love_delicitas/code.html 200
+/suporte /pages/ajuda_e_suporte_i_love_delicitas/code.html 200
+
+# ========== ESTILO E TEMA ==========
+/tema /pages/sugar_rush_modern/code.html 200
+/style /pages/sugar_rush_modern/code.html 200
+
+# ========== PRODUTO INDIVIDUAL ==========
+/produto /pages/prd_i_love_delicitas.html 200
+
+# ========== API ==========
+/api/*    /pages/api/:splat    200
+
+# ========== FALLBACK ==========
+/*        /pages/:splat/code.html    200
+EOF
