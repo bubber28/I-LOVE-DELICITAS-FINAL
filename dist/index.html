@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>I Love Delicitas - Sabor que vira memória</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed": "#ffdad8",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#ff6b6b",
+                        "on-secondary-fixed": "#00201e",
+                        "tertiary-fixed": "#fbe36a",
+                        "on-surface-variant": "#584140",
+                        "on-surface": "#251818",
+                        "surface-variant": "#f5dddb",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#ecd5d3",
+                        "primary-fixed-dim": "#ffb3b0",
+                        "on-tertiary-fixed": "#211b00",
+                        "surface-bright": "#fff8f7",
+                        "on-secondary-fixed-variant": "#00504c",
+                        "inverse-on-surface": "#ffedeb",
+                        "outline-variant": "#e0bfbd",
+                        "on-primary-fixed-variant": "#8c1520",
+                        "secondary-fixed": "#7cf6ec",
+                        "outline": "#8c706f",
+                        "secondary-fixed-dim": "#5dd9d0",
+                        "surface-tint": "#ae2f34",
+                        "inverse-primary": "#ffb3b0",
+                        "secondary": "#006a65",
+                        "primary": "#ae2f34",
+                        "background": "#fff8f7",
+                        "secondary-container": "#79f3ea",
+                        "tertiary-container": "#c1ab38",
+                        "on-primary-fixed": "#410006",
+                        "on-tertiary-fixed-variant": "#524600",
+                        "tertiary": "#6d5e00",
+                        "on-primary-container": "#6d0010",
+                        "surface-container-high": "#fbe3e1",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-background": "#251818",
+                        "inverse-surface": "#3b2d2c",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#006f69",
+                        "surface-container": "#ffe9e7",
+                        "tertiary-fixed-dim": "#dec651",
+                        "surface-container-highest": "#f5dddb",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#fff0ef",
+                        "surface": "#fff8f7",
+                        "on-tertiary-container": "#4a3f00"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .editorial-shadow { box-shadow: 0 20px 40px -10px rgba(37, 24, 24, 0.06); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { min-height: max(884px, 100dvh); }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-primary">
+
+<header class="fixed top-0 w-full z-50 bg-[#fff8f7]/70 dark:bg-slate-950/70 backdrop-blur-xl shadow-sm shadow-[#251818]/5">
+    <nav class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
+        <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[#FF6B6B] text-2xl">bakery_dining</span>
+            <span class="font-['Plus_Jakarta_Sans'] font-black text-[#FF6B6B] text-2xl tracking-tight">I Love Delicitas</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <a aria-label="Sacola de compras" class="p-2 rounded-full hover:bg-[#fff0ef] dark:bg-slate-900 transition-colors active:scale-95 duration-200 relative" href="/carrinho">
+                <span class="material-symbols-outlined text-[#FF6B6B]">shopping_bag</span>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold px-2 py-0.5 rounded-full hidden">0</span>
+            </a>
+            <a class="ml-2 px-4 py-2 rounded-full bg-secondary text-on-secondary font-bold hover:brightness-110 transition-all" href="/entrar">Login/Perfil</a>
+        </div>
+    </nav>
+</header>
+
+<main class="pt-24 pb-32">
+    <section class="px-6 mb-12 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="z-10 order-2 md:order-1">
+                <h1 class="font-headline font-extrabold text-4xl md:text-6xl text-on-surface leading-[1.1] mb-6 tracking-tight">
+                    Sabor que vira <span class="text-primary">memória</span> em cada pedido
+                </h1>
+                <p class="text-on-surface-variant text-lg md:text-xl mb-8 leading-relaxed max-w-md">
+                    Personalize sua caixa de doces, agende a entrega e receba tudo fresquinho ainda hoje.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-primary text-on-primary px-8 py-4 rounded-full font-semibold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all text-center">
+                        <a href="/cardapio" style="display:block;color:inherit;text-decoration:none;">Pedir agora</a>
+                    </button>
+                </div>
+            </div>
+            <div class="relative order-1 md:order-2">
+                <div class="aspect-square rounded-xl bg-primary-fixed overflow-visible relative">
+                    <img alt="Bolo Gourmet" class="absolute -top-10 -right-4 w-[110%] h-[110%] object-contain drop-shadow-2xl transition-transform hover:rotate-3" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=500&auto=format&fit=crop"/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 mb-16 max-w-7xl mx-auto">
+        <div class="flex justify-between items-end mb-8">
+            <h2 class="font-headline font-bold text-2xl text-on-surface">Categorias</h2>
+            <a class="text-primary font-semibold text-sm hover:underline" href="/cardapio">Ver todas</a>
+        </div>
+        <div id="categories-list" class="flex overflow-x-auto gap-4 pb-4 no-scrollbar -mx-6 px-6"></div>
+    </section>
+
+    <section class="px-6 mb-12 max-w-7xl mx-auto">
+        <h2 class="font-headline font-bold text-2xl text-on-surface mb-8">Mais pedidos da semana</h2>
+        <div id="products-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </section>
+</main>
+
+<footer class="w-full mt-auto bg-[#fff0ef] dark:bg-slate-900 border-t border-[#FF6B6B]/10">
+    <div class="max-w-7xl mx-auto px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="flex flex-col gap-4">
+            <span class="font-['Plus_Jakarta_Sans'] font-extrabold text-[#FF6B6B] text-2xl">I Love Delicitas</span>
+            <p class="text-sm text-on-surface-variant">
+                <strong>Rubemar S. - Unidade Nova Cintra</strong><br>
+                Belo Horizonte - MG<br>
+                CNPJ: 61.316.392/0001-97
+            </p>
+        </div>
+        <div class="flex flex-col gap-3 text-sm">
+            <span class="font-bold text-on-surface">Links Úteis</span>
+            <a href="/termos" class="hover:text-primary transition-colors">Termos de Uso</a>
+            <a href="/privacidade" class="hover:text-primary transition-colors">Política de Privacidade</a>
+        </div>
+        <div class="flex flex-col gap-3 text-sm">
+            <span class="font-bold text-on-surface">Contato</span>
+            <a href="https://wa.me/5531995722258" class="hover:text-primary transition-colors">(31) 99572-2258</a>
+            <a href="mailto:contato@ilovedelicitas.com" class="hover:text-primary transition-colors">contato@ilovedelicitas.com</a>
+        </div>
+    </div>
+    <div class="text-center pb-8 opacity-50 text-[10px]">© 2026 I Love Delicitas. Todos os direitos reservados.</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = 'https://qvhwvayqjvhwqjvhwq.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF2aHd2YXlxanZod3Fqdmh3cSIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNjk2NjQwNjQwLCJleHAiOjE4MTIyMTY2NDB9.1Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8Qw8';
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        async function renderProducts() {
+            const { data: products, error } = await supabase.from('products').select('*').order('created_at', { ascending: false });
+            if (error) return;
+            const list = document.getElementById('products-list');
+            if (!list) return;
+            list.innerHTML = '';
+            products.forEach(product => {
+                list.innerHTML += `
+                    <div class="bg-surface-container-lowest rounded-lg p-6 editorial-shadow relative group">
+                        <div class="h-48 mb-6 relative -mt-12 overflow-visible">
+                            <img alt="${product.name}" class="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" src="${product.image_url || ''}"/>
+                        </div>
+                        <h3 class="font-headline font-bold text-xl text-on-surface mb-2">${product.name}</h3>
+                        <p class="text-on-surface-variant text-sm mb-4 line-clamp-2">${product.description || ''}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-black text-on-surface">R$ ${Number(product.price).toFixed(2)}</span>
+                            <button class="bg-secondary text-on-secondary p-3 rounded-full hover:scale-110 transition-transform active:scale-95" onclick="addToCart('${product.id}')">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        async function renderCategories() {
+            const { data: categories, error } = await supabase.from('categories').select('*').order('order', { ascending: true });
+            if (error) return;
+            const list = document.getElementById('categories-list');
+            if (!list) return;
+            list.innerHTML = '';
+            categories.forEach(cat => {
+                list.innerHTML += `
+                    <div class="flex-none w-40 h-48 bg-surface-container-low rounded-lg p-6 flex flex-col justify-between hover:bg-surface-container transition-colors cursor-pointer group" onclick="window.location.href='/cardapio'">
+                        <span class="material-symbols-outlined text-4xl text-primary">${cat.icon || 'cake'}</span>
+                        <span class="font-headline font-bold text-on-surface">${cat.name}</span>
+                    </div>
+                `;
+            });
+        }
+
+        function addToCart(productId) {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart.push(productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const el = document.getElementById('cart-count');
+            if (el) {
+                el.textContent = cart.length;
+                el.style.display = cart.length > 0 ? 'block' : 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            renderCategories();
+            updateCartCount();
+        });
+    </script>
+</footer>
+
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#fff8f7]/80 backdrop-blur-xl rounded-t-[3rem] z-50 shadow-[0_-4px_20px_rgba(255,107,107,0.08)]">
+    <a class="flex flex-col items-center justify-center text-[#FF6B6B]" href="/">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+        <span class="text-[11px]">Início</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-gray-400" href="/cardapio">
+        <span class="material-symbols-outlined">reorder</span>
+        <span class="text-[11px]">Catálogo</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-gray-400" href="/carrinho">
+        <span class="material-symbols-outlined">shopping_cart</span>
+        <span class="text-[11px]">Carrinho</span>
+    </a>
+</nav>
+
+</body>
+</html>
