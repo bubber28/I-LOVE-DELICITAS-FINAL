@@ -21,7 +21,7 @@ function servePage(pasta) {
         if (fs.existsSync(caminho)) {
             res.sendFile(caminho);
         } else {
-            res.status(404).send('<div style="text-align:center; margin-top:50px;"><h1>404</h1><p>Página não encontrada</p><a href="/">Voltar</a></div>');
+            res.status(404).send('<div style="text-align:center; margin-top:50px;"><h1>404</h1><p>Página não encontrada</p><a href="/">Voltar para o início</a></div>');
         }
     };
 }
