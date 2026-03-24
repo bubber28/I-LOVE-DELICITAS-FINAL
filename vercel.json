@@ -5,13 +5,20 @@
 		"builds": [
 			{
 				"src": "package.json",
-				"use": "@vercel/next"
+				"use": "@vercel/static-build",
+				"config": {
+					"distDir": "dist"
+				}
 			}
 		],
 		"routes": [
 			{
 				"src": "/api/(.*)",
 				"dest": "/api/$1"
+			},
+			{
+				"src": "/(.*)/code.html",
+				"dest": "/$1/code.html"
 			},
 			{
 				"src": "/(.*)",
