@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 const supabase = require('./lib/supabase');
 
 const app = express();
@@ -35,7 +36,8 @@ app.post('/api/cadastro', async (req, res) => {
             .from('profiles')
             .select('email')
             .eq('email', email)
-            .single();
+            .maybeSingle();
+
         if (existente) {
             return res.status(400).json({ error: 'Email ja cadastrado' });
         }
@@ -65,7 +67,8 @@ app.post('/api/login', async (req, res) => {
             .from('admin_users')
             .select('email')
             .eq('email', email)
-            .single();
+            .maybeSingle();
+
         if (admin) {
             return res.json({ success: true, user: { email: admin.email, role: 'admin' } });
         }
@@ -73,7 +76,8 @@ app.post('/api/login', async (req, res) => {
             .from('profiles')
             .select('id, name, email, phone')
             .eq('email', email)
-            .single();
+            .maybeSingle();
+
         if (error || !cliente) {
             return res.status(401).json({ error: 'Email ou senha invalidos' });
         }
@@ -135,6 +139,7 @@ app.post('/api/pedidos', async (req, res) => {
                 customer_phone,
                 status: 'received',
                 total_cents,
+                items,
                 created_at: new Date().toISOString()
             }])
             .select()
