@@ -1,264 +1,66 @@
 <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - I Love Delicitas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-red-600 text-white p-4">
+        <h1 class="text-2xl font-bold text-center">Meu Perfil</h1>
+        <a href="/" class="absolute left-4 top-4 text-white text-sm">Voltar</a>
+    </header>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Profile - I Love Delicitas</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be_Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "surface-container-lowest": "#ffffff",
-                        "secondary-fixed-dim": "#5dd9d0",
-                        "on-surface-variant": "#584140",
-                        "on-primary-fixed-variant": "#8c1520",
-                        "surface-container": "#ffe9e7",
-                        "primary": "#ae2f34",
-                        "error-container": "#ffdad6",
-                        "on-secondary-fixed-variant": "#00504c",
-                        "surface-tint": "#ae2f34",
-                        "on-primary-fixed": "#410006",
-                        "inverse-primary": "#ffb3b0",
-                        "on-surface": "#251818",
-                        "inverse-on-surface": "#ffedeb",
-                        "tertiary-container": "#c1ab38",
-                        "surface-container-highest": "#f5dddb",
-                        "on-tertiary-fixed": "#211b00",
-                        "secondary-fixed": "#7cf6ec",
-                        "on-secondary-container": "#006f69",
-                        "on-tertiary": "#ffffff",
-                        "outline": "#8c706f",
-                        "surface-variant": "#f5dddb",
-                        "primary-container": "#ff6b6b",
-                        "inverse-surface": "#3b2d2c",
-                        "background": "#fff8f7",
-                        "outline-variant": "#e0bfbd",
-                        "surface-bright": "#fff8f7",
-                        "surface-container-high": "#fbe3e1",
-                        "on-primary": "#ffffff",
-                        "tertiary-fixed-dim": "#dec651",
-                        "surface-container-low": "#fff0ef",
-                        "secondary-container": "#79f3ea",
-                        "on-error-container": "#93000a",
-                        "primary-fixed": "#ffdad8",
-                        "on-tertiary-container": "#4a3f00",
-                        "tertiary-fixed": "#fbe36a",
-                        "on-primary-container": "#6d0010",
-                        "on-background": "#251818",
-                        "on-secondary-fixed": "#00201e",
-                        "on-secondary": "#ffffff",
-                        "tertiary": "#6d5e00",
-                        "surface-dim": "#ecd5d3",
-                        "primary-fixed-dim": "#ffb3b0",
-                        "on-error": "#ffffff",
-                        "error": "#ba1a1a",
-                        "on-tertiary-fixed-variant": "#524600",
-                        "surface": "#fff8f7",
-                        "secondary": "#006a65"
-                    },
-                    fontFamily: {
-                        "headline": ["Plus Jakarta Sans"],
-                        "body": ["Be Vietnam Pro"],
-                        "label": ["Be Vietnam Pro"]
-                    },
-                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
-                },
-            },
+    <main class="container mx-auto p-4 max-w-md">
+        <div class="bg-white rounded-lg shadow p-6">
+            <div class="text-center mb-6">
+                <div class="w-24 h-24 bg-gray-300 rounded-full mx-auto flex items-center justify-center text-gray-600">
+                    <span class="text-3xl">U</span>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-gray-600 text-sm">Nome</label>
+                    <p id="nome" class="text-lg font-semibold">Carregando...</p>
+                </div>
+                <div>
+                    <label class="block text-gray-600 text-sm">E-mail</label>
+                    <p id="email" class="text-lg font-semibold">Carregando...</p>
+                </div>
+                <div>
+                    <label class="block text-gray-600 text-sm">Telefone</label>
+                    <p id="telefone" class="text-lg font-semibold">Carregando...</p>
+                </div>
+                <div>
+                    <label class="block text-gray-600 text-sm">Membro desde</label>
+                    <p id="data" class="text-lg font-semibold">Carregando...</p>
+                </div>
+            </div>
+
+            <button onclick="logout()" class="w-full mt-6 bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700">
+                Sair
+            </button>
+        </div>
+    </main>
+
+    <script>
+        var usuario = JSON.parse(localStorage.getItem('usuario') || 'null');
+        
+        if (!usuario) {
+            window.location.href = '/login';
+        } else {
+            document.getElementById('nome').innerText = usuario.nome || usuario.name || '-';
+            document.getElementById('email').innerText = usuario.email || '-';
+            document.getElementById('telefone').innerText = usuario.telefone || usuario.phone || 'Nao informado';
+            document.getElementById('data').innerText = usuario.created_at ? new Date(usuario.created_at).toLocaleDateString() : '-';
+        }
+        
+        function logout() {
+            localStorage.removeItem('usuario');
+            window.location.href = '/login';
         }
     </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .editorial-shadow {
-            box-shadow: 0 20px 40px rgba(37, 24, 24, 0.06);
-        }
-        body {
-            font-family: 'Be Vietnam Pro', sans-serif;
-            background-color: #fff8f7;
-        }
-        h1, h2, h3, .brand-font {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-    </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-background text-on-surface min-h-screen pb-32">
-<!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-[#fff8f7]/70 backdrop-blur-xl shadow-[0_4px_20px_-2px_rgba(37,24,24,0.06)]">
-<div class="flex items-center justify-between px-6 py-4 w-full max-w-7xl mx-auto">
-<div class="flex items-center gap-3">
-<img alt="I Love Delicitas Logo" class="h-8 w-auto" data-alt="Boutique candy shop logo with elegant typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWrQDnEzDeJZ1mKQ8aIJuZ2117soxD6S8PHlIllTfvcStW4e5Y88mgZCA2esHR7wof_Il2siKvfiqEbrU4HyxBfQzAhjIhLeMm3tqD2RvVct7ncXTFf1MnQ5Uir6A1PrL8CtAbIAQHAu4YaNEjeXf3RCkVi8eRf1XCz4cufzKxrli_IDatS1unJnGYrmgwmIHse80yG0Cmjl_tJ2dqe9wFcLPigOhxcOqKhPFJ8leNTSGTEAN1uCG3C-FiSvBrP5X9BfX-GTbOnVCY"/>
-<span class="text-2xl font-black text-[#FF6B6B] italic tracking-tight brand-font">I Love Delicitas</span>
-</div>
-<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-primary-container flex items-center justify-center overflow-hidden">
-<img alt="User Avatar" class="w-full h-full object-cover" data-alt="User profile portrait in a soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiYaESNUCcftFSe7XxnElth414I9Lmdhp44FpLVfamQr5OSR6NQx6jMJyxBl6ZhlRc-4ZhJ0ubh_QQIv5LTSFeadb4CTzHrwsJtqXB3nDQOxIjnv5EdSWoV_03wkmZxWNFk4v8yPDVgcFQvSwDyR1yQMJ8_44oQE9HJKftzR291ZGT5Fa-p02cvyDzvnXJOBHLIS74kG_RkZzr1MFyFOz9uUu4JC_zMeZZHIODab5mzH9LelS06MZJACJLNWmL0-HbpTn24KhlXMq-"/>
-</div>
-</div>
-</header>
-<main class="pt-24 px-4 max-w-2xl mx-auto space-y-8">
-<!-- Profile Header Section -->
-<section class="relative pt-8 pb-4">
-<div class="absolute -top-4 -right-4 w-32 h-32 bg-secondary-container/20 rounded-full blur-3xl -z-10"></div>
-<div class="flex flex-col items-center text-center space-y-2">
-<div class="relative group">
-<div class="w-24 h-24 rounded-full border-4 border-surface-container-lowest editorial-shadow overflow-hidden">
-<img alt="Profile Large" class="w-full h-full object-cover" data-alt="Close up portrait of a smiling young man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAVMkAP4Nv_ocOLG_FMon9AVdCFFVXYWWfPNeZ-SX8XgxIKHFYtRzgqDMcXVQFfExVgfktyikUl2Nvn3vw3ARElF_5VtVsSz9y5I3vGtx4pHkO0WN4Dke0N9TQSNOzyx4vYrveyn3Y9CeyUvsJvalFULNw2ONNM-5P7r3W7zmj4GVxpphsrYBDEgRPZNWCGGDlkl9U4NfpcFQdrpDajvquvqZURC6DHUhGgBP87_z6PVAJxQ9VShlkSeQRWeF9SfvWUqh6BBBUxTMr"/>
-</div>
-<button class="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full shadow-lg active:scale-95 duration-200">
-<span class="material-symbols-outlined text-sm">edit</span>
-</button>
-</div>
-<div>
-<h1 class="text-3xl font-extrabold text-on-surface tracking-tight">Alex Thompson</h1>
-<p class="text-on-surface-variant font-medium">alex.sweettooth@example.com</p>
-</div>
-</div>
-</section>
-<!-- Edit Profile Form (Shadcn-like components) -->
-<section class="bg-surface-container-low rounded-lg p-6 space-y-6">
-<div class="flex items-center gap-2 mb-2">
-<span class="material-symbols-outlined text-primary">person_edit</span>
-<h2 class="text-xl font-bold tracking-tight">Edit Profile</h2>
-</div>
-<div class="space-y-4">
-<div class="space-y-1.5">
-<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant px-1">Full Name</label>
-<input class="w-full bg-surface-container-lowest border-none rounded-md px-4 py-3 focus:ring-2 focus:ring-secondary/40 text-on-surface font-medium placeholder-on-surface-variant/40 transition-all" type="text" value="Alex Thompson"/>
-</div>
-<div class="space-y-1.5">
-<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant px-1">Phone Number</label>
-<input class="w-full bg-surface-container-lowest border-none rounded-md px-4 py-3 focus:ring-2 focus:ring-secondary/40 text-on-surface font-medium transition-all" type="tel" value="+1 (555) 000-1234"/>
-</div>
-<button class="w-full bg-primary text-on-primary font-bold py-4 rounded-full shadow-lg shadow-primary/20 active:scale-95 duration-200 transition-transform">
-                    Update Information
-                </button>
-</div>
-</section>
-<!-- Saved Addresses -->
-<section class="space-y-4">
-<div class="flex items-center justify-between px-2">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">location_on</span>
-<h2 class="text-xl font-bold tracking-tight">Saved Addresses</h2>
-</div>
-<button class="text-primary text-sm font-bold flex items-center gap-1">
-<span class="material-symbols-outlined text-sm">add</span> Add New
-                </button>
-</div>
-<div class="grid grid-cols-1 gap-4">
-<div class="bg-surface-container p-5 rounded-lg flex items-start justify-between border-l-4 border-secondary">
-<div class="flex gap-4">
-<div class="bg-secondary-container/30 p-2 rounded-full h-fit">
-<span class="material-symbols-outlined text-secondary">home</span>
-</div>
-<div>
-<p class="font-bold text-on-surface">Home Sweet Home</p>
-<p class="text-sm text-on-surface-variant">123 Sugar Lane, Candyland, CA 90210</p>
-</div>
-</div>
-<button class="text-on-surface-variant/40">
-<span class="material-symbols-outlined">more_vert</span>
-</button>
-</div>
-<div class="bg-surface-container p-5 rounded-lg flex items-start justify-between">
-<div class="flex gap-4">
-<div class="bg-surface-container-highest p-2 rounded-full h-fit">
-<span class="material-symbols-outlined text-on-surface-variant">work</span>
-</div>
-<div>
-<p class="font-bold text-on-surface">The Office</p>
-<p class="text-sm text-on-surface-variant">456 Cocoa Blvd, Suite 200, San Francisco, CA 94105</p>
-</div>
-</div>
-<button class="text-on-surface-variant/40">
-<span class="material-symbols-outlined">more_vert</span>
-</button>
-</div>
-</div>
-</section>
-<!-- Recent Orders -->
-<section class="space-y-4">
-<div class="flex items-center justify-between px-2">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">history</span>
-<h2 class="text-xl font-bold tracking-tight">Recent Treats</h2>
-</div>
-<button class="text-on-surface-variant text-sm font-semibold">View All</button>
-</div>
-<div class="space-y-4">
-<!-- Order Card 1 -->
-<div class="bg-surface-container-lowest p-4 rounded-lg flex gap-4 items-center shadow-sm">
-<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-high">
-<img alt="Gummy Bears" class="w-full h-full object-cover" data-alt="Vibrant multi-colored gummy bears in a crystal bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPo_SPUXvvobs1PM-G77pNvZh-D5ZWuS-iXcClj9VImm-6ofdJYh9IZEH_sHX0CmziJbJyO2LcO04AyrposTXpaC7INDpeIlCqSfF7PnsfpdCPZcPbfKv34n4WajCMK5EPIoabyUmgL0ENVVDFYK4h91rrbYjbhMf_GISSvtwBNUL6fumSL_kaT3RO8zTjYdy2Q442wxTLp_ZHzl3r_4kX9--q4be_ABDaWbMhZnwUwb8C_8buDqU-_3NaRhZp6lzM4svCYpM6-6vF"/>
-</div>
-<div class="flex-grow">
-<div class="flex justify-between items-start">
-<h3 class="font-bold text-on-surface">Gourmet Gummy Box</h3>
-<span class="text-xs font-bold px-2 py-1 bg-secondary-container text-on-secondary-container rounded-full uppercase">Delivered</span>
-</div>
-<p class="text-xs text-on-surface-variant mt-1">Order #DEL-9021 • Oct 12, 2023</p>
-<div class="flex justify-between items-center mt-2">
-<p class="text-primary font-bold">$24.99</p>
-<button class="text-secondary text-xs font-bold border border-secondary/20 rounded-full px-3 py-1">Reorder</button>
-</div>
-</div>
-</div>
-<!-- Order Card 2 -->
-<div class="bg-surface-container-lowest p-4 rounded-lg flex gap-4 items-center shadow-sm">
-<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-high">
-<img alt="Artisan Truffles" class="w-full h-full object-cover" data-alt="Selection of dark and milk chocolate artisan truffles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFM69ucnjgMWzNyF7xdb6gqYB9sX9yLiS2MxHWhLCrqIX3iy_6H56_ufTVSnNqHzmMGsvFNi5qUOPPPFpoyMyI26F6U6KGx-ZS85bXiZeONr6_CwPQOzyHgwpUoWQekpbqrAVMpa6Q75iTlAM6hyxvKn9b9S_wpfRPVjtZ8F2vvFVumqWWkxxas5lLQZMl3iXaU5OJo9Qr9IejJHFP1LPpM3NtySSPBR3xmjGofSFzjMZUwgXGm77VouF1Ums0q9k4PXS0wcYe-SGm"/>
-</div>
-<div class="flex-grow">
-<div class="flex justify-between items-start">
-<h3 class="font-bold text-on-surface">Artisan Cocoa Truffles</h3>
-<span class="text-xs font-bold px-2 py-1 bg-surface-container-highest text-on-surface-variant rounded-full uppercase">Shipped</span>
-</div>
-<p class="text-xs text-on-surface-variant mt-1">Order #DEL-8845 • Oct 08, 2023</p>
-<div class="flex justify-between items-center mt-2">
-<p class="text-primary font-bold">$38.50</p>
-<button class="text-on-surface-variant text-xs font-bold border border-outline-variant/30 rounded-full px-3 py-1">Track</button>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Danger Zone -->
-<section class="pt-6 pb-12 text-center">
-<button class="group flex items-center justify-center gap-2 mx-auto text-error font-bold px-8 py-4 border-2 border-error/10 rounded-full hover:bg-error/5 active:scale-95 duration-200 transition-all">
-<span class="material-symbols-outlined group-hover:rotate-12 transition-transform">logout</span>
-                Logout from Delicitas
-            </button>
-<p class="mt-4 text-[10px] text-on-surface-variant uppercase tracking-[0.2em] font-bold">App Version 2.4.1 (Confectionery)</p>
-</section>
-</main>
-<!-- BottomNavBar -->
-<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-8 pt-4 bg-[#fff8f7]/70 backdrop-blur-xl rounded-t-[3rem] z-50 shadow-[0_-10px_40px_rgba(37,24,24,0.06)]">
-<a class="flex flex-col items-center justify-center text-[#251818]/60 px-5 py-2 hover:text-[#FF6B6B] transition-all active:scale-90 duration-300 ease-out" href="#">
-<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
-<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-wider">Shop</span>
-</a>
-<a class="flex flex-col items-center justify-center text-[#251818]/60 px-5 py-2 hover:text-[#FF6B6B] transition-all active:scale-90 duration-300 ease-out" href="#">
-<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
-<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-wider">Treats</span>
-</a>
-<a class="flex flex-col items-center justify-center text-[#251818]/60 px-5 py-2 hover:text-[#FF6B6B] transition-all active:scale-90 duration-300 ease-out" href="#">
-<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
-<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-wider">Cart</span>
-</a>
-<a class="flex flex-col items-center justify-center bg-[#ffe9e7] text-[#FF6B6B] rounded-full px-5 py-2 scale-110 transition-transform active:scale-90 duration-300 ease-out" href="#">
-<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
-<span class="font-['Be_Vietnam_Pro'] text-[11px] font-semibold uppercase tracking-wider">Profile</span>
-</a>
-</nav>
-</body></html>
+</body>
+</html>
