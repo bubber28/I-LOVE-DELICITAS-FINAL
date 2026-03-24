@@ -1,3 +1,41 @@
+cat > vercel.json << 'EOF'
 {
-  "version": 2
+  "version": 2,
+  "builds": [
+    {
+      "src": "pages/**/code.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/login",
+      "dest": "/pages/login_i_love_delicitas_1/code.html"
+    },
+    {
+      "src": "/cadastro",
+      "dest": "/pages/cadastro_i_love_delicitas_1/code.html"
+    },
+    {
+      "src": "/carrinho",
+      "dest": "/pages/seu_carrinho_i_love_delicitas_1/code.html"
+    },
+    {
+      "src": "/admin",
+      "dest": "/pages/painel_admin_i_love_delicitas_1/code.html"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/pages/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/pages/$1/code.html"
+    }
+  ]
 }
+EOF
