@@ -68,7 +68,7 @@ app.post('/api/cadastro', async (req, res) => {
 });
 
 // ========== ROTAS DO SEU APP (Caminhos que você já criou) ==========
-app.get('/', servePage('p_gina_inicial_i_love_delicitas_1'));
+app.get('/', servePage('pagina_inicial_i_love_delicitas_1'));
 app.get('/login', servePage('login_i_love_delicitas_1'));
 app.get('/cadastro', servePage('cadastro_i_love_delicitas_1'));
 app.get('/carrinho', servePage('seu_carrinho_i_love_delicitas_1'));
