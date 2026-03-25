@@ -1,53 +1,43 @@
- <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Love Delicitas - Salgadinhos</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50">
-    <header class="bg-red-600 text-white p-4">
-        <h1 class="text-2xl font-bold text-center">I Love Delicitas</h1>
-        <p class="text-center text-sm">Os melhores salgadinhos fritos da região</p>
-    </header>
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const fs = require('fs');
+const crypto = require('crypto');
+const supabase = require('./lib/supabase');
 
-    <main class="container mx-auto p-4">
-        <h2 class="text-xl font-bold mb-4">Nossos Salgadinhos</h2>
-        <div id="produtos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <p class="text-center col-span-full">Carregando produtos...</p>
-        </div>
-    </main>
+const app = express();
+const port = process.env.PORT || 3000;
 
-    <footer class="bg-gray-800 text-white p-4 text-center mt-8">
-        <p>I Love Delicitas - Sabor que vira memória</p>
-    </footer>
+app.use(cors());
+app.use(express.json());
+app.use(express.static('public'));
 
-    <script>
-        fetch('/api/produtos')
-            .then(res => res.json())
-            .then(produtos => {
-                const container = document.getElementById('produtos');
-                if (!produtos || produtos.length === 0) {
-                    container.innerHTML = '<p class="text-center col-span-full">Nenhum produto encontrado</p>';
-                    return;
-                }
-                
-                container.innerHTML = produtos.map(p => `
-                    <div class="bg-white rounded-lg shadow-md p-4">
-                        <h3 class="font-bold text-lg">${p.name}</h3>
-                        <p class="text-gray-600 text-sm">${p.description || ''}</p>
-                        <div class="flex justify-between items-center mt-2">
-                            <span class="text-red-600 font-bold text-xl">R$ ${p.price.toFixed(2)}</span>
-                            <button class="bg-red-600 text-white px-4 py-2 rounded-full text-sm">Pedir</button>
-                        </div>
-                    </div>
-                `).join('');
-            })
-            .catch(err => {
-                console.error('Erro:', err);
-                document.getElementById('produtos').innerHTML = '<p class="text-center col-span-full text-red-500">Erro ao carregar produtos</p>';
-            });
-    </script>
-</body>
-</html>
+function servePage(pasta) {
+    return (req, res) => {
+        const caminho = path.join(__dirname, 'pages', pasta, 'code.html');
+        if (fs.existsSync(caminho)) {
+            res.sendFile(caminho);
+        } else {
+            res.status(404).send('Pagina nao encontrada');
+        }
+    };
+}
+
+// Rota para buscar produtos no Banco de Dados
+app.get('/api/produtos', async (req, res) => {
+    try {
+        const { data, error } = await supabase.from('products').select('*').eq('active', true);
+        if (error) throw error;
+        const produtosFormatados = data.map(p => ({ ...p, price: p.price_cents / 100 }));
+        res.json(produtosFormatados || []);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Rotas das Páginas
+app.get('/', servePage('p_gina_inicial_i_love_delicitas_1'));
+app.get('/cadastro', servePage('cadastro_i_love_delicitas_1'));
+
+app.listen(port, () => console.log(`🚀 Servidor rodando na porta ${port}`));
