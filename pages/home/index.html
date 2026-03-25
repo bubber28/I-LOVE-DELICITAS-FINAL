@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>I Love Delicitas - Sabor que vira memória</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ae2f34",
+                        "secondary": "#006a65",
+                        "background": "#fff8f7",
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#fff8f7] text-[#251818] font-body">
+
+<header class="fixed top-0 w-full z-50 bg-[#fff8f7]/70 backdrop-blur-xl shadow-sm">
+    <nav class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+        <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[#FF6B6B] text-2xl">bakery_dining</span>
+            <span class="font-['Plus_Jakarta_Sans'] font-black text-[#FF6B6B] text-2xl">I Love Delicitas</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <a class="p-2 rounded-full relative" href="/carrinho">
+                <span class="material-symbols-outlined text-[#FF6B6B]">shopping_bag</span>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full hidden">0</span>
+            </a>
+            <a class="px-4 py-2 rounded-full bg-[#006a65] text-white font-bold hover:brightness-110 transition-all" href="/entrar">Login</a>
+        </div>
+    </nav>
+</header>
+
+<main class="pt-24 pb-32">
+    <section class="px-6 mb-12 max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <div>
+            <h1 class="font-headline font-extrabold text-4xl md:text-6xl leading-tight mb-6">
+                Sabor que vira <span class="text-[#ae2f34]">memória</span> em cada pedido
+            </h1>
+            <p class="text-gray-600 text-lg mb-8">
+                Personalize sua caixa de salgados, agende a entrega e receba tudo fresquinho ainda hoje em Belo Horizonte.
+            </p>
+            <a href="/cardapio" class="inline-block bg-[#ae2f34] text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:scale-105 transition-all">
+                Pedir agora
+            </a>
+        </div>
+        <div class="relative">
+            <div class="aspect-square rounded-2xl bg-[#ffdad8] overflow-hidden">
+                <img alt="Salgadinhos" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=500&auto=format&fit=crop"/>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 max-w-7xl mx-auto">
+        <h2 class="font-headline font-bold text-2xl mb-8">Nossas Delícias</h2>
+        <div id="products-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+            <p>Carregando as delícias do papai...</p>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-[#fff0ef] border-t border-red-100 py-12 px-8 text-center">
+    <p class="font-bold text-[#FF6B6B]">I Love Delicitas - Rubemar S.</p>
+    <p class="text-sm text-gray-500">Belo Horizonte - MG | (31) 99572-2258</p>
+</footer>
+
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center pb-6 pt-3 bg-[#fff8f7]/80 backdrop-blur-xl rounded-t-[3rem] z-50 shadow-lg">
+    <a class="flex flex-col items-center text-[#FF6B6B]" href="/">
+        <span class="material-symbols-outlined">home</span>
+        <span class="text-[11px]">Início</span>
+    </a>
+    <a class="flex flex-col items-center text-gray-400" href="/cardapio">
+        <span class="material-symbols-outlined">reorder</span>
+        <span class="text-[11px]">Catálogo</span>
+    </a>
+    <a class="flex flex-col items-center text-gray-400" href="/carrinho">
+        <span class="material-symbols-outlined">shopping_cart</span>
+        <span class="text-[11px]">Carrinho</span>
+    </a>
+</nav>
+
+<script>
+    const produtos = [
+        { id: 1, name: "Coxinha de Frango", price: 6.50, desc: "Crocante e sequinha" },
+        { id: 2, name: "Rissole de Queijo", price: 5.00, desc: "Derrete na boca" },
+        { id: 3, name: "Kibe Recheado", price: 5.50, desc: "Tempero especial" }
+    ];
+
+    function renderizar() {
+        const list = document.getElementById('products-list');
+        list.innerHTML = produtos.map(p => `
+            <div class="bg-white p-6 rounded-2xl shadow-md border border-red-50" >
+                <h3 class="font-bold text-xl mb-2">${p.name}</h3>
+                <p class="text-gray-500 text-sm mb-4">${p.desc}</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-xl font-black text-red-600">R$ ${p.price.toFixed(2)}</span>
+                    <button class="bg-[#006a65] text-white p-2 rounded-full">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                    </button>
+                </div>
+            </div>
+        `).join('');
+    }
+    document.addEventListener('DOMContentLoaded', renderizar);
+</script>
+
+</body>
+</html>
