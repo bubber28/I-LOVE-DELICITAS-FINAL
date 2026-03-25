@@ -9,82 +9,66 @@ const supabase = require('./lib/supabase');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Configurações de Segurança e Dados
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public')); // Aqui ficam suas imagens e estilos globais
+app.use(express.static('public'));
 
-console.log('🚀 I Love Delicitas - Servidor iniciado');
-
-// Função Mestra: Ela busca a página no caminho correto sem quebrar o estilo
 function servePage(pasta) {
     return (req, res) => {
         const caminho = path.join(__dirname, 'pages', pasta, 'code.html');
         if (fs.existsSync(caminho)) {
             res.sendFile(caminho);
         } else {
-            res.status(404).send('Página não encontrada no servidor.');
+            res.status(404).send('Pasta nao encontrada no GitHub: ' + pasta);
         }
     };
 }
 
-// ========== API DE PRODUTOS (Para alimentar sua vitrine) ==========
-app.get('/api/produtos', async (req, res) => {
+app.post('/api/login', async (req, res) => {
+    const { email, senha } = req.body;
     try {
-        const { data, error } = await supabase
-            .from('products')
-            .select('*, categories(name)')
-            .eq('active', true)
-            .order('name');
-            
+        const { data, error } = await supabase.from('profiles').select('*').eq('email', email).maybeSingle();
         if (error) throw error;
-        
-        const produtosFormatados = data.map(p => ({ 
-            ...p, 
-            price: p.price_cents / 100 
-        }));
-        
-        res.json(produtosFormatados || []);
+        if (data) {
+            res.json({ success: true, user: data });
+        } else {
+            res.status(401).json({ error: 'Usuario nao encontrado' });
+        }
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
 
-// ========== API DE CADASTRO ==========
 app.post('/api/cadastro', async (req, res) => {
-    const { nome, email, telefone, senha } = req.body;
+    const { nome, email, telefone } = req.body;
     try {
         const { data, error } = await supabase.from('profiles').insert([{ 
             id: crypto.randomUUID(), 
             name: nome, 
             email: email, 
             phone: telefone 
-        }]);
+        }]).select();
         if (error) throw error;
-        res.json({ success: true });
+        res.json({ success: true, user: data[0] });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
 
-// ========== ROTAS DO SEU APP (Caminhos que você já criou) ==========
-app.get('/', servePage('pagina_inicial_i_love_delicitas_1'));
+app.get('/', servePage('home')); 
 app.get('/login', servePage('login_i_love_delicitas_1'));
 app.get('/cadastro', servePage('cadastro_i_love_delicitas_1'));
-app.get('/carrinho', servePage('seu_carrinho_i_love_delicitas_1'));
-app.get('/admin', servePage('painel_admin_i_love_delicitas_1'));
-app.get('/checkout', servePage('checkout_i_love_delicitas'));
-app.get('/perfil', servePage('perfil_do_usu_rio_i_love_delicitas'));
 
-// Rota curinga para qualquer outra página que você criar
 app.get('*', (req, res) => {
     const pasta = req.path.slice(1);
     const caminho = path.join(__dirname, 'pages', pasta, 'code.html');
     if (fs.existsSync(caminho)) {
         res.sendFile(caminho);
     } else {
-        res.status(404).send('Página não encontrada');
+        res.status(404).send('Pagina nao encontrada');
     }
 });
 
-app.listen(port, () => console.log(`🚀 I Love Delicitas rodando na porta ${port}`));
+app.listen(port, '0.0.0.0', () => {
+    console.log('✅ I Love Delicitas ONLINE');
+});
